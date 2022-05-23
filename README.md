@@ -11,21 +11,21 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | -----------------------------------------------------|
 | [INSTRUCTIONS](#instructions)                |
 | [DATASETS](#datasets)                        |
-| -[Metadata](#metadata)                      |
-| -[Raw data](#metadata)                      |
+| - [Metadata](#metadata)                      |
+| - [Raw data](#metadata)                      |
 | [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
-| -[Quality Control](#quality-control)                                      | 
-| -[Average Nucleotide Identity](#average-nucleotide-identity)                          |
-| -[Antibiotic Resistance and Virulence](#antibiotic-resistance-and-virulence)                  |
-| -[Annotation](#annotation)                                           |
-| -[Pan-Genome Analysis](#pan-genome-analysis)                                  |
-| -[Tree Building](#tree-building)                                        |
+| - [Quality Control](#quality-control)                                      | 
+| - [Average Nucleotide Identity](#average-nucleotide-identity)                          |
+| - [Antibiotic Resistance and Virulence](#antibiotic-resistance-and-virulence)                  |
+| - [Annotation](#annotation)                                           |
+| - [Pan-Genome Analysis](#pan-genome-analysis)                                  |
+| - [Tree Building](#tree-building)                                        |
 | [VISUALIZATION TOOLS](#visualization-tools)                              |
-| -[Visualizations with R](#visualizations-with-r)                                |
-| -[Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
-| -[Making a FastANI Heatmap](#making-a-fastani-heatmap)                             |
-| -[Pan-genome Visualizations](#pan-genome-visualizations)                            |
-| -[Combining Trees and Data](#combining-trees-and-data)                              |
+| - [Visualizations with R](#visualizations-with-r)                                |
+| - [Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
+| - [Making a FastANI Heatmap](#making-a-fastani-heatmap)                             |
+| - [Pan-genome Visualizations](#pan-genome-visualizations)                            |
+| - [Combining Trees and Data](#combining-trees-and-data)                              |
 | [HOW TO VIDEOS](#how-to-videos)                              |
 
 
