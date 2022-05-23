@@ -11,8 +11,8 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | -----------------------------------------------------|
 | [INSTRUCTIONS](#instructions)                |
 | [DATASETS](#datasets)                        |
-| - [Metadata](#metadata)                      |
-| - [Raw data](#metadata)                      |
+| - [Metadata](##metadata)                      |
+| - [Raw data](#raw_data)                      |
 | [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
 | - [Quality Control](#quality-control)                                      | 
 | - [Average Nucleotide Identity](#average-nucleotide-identity)                          |
@@ -32,6 +32,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 # INSTRUCTIONS
 
 ## Create a github account and fork the repository from the github website (top right).
+
 <img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-6294/images/help/repository/fork_button.jpg"> 
 
 ## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made.
@@ -44,10 +45,30 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | `mkdir <your_name>` | Make a new folder and name it as your_name |
 | `cd your_name` | Change directory to the folder with your name |
 | `mkdir core_genes` | Make a new directory for core genes |
-| `cp ../../datasets/core_genes/<gene_name.fa>` ./ | Copy your genes to the current directory for further analyses |
+| `cp ../../datasets/core_genes/<gene_name.fa> ./` | Copy your genes to the current directory for further analyses |
+| `cd ../../` | Go back to levels to the main folder of the repository |
+| `git status` | You should be able to see the changes you made (new folder) in red |
+| `git add .` | This command will help you add all the changes to the current repository |
+| `git commit -m "I made some changes"` | This command will help you commit those changes back to github |
+| `git push` | This command will help you push the changes back to your forked repository |
 
+Once you have followed all of these steps, you can submit a "pull request" in the original repository https://github.com/teddyaroca/Summer_2022_bioinformatics.git, for your changes to take effect.
+
+<img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-26570/images/help/pull_requests/pull-request-start-review-button.png">
+
+
+Note: If you are having troubles when you try `git push`, follow these instructions to add your personal token in the command line:
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token 
 
 
 # DATASETS
 
-This year, our datasets will be based on a study by Richardson et al. (2018), in which they looked at the capability of **Staphyloccocus aureus** to jump across host species. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset () and individual gene alignments. The following tutorial describes what you will be expected to do in order to complete this summer fellowship.
+This year, our datasets will be based on a study by Richardson et al. (2018), in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (800 strains) and individual gene alignments. The following tutorial describes what you will be expected to do in order to complete this summer fellowship.
+
+## Metadata
+
+This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in R Studio.
+
+
+
+
