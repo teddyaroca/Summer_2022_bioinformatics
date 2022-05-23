@@ -31,18 +31,18 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 # INSTRUCTIONS
 
-## Create a github account and fork the repository from the website github.
+## Create a github account and fork the repository from the github website (top right).
 <img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-6294/images/help/repository/fork_button.jpg"> 
 
-## Follow the instructions below to clone this repository to your local computer and submit pull requests after changes have been made.
+## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made.
 
 | Command | Description |
-| --- | --- |
+| :--- | :--- |
 | `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
-| `mkdir <your_name>` | Make a new folder and name it as first_last name |
-| `cd you_name` | Change directory to the folder with your name |
+| `mkdir <your_name>` | Make a new folder and name it as your_name |
+| `cd your_name` | Change directory to the folder with your name |
 | `mkdir core_genes` | Make a new directory for core genes |
 | `cp ../../datasets/core_genes/<gene_name.fa>` ./ | Copy your genes to the current directory for further analyses |
 
