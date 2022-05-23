@@ -38,7 +38,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 ## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made.
 
 | Command | Description |
-| :--- | :--- |
+| :---- | :------------------ |
 | `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
@@ -46,7 +46,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | `cd your_name` | Change directory to the folder with your name |
 | `mkdir core_genes` | Make a new directory for core genes |
 | `cp ../../datasets/core_genes/<gene_name.fa> ./` | Copy your genes to the current directory for further analyses |
-| `cd ../../` | Go back to levels to the main folder of the repository |
+| `cd ../../` | Go back two levels to the main folder of the repository |
 | `git status` | You should be able to see the changes you made (new folder) in red |
 | `git add .` | This command will help you add all the changes to the current repository |
 | `git commit -m "I made some changes"` | This command will help you commit those changes back to github |
