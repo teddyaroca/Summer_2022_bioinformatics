@@ -1,8 +1,5 @@
 <img width="479" alt="Screen Shot 2021-06-01 at 1 24 25 PM" src="https://user-images.githubusercontent.com/43999021/120365648-b5958200-c2dc-11eb-8646-2845387692f8.png">
 
-<img width="479" alt="RNA_institute_logo" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.albany.edu%2Frna&psig=AOvVaw2LQ8nprxxi2KxWrbmQ_UCy&ust=1653488259840000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCJid8vSp-PcCFQAAAAAdAAAAABAJ">
-
-
 # 2022 RNA Institute Bioinformatics Fellowship
 ## Andam Lab (Group 5)
 
