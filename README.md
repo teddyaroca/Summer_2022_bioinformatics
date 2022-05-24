@@ -11,21 +11,21 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | -----------------------------------------------------|
 | 1. [INSTRUCTIONS](#instructions)                |
 | 2. [DATASETS](#datasets)                        |
-| 	\	[Metadata](##metadata)                      |
-| 	\	[Raw data](##raw_data)                      |
+| &nbsp;&nbsp;&nbsp;[Metadata](##metadata)                      |
+| &nbsp;&nbsp;&nbsp;[Raw data](##raw_data)                      |
 | 3. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
-| 	\	[Quality Control](#quality-control)                                      | 
-| 	\	[Average Nucleotide Identity](#average-nucleotide-identity)                          |
-| 	\	[Antibiotic Resistance and Virulence](#antibiotic-resistance-and-virulence)                  |
-| 	\	[Annotation](#annotation)                                           |
-| 	\	[Pan-Genome Analysis](#pan-genome-analysis)                                  |
-| 	\	[Tree Building](#tree-building)                                        |
+| [Quality Control](#quality-control)                                      | 
+| [Average Nucleotide Identity](#average-nucleotide-identity)                          |
+| [Antibiotic Resistance and Virulence](#antibiotic-resistance-and-virulence)                  |
+| [Annotation](#annotation)                                           |
+| [Pan-Genome Analysis](#pan-genome-analysis)                                  |
+| [Tree Building](#tree-building)                                        |
 | 4. [VISUALIZATION TOOLS](#visualization-tools)                              |
-| 	\	[Visualizations with R](#visualizations-with-r)                                |
-|	\	[Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
-|	\	[Making a FastANI Heatmap](#making-a-fastani-heatmap)                             |
-|	\	[Pan-genome Visualizations](#pan-genome-visualizations)                            |
-| 	\	[Combining Trees and Data](#combining-trees-and-data)                              |
+| [Visualizations with R](#visualizations-with-r)                                |
+| [Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
+| [Making a FastANI Heatmap](#making-a-fastani-heatmap)                             |
+| [Pan-genome Visualizations](#pan-genome-visualizations)                            |
+| [Combining Trees and Data](#combining-trees-and-data)                              |
 | 5. [HOW TO VIDEOS](#how-to-videos)                              |
 
 
@@ -49,7 +49,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | `cd ../../` | Go back two levels to the main folder of the repository |
 | `git status` | You should be able to see the changes you made (new folder) in red |
 | `git add .` | This command will help you add all the changes to the current repository |
-| `git commit -m "I made some changes"` | This command will help you commit those changes back to github |
+| `git commit -m "I added my core genes to my folder"` | This command will help you commit those changes back to github |
 | `git push` | This command will help you push the changes back to your forked repository |
 
 Once you have followed all of these steps, you can submit a "pull request" in the original repository https://github.com/teddyaroca/Summer_2022_bioinformatics.git, for your changes to take effect.
