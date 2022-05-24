@@ -11,8 +11,8 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | -----------------------------------------------------|
 | 1. [INSTRUCTIONS](#instructions)                |
 | 2. [DATASETS](#datasets)                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](##metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](##raw_data)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
 | 3. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Quality Control](#quality-control)                                      | 
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Average Nucleotide Identity](#average-nucleotide-identity)                          |
