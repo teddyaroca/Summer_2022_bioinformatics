@@ -1,4 +1,6 @@
-# Andam Lab (Group 5) | 2022 RNA Institute Bioinformatics Fellowship
+# 2022 RNA Institute Bioinformatics Fellowship
+# Andam Lab (Group 5)
+
 <img width="479" alt="Screen Shot 2021-06-01 at 1 24 25 PM" src="https://user-images.githubusercontent.com/43999021/120365648-b5958200-c2dc-11eb-8646-2845387692f8.png">
 
 # PROJECT 2 RESOURCES
@@ -27,6 +29,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pan-genome Visualizations](#pan-genome-visualizations)                            |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Combining Trees and Data](#combining-trees-and-data)                              |
 | 5. [HOW TO VIDEOS](#how-to-videos)                              |
+
 
 
 # INSTRUCTIONS
