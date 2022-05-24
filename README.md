@@ -56,7 +56,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | `git commit -m "I added my core genes to my folder"` | This command will help you commit those changes back to github |
 | `git push` | This command will help you push the changes back to your forked repository |
 
-Once you have followed all of these steps, you can submit a "pull request" in the original repository https://github.com/teddyaroca/Summer_2022_bioinformatics.git, for your changes to take effect.
+Once you have done all of the above, you can submit a "pull request" in the original repository at [Summer_2022_bioinformatics](https://github.com/teddyaroca/Summer_2022_bioinformatics), for your changes to take effect on the master branch.
 
 <img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-26570/images/help/pull_requests/pull-request-start-review-button.png">
 
