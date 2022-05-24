@@ -7,7 +7,8 @@
 
 This GitHub repository serves as a resource for students during project 2 of the RNA Institute Bioinformatics Fellowship. Students can find information on the datasets available to them as well as tools for analysis and visualization here.
 
-Our intention is to make this GitHub site available indefinitely as a resource for ongoing and future projects.
+Our intention is to make this GitHub site available indefinitely as a resource for ongoing and future projects. This repository is built on previous contributions by Spencer Bruce. Please, visit previous versions of this github repository at [2021_Bioinformatics_Fellowship](https://github.com/spencer411/2021_Bioinformatics_Fellowship)
+
 
 | **CONTENTS**                                         |
 | -----------------------------------------------------|
