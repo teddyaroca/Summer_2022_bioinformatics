@@ -17,13 +17,14 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | 2. [DATASETS](#datasets)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses & scripts)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses-&-scripts)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[output](#output)                      |
 |																			|
 | 3. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes](#downloading_genomes) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes](#assembling_genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes](#downloading genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes](#assembling genomes) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation](#annotation)                                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Building core genomes](#building core genomes)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tree Building](#tree-building)                                        |
 |																			|
 | 4. [VISUALIZATION TOOLS](#visualization-tools)                              |
@@ -48,7 +49,7 @@ The following tutorial describes what you will be expected to do in order to com
 ## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop.
 
 | Command | Description |
-| :--- | :------------------------------------- |
+| :----------- | :------------------------------------- |
 | `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
@@ -90,7 +91,7 @@ This folder contains a single comma separated file (.csv file) containing all th
 
 This folder contains raw genomic data that will be used in your analyses. Some of these data has been pre-processed by Teddy to make your workflow easier.
 
-## analyses & scripts
+## analyses-&-scripts
 
 This folder contains scripts and examples of useful analyses that will be covered in the workshop. If you are comfortable sharing your code, feel free to create a folder with your name and add your scripts there.
 
@@ -107,17 +108,20 @@ To better understand what was done here, I provide a little background about how
 In order to download genomes for this workshop, we focussed extracted the accession numbers found in Supp. Table 1 (Column "ERR number"). Then, saved those as TAB separated values with one accession per line. Once 
 
 
-## Annotation
-
-Here I provide an exmple of how the genomes were annotated prior building a core genome of the sequences selected for this workshop.
+## Donwloading genomes
 
 
-. Although there are several tools for this sort of analysis, we will use the most popular:
+## Assembling genomes
+
+
+## Annotation (DONE)
+
+Here I provide an exmple of how the genomes were annotated prior building a core genome of the sequences selected for this workshop. Although there are several tools for this sort of analysis, we will use the most popular:
 
 **Prokka:** Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files. More detailed information about Prokka can be found [here](https://pubmed.ncbi.nlm.nih.gov/24642063/).
 
 
-To install Prokka using conda, copy and paste the code below after creating and activating the Prokka conda environment:
+To install Prokka using conda, copy and paste the code below after creating and activating the Prokka conda environment (**Note: all the software mentioned here has been installed in the cluster already. These examples are for running in your local laptop/computer if you want**):
 
 ```
 conda install -c conda-forge -c bioconda -c defaults prokka
@@ -137,7 +141,76 @@ prokka --prefix genome_1 --genus Salmonella --outdir genome_1_prokka genome_1.fa
 
 The --genus option above needs to be manipulated based on the species you are examining.
 
-Prokka creates a folder that has several files in it based on the results of the annotation. The main file we are interested in for downstream analysis is the [.gff file](https://en.wikipedia.org/wiki/General_feature_format). This file includes both the nucleotide sequence, and the position and names of genes present in the genome. Since you will likely want to move all of the .gff files to a single folder for downstream analysis, you can use the following code from the folder that contains all your genomes to do so, assuming you first make a folder called "annotations"
+Prokka creates a folder that has several files in it based on the results of the annotation. The main file we are interested in for downstream analysis is the [.gff file](https://en.wikipedia.org/wiki/General_feature_format). This file includes both the nucleotide sequence, and the position and names of genes present in the genome. Since you will likely want to move all of the .gff files to a single folder for downstream analysis, you can use the following code from the folder that contains all your genomes to do so, by first creating a folder named "annotations" and then moving all the ".gff" files from prokka into that annotations folder.
+
+```
+mkdir annotations
+mv **/*.gff annotations
+```
+
+## Building core genomes (DONE)
+
+**Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
+
+To install Panaroo using conda, copy and paste the code below after creating and activating the Panaroo conda environment:
+
+```
+conda install -c bioconda panaroo
+
+```
+
+Once the conda environment is activated, an example of how Panaroo might be executed in a folder full of .gff files can be found below:
+
+```
+panaroo -t 16 -i *.gff -o panaroo_results --clean-mode strict -a core
+```
+
+The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all .gff files in the folder ('\*'.gff). It is also telling Panaroo to write the results to the folder panaroo_results (-o), using strict filtering (--clean-mode strict), and to create a core genome alignment (-a).Panaroo produces a large number of output files for downstream analysis and visualization. In fact, the majority of these output files are formatted identically. Therefore, you can use the [link](https://sanger-pathogens.github.io/Roary/) provided above from Roary to understand more about the output files and what you can with them. Again, of particular interest will be the core genome alignment (ending in .aln) which can be used to create a phylogenetic tree (see next step).
+
+
+# Tree Building
+
+Building a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree) is one of the most informative ways to display genomic data when examining groups of isolates. To build a phylogenetic tree you will need a core alignment file produced by either Roary or Panaroo above. These alignment files are huge, as they contain the entire genome sequence for each isolate examined, aligned. Phylogenetic trees are built on genetic differences among genome sequences, therefore all we need to build a phylogenetic tree is the variable sites from the alignment file. We can easily extract those sites using snp-sites. 
+
+**snp-sites** Snp-sites extracts single nucleotide polymorphisms ([SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism)) from a large whole genome alignment. You can read more about snp-sites [here](https://github.com/sanger-pathogens/snp-sites#introduction).
+
+To install snp-sites using conda, copy and paste the code below after creating and activating the snp-sites conda environment:
+
+```
+conda install -c bioconda snp-sites
+
+```
+
+Once the conda environment is activated, you can process your .aln file produced by Roary or Panaroo using the code below:
+
+```
+snp-sites core_gene_alignment.aln -p -o core_alignement.phy
+```
+
+This will create a phyllip format (.phy) file with only variable sites which can be used in the next step to build a [maximum likelihood tree](https://en.wikipedia.org/wiki/Computational_phylogenetics#Maximum_likelihood). To build a maximum likelihood tree we are going use 
+RAxML.
+
+**RAxML** RAxML is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short
+reads. To read more about RAxML click [here](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true).
+
+To install RAxML using conda, copy and paste the code below after creating and activating the RAxML conda environment:
+
+```
+conda install -c bioconda raxml
+```
+
+Once the conda environment is activated, you can build your tree using the file created by snp-sites using the code below:
+
+```
+raxmlHPC -T 16 -s core_alignement.phy -p 12345 -m GTRGAMMA -n raxml_core_output 
+```
+The code above will run an algorithm to determine the best tree based on variable sites within your data (SNPs). It will create multiple output files, but the one you are interested will have the word "best" in it. In this example it would read "RAxML_bestTree.raxml_core_output". Now that you've built a tree you can open it in a tree viewer, and arrange it appropriately. For that we will use FigTree.
+
+**FigTree** FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures. Unlike all of the other programs we have used so far FigTree has a graphical user interface (GUI), which just means it is a regular program you download and install on your computer. You can get the latest version [here](https://github.com/rambaut/figtree/releases).
+
+Once you have FigTree installed you can open it and import your tree by clicking File > Open, and there is your tree! We will want to properly root our tree using FigTree. To do so click Tree > Midpoint Root. As you can see this organizes your tree in a more readable way. Now that our tree is properly rooted we can export it. To do so go to File > Export Trees. At the prompt select Newick from the dropdown menu and click "Save as currently displayed. Name it something like "my_tree.tre".
+
+Now that you have a phylogenetic tree, you will likely want to annotate it with data. See more about that in the visualization section below.
 
 
 
