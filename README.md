@@ -21,10 +21,10 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[output](#output)                      |
 |																			|
 | 3. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes](#downloading genomes) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes](#assembling genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes](#downloading_genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes](#assembling_genomes) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation](#annotation)                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Building core genomes](#building core genomes)                                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Building core genomes](#building_core_genomes)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tree Building](#tree-building)                                        |
 |																			|
 | 4. [VISUALIZATION TOOLS](#visualization-tools)                              |
@@ -108,10 +108,10 @@ To better understand what was done here, I provide a little background about how
 In order to download genomes for this workshop, we focussed extracted the accession numbers found in Supp. Table 1 (Column "ERR number"). Then, saved those as TAB separated values with one accession per line. Once 
 
 
-## Donwloading genomes
+## Donwloading_genomes
 
 
-## Assembling genomes
+## Assembling_genomes
 
 
 ## Annotation (DONE)
@@ -148,7 +148,7 @@ mkdir annotations
 mv **/*.gff annotations
 ```
 
-## Building core genomes (DONE)
+## Building_core_genomes (DONE)
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
 
