@@ -50,7 +50,7 @@ The following tutorial describes what you will be expected to do in order to com
 
 | Command | Description |
 | :--- | :------------------------------------- |
-| `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop computer |
+| `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop or computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
 | `mkdir <your_name>` | Make a new folder and name it as your_name |
@@ -63,7 +63,7 @@ The following tutorial describes what you will be expected to do in order to com
 | `git commit -m "I added my list of core genes to my folder"` | This command will help you commit those changes back to github |
 | `git push` | This command will help you push the changes back to your forked repository |
 
-Once you have done all of the above, you can submit a "pull request" in the original repository at [Summer_2022_bioinformatics](https://github.com/teddyaroca/Summer_2022_bioinformatics), for your changes to take effect on the master branch.
+Once you have done all of the above, you can submit a "pull request" back to the the original repository at [Summer_2022_bioinformatics](https://github.com/teddyaroca/Summer_2022_bioinformatics), for your changes to take effect on the master branch. This is an example on how to submit a pull request:
 
 <img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-26570/images/help/pull_requests/pull-request-start-review-button.png">
 
@@ -72,9 +72,19 @@ Note: If you are having troubles when you try `git push`, follow these instructi
 https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token 
 
 
-## Congratulations! Now you have succesfully made changes to an existing repository and submitted those changes!
+**Congratulations! Now you have succesfully made changes to an existing repository and submitted those changes!**
 
 This is an important skill that is widely used in bioinformatics to create new or edit existing code/programs, make data publicly available, release new information, etc... As part of this bioinformatics workshop, please continue to add your data, processing scripts, and figures in the same fashion. My suggestion is to create another folder within the **output** directory with your name and save figures or tables or any type of output that you think will be useful for your presentation at the end of the symposium. 
+
+**Updating your local repository with any changes in the original repository**
+
+In order to keep your repository up-to-date, I suggest running the following before starting to make changes again:
+
+```
+git pull
+```
+
+This will simply pull any new changes made in the master branch into your local version of the repository, effectively updating any files that have been changed by other people in your group.
 
 # DATASETS
 
