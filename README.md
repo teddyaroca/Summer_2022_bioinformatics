@@ -49,7 +49,7 @@ The following tutorial describes what you will be expected to do in order to com
 ## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop.
 
 | Command | Description |
-| :----------- | :------------------------------------- |
+| :--- | :------------------------------------- |
 | `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
@@ -103,13 +103,17 @@ This folder contains output figures/tables from the scripts mentioned above. Ple
 
 To better understand what was done here, I provide a little background about how the datasets were obtained, in case you want to emulate this in your own research in the future.
 
-## downloading_genomes
+# downloading_genomes
 
-In order to download genomes for this workshop, we focussed extracted the accession numbers found in Supp. Table 1 (Column "ERR number"). Then, saved those as TAB separated values with one accession per line. Once 
+In order to download genomes for this workshop, we focussed extracted the accession numbers found in Supp. Table 1 (Column "ERR number"). Then, saved those as TAB separated values with one accession per line. Once this file was created, the genomes from Richardson et al. (2018)[^1] were donwloaded using the [sratoolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software). You can replicate this process if you want, but the raw data downloaded from [SRA](https://www.ncbi.nlm.nih.gov/sra) was close to 600 GB in space. The file mentioned and the scripts used to download the raw data are provided in the folder named "raw_data" inside the DATASETS folder. Do the following to replicate what was done (assuming you have 600 GB of empty space in your computer/laptop).
 
+```
+cd ./datasets/core_genome/raw_data/
+bash download_genomes_sra.sh
 
-## Donwloading_genomes
+```
 
+The raw data (".fastq" files) should start downloading in your working directory.
 
 ## Assembling_genomes
 
@@ -165,7 +169,7 @@ Once the conda environment is activated, an example of how Panaroo might be exec
 panaroo -t 16 -i *.gff -o panaroo_results --clean-mode strict -a core
 ```
 
-The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all .gff files in the folder ('\*'.gff). It is also telling Panaroo to write the results to the folder panaroo_results (-o), using strict filtering (--clean-mode strict), and to create a core genome alignment (-a).Panaroo produces a large number of output files for downstream analysis and visualization. In fact, the majority of these output files are formatted identically. Therefore, you can use the [link](https://sanger-pathogens.github.io/Roary/) provided above from Roary to understand more about the output files and what you can with them. Again, of particular interest will be the core genome alignment (ending in .aln) which can be used to create a phylogenetic tree (see next step).
+The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all .gff files in the folder (\*.gff). It is also telling Panaroo to write the results to the folder panaroo_results (-o), using strict filtering (--clean-mode strict), and to create a core genome alignment (-a).Panaroo produces a large number of output files for downstream analysis and visualization. In fact, the majority of these output files are formatted identically. Therefore, you can use the [link](https://sanger-pathogens.github.io/Roary/) provided above from Roary to understand more about the output files and what you can with them. Again, of particular interest will be the core genome alignment (ending in .aln) which can be used to create a phylogenetic tree (see next step).
 
 
 # Tree Building
