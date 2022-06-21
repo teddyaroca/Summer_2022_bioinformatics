@@ -1,7 +1,7 @@
 <img width="479" alt="Screen Shot 2021-06-01 at 1 24 25 PM" src="https://user-images.githubusercontent.com/43999021/120365648-b5958200-c2dc-11eb-8646-2845387692f8.png">
 
 # 2022 RNA Institute Bioinformatics Fellowship
-## Andam Lab (Group 5)
+## Group 5: Andam Lab
 
 # PROJECT 2 RESOURCES
 
@@ -41,15 +41,22 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using github for version control for files and outputs (figures, tables, etc.). Please, try to avoid adding large files (GB) to this repository, since the amount of space is limited. The purpose of this repository is to guide you through the process of analyzing bacterial genomic data and introducing you to version control with git, an important skill in both academia and industry these days.
 
-## First, create a github account and [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository from the github website (top right corner).
+## First, create a github account and then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository from the github website (top right corner).
 
 <img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-28613/images/help/repository/fork_button.png"> 
 
-## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop.
+
+Once you have forked the repository, you will have your own version in your github account. You can see that the link to your new version of the repository has changed to:
+
+`
+"https://github.com/<your github username>/Summer_2022_bioinformatics.git"
+`
+
+## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop (all done in the command line).
 
 | Command | Description |
 | :--- | :------------------------------------- |
-| `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone this repository from the command line into your laptop or computer |
+| `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone your version of the repository into your laptop or computer |
 | `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
 | `cd datasets` | Change directory to the folder containing datasets |
 | `mkdir <your_name>` | Make a new folder and name it as your_name |
