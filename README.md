@@ -41,9 +41,9 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using github for version control for files and outputs (figures, tables, etc.). Please, try to avoid adding large files (GB) to this repository, since the amount of space is limited. The purpose of this repository is to guide you through the process of analyzing bacterial genomic data and introducing you to version control with git, an important skill in both academia and industry these days.
 
-## First, create a github account and fork this repository from the github website (top right).
+## First, create a github account and [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository from the github website (top right corner).
 
-<img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-6294/images/help/repository/fork_button.jpg"> 
+<img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-28613/images/help/repository/fork_button.png"> 
 
 ## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop.
 
