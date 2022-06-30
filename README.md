@@ -13,85 +13,62 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | **CONTENTS**                                         |
 | -----------------------------------------------------|
 | 1. [INSTRUCTIONS](#instructions)                |
+|												|
+| 2. [OBJECTIVES](#objectives)                |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Plotting distribution of strains per host](#Plotting distribution of strains per host)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Plotting distribution of resistance genes](#Plotting distribution of resistance genes)                      |
 |												  |
-| 2. [DATASETS](#datasets)                        |
+| 3. [DATASETS](#datasets)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[output](#output)                      |
 |																			|
-| 3. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes](#downloading_genomes) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes](#assembling_genomes) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation](#annotation)                                           |
+| 4. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes **(Done)**](#downloading_genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes **(Done)**](#assembling_genomes) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation **(Done)**](#annotation)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[core genome alignments](#core_genomes)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tree Building](#tree-building)                                        |
 |																			|
-| 4. [VISUALIZATION TOOLS](#visualization-tools)                              |
+| 5. [VISUALIZATION TOOLS](#visualization-tools)                              |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizations with R](#visualizations-with-r)                                |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Making a FastANI Heatmap](#making-a-fastani-heatmap)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pan-genome Visualizations](#pan-genome-visualizations)                            |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Combining Trees and Data](#combining-trees-and-data)                            |			
-| 5. [HOW TO VIDEOS](#how-to-videos)                              |
+|																													|
+| 6. [HOW TO VIDEOS](#how-to-videos)                              |
 
 
 
 # 1. INSTRUCTIONS
 
-The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using github for version control for files and outputs (figures, tables, etc.). Please, try to avoid adding large files (GB) to this repository, since the amount of space is limited. The purpose of this repository is to guide you through the process of analyzing bacterial genomic data and introducing you to version control with git, an important skill in both academia and industry these days.
-
-## First, create a github account and then [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) this repository from the github website (top right corner).
-
-<img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-28613/images/help/repository/fork_button.png"> 
-
-
-Once you have forked the repository, you will have your own version in your github account. You can see that the link to your new version of the repository has changed to:
-
-`
-"https://github.com/<your github username>/Summer_2022_bioinformatics.git"
-`
-
-## Follow the instructions below to clone this repository to your local computer/laptop and submit pull requests after changes have been made in your own computer/laptop (all done in the command line).
-
-| Command | Description |
-| :--- | :------------------------------------- |
-| `git clone https://github.com/<your github username>/Summer_2022_bioinformatics.git` | Clone your version of the repository into your laptop or computer |
-| `cd Summer_2022_bioinformatics` | Change directory to where you downloaded the repository |
-| `cd datasets` | Change directory to the folder containing datasets |
-| `mkdir <your_name>` | Make a new folder and name it as your_name |
-| `cd your_name` | Change directory to the folder with your name |
-| `mkdir data` | Make a new directory for core genes |
-| `cp ../../datasets/list_core_genes/<your_name_core_genes.list.csv> ./` | Copy your list of core genes to the current directory for further analyses |
-| `cd ../../` | Go back two levels to the main folder of the repository |
-| `git status` | You should be able to see the changes you made (new folder) in red |
-| `git add .` | This command will help you add all the changes to the current repository |
-| `git commit -m "I added my list of core genes to my folder"` | This command will help you commit those changes back to github |
-| `git push` | This command will help you push the changes back to your forked repository |
-
-Once you have done all of the above, you can submit a "pull request" back to the the original repository at [Summer_2022_bioinformatics](https://github.com/teddyaroca/Summer_2022_bioinformatics), for your changes to take effect on the master branch. This is an example on how to submit a pull request:
-
-<img width="479" alt="fork_repository_example" src="https://docs.github.com/assets/cb-26570/images/help/pull_requests/pull-request-start-review-button.png">
-
-
-Note: If you are having troubles when you try `git push`, follow [these](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) instructions to add your personal token in the command line.
-
-
-**Congratulations! Now you have succesfully made changes to an existing repository and submitted those changes!**
-
-This is an important skill that is widely used in bioinformatics to create new or edit existing code/programs, make data publicly available, release new information, etc... As part of this bioinformatics workshop, please continue to add your data, processing scripts, and figures in the same fashion. My suggestion is to create another folder within the **output** directory with your name and save figures or tables or any type of output that you think will be useful for your presentation at the end of the symposium. 
-
-**Updating your local repository with any changes in the original repository**
-
-In order to keep your repository up-to-date, I suggest running the following before starting to make changes again:
+The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also clone the repository from the command line using the following:
 
 ```
-git pull
+git clone https://github.com/teddyaroca/Summer_2022_bioinformatics.git
 ```
 
-This will simply pull any new changes made in the master branch into your local version of the repository, effectively updating any files that have been changed by other people in your group.
+Please, make sure you download the repository to your copy of this repository to your desktop computer and not to the server (Do NOT log into the server with ```ssh```)
 
-# 2. DATASETS
+
+# 2. OBJECTIVES
+
+## a. Build a phylogenetic tree
+
+A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
+
+## b. Plotting distribuiton of strains per host
+
+In order to trace the amount of host transitions (jumps), we will be making bar- and box-plots, violin plots, scatter plots, and others that accurately represent the amount of strains per host.
+
+## c. Plotting distribution of resistance genes
+
+Antimicrobial resistance (AMR) are some of the most studied genes in bacteria, because the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our dataset by host.
+
+# 3. DATASETS
 
 This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 600 strains) and individual gene alignments. Your assignment thorughout this workshop will be to build a phylogenetic tree and look a gene presence/absence of your assigned genes (around 5), summarize and plot some of the metadata for visualization purposes, and prepare slides for the final sympossium.
 
@@ -114,7 +91,8 @@ This folder contains examples of useful scripts for data analyses that will be c
 
 This folder contains output figures/tables from the scripts mentioned above. Please, create a folder with your name inside this folder and add figures/tables that you think will be useful for your presentation at the end of the workshop (final sympossium), whether you have decided to share your scripts with the rest of the group or not.
 
-# 3. DATA ANALYSIS TOOLS
+
+# 4. DATA ANALYSIS TOOLS
 
 To better understand what was done here, I provide a little background about how the datasets were obtained, in case you want to emulate this in your own research in the future.
 
@@ -225,9 +203,7 @@ raxmlHPC -T 16 -s core_alignement.phy -p 12345 -m GTRGAMMA -n raxml_core_output
 ```
 The code above will run an algorithm to determine the best tree based on variable sites within your data (SNPs). It will create multiple output files, but the one you are interested will have the word "best" in it. In this example it would read "RAxML_bestTree.raxml_core_output". Now that you've built a tree you can open it in a tree viewer, and arrange it appropriately. For that we will use FigTree.
 
-
-
-# 4. VISUALIZATION TOOLS
+# 5. VISUALIZATION TOOLS
 
 **FigTree** FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures. Unlike all of the other programs we have used so far FigTree has a graphical user interface (GUI), which just means it is a regular program you download and install on your computer. You can get the latest version [here](https://github.com/rambaut/figtree/releases).
 
@@ -237,6 +213,16 @@ Once you have FigTree installed you can open it and import your tree by clicking
 **Now that you have a phylogenetic tree, you will likely want to annotate it with data.**
 
 Hopefully at this point you have a acquired a large amount of data and are interested in visualizing that data. This is how scientists really communicate the results of their work. Below is a mix of general tools (that may be used to transform your data into figures that you conceive), along with some more specific tools (based on the analyses from above). We will start with the general:
+
+
+## Visualizing Trees With iTOL
+
+[iTOL](https://itol.embl.de/) can visualize trees with 50,000 or more leaves. With advanced search capabilities and display of unrooted, circular and regular cladograms or phylograms, exploring and navigating trees of any size is simple. There are a wide range of resources for annotating your phylogenetic trees with the data you've produced. Itol includes a number of instructive pages on [tree annotation](https://itol.embl.de/help.cgi#annot) and [how-to videos](https://itol.embl.de/video_tutorial.cgi) for your convenience.
+
+We have worked with iTOL to set up a shared account for this fellowship. 
+The user info is below: 
+
+username: bioinfo_2021 / password: ualbany
 
 ## Visualizations With R 
 
@@ -248,15 +234,6 @@ At this point in the course you should be familiar with R, and more specifically
 
 [Chord Diagrams](https://www.r-graph-gallery.com/chord-diagram.html) 
 A Chord diagram allows for the visualization of flows between a set of entities. Chord diagrams can be used to show how genes are distributed across different groupings of your genomes. They can also be used to show how your genomes are interrelated based on any given factor (host, year, etc.). 
-
-## Visualizing Trees With iTOL
-
-[iTOL](https://itol.embl.de/) can visualize trees with 50,000 or more leaves. With advanced search capabilities and display of unrooted, circular and regular cladograms or phylograms, exploring and navigating trees of any size is simple. There are a wide range of resources for annotating your phylogenetic trees with the data you've produced. Itol includes a number of instructive pages on [tree annotation](https://itol.embl.de/help.cgi#annot) and [how-to videos](https://itol.embl.de/video_tutorial.cgi) for your convenience.
-
-We have worked with iTOL to set up a shared account for this fellowship. 
-The user info is below: 
-
-username: bioinfo_2021 / password: ualbany
 
 ## Making a FastANI Heatmap
 
@@ -319,7 +296,7 @@ Above we introduced iTOL, an excellent tool for combining trees with data, but i
 
 [Plotting tree with data](https://yulab-smu.top/treedata-book/chapter7.html)
 
-## HOW TO VIDEOS
+## 6. HOW TO VIDEOS
 
 Below are links to youtube videos that explain how to carry out the analysis and visualizations above
 
