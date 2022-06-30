@@ -16,12 +16,12 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 |												|
 | 2. [OBJECTIVES](#objectives)                |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Plotting distribution of strains per host](#Plotting distribution of strains per host)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Plotting distribution of resistance genes](#Plotting distribution of resistance genes)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Distribution of isolates per host](#Distribution_per_host)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Distribution of resistance genes](#Distribution_resistance_genes)                      |
 |												  |
 | 3. [DATASETS](#datasets)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw data)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[output](#output)                      |
 |																			|
@@ -56,17 +56,17 @@ Please, make sure you download the repository to your copy of this repository to
 
 # 2. OBJECTIVES
 
-## a. Build a phylogenetic tree
+## Phylogenetics
 
 A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
 
-## b. Plotting distribuiton of strains per host
+## Distribution_per_host
 
 In order to trace the amount of host transitions (jumps), we will be making bar- and box-plots, violin plots, scatter plots, and others that accurately represent the amount of strains per host.
 
-## c. Plotting distribution of resistance genes
+## Distribution_resistance_genes
 
-Antimicrobial resistance (AMR) are some of the most studied genes in bacteria, because the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our dataset by host.
+Antimicrobial resistance (AMR) are some of the most studied genes in bacteria, because the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our datasets by host.
 
 # 3. DATASETS
 
