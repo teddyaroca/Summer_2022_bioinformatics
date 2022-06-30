@@ -56,15 +56,15 @@ Please, make sure you download the repository to your copy of this repository to
 
 # 2. OBJECTIVES
 
-## Phylogenetics
+## a. Build a phylogenetic tree 
 
 A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
 
-## Distribution_per_host
+## b. Distribution of strains per host
 
 In order to trace the amount of host transitions (jumps), we will be making bar- and box-plots, violin plots, scatter plots, and others that accurately represent the amount of strains per host.
 
-## Distribution_resistance_genes
+## c. Distribution of resistance genes
 
 Antimicrobial resistance (AMR) are some of the most studied genes in bacteria, because the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our datasets by host.
 
@@ -79,7 +79,7 @@ This year, our datasets will be based on a study by Richardson et al. (2018)[^1]
 
 This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in R Studio.
 
-## raw_data
+## raw data
 
 This folder contains raw genomic data that will be used in your analyses. Some of these data has been pre-processed by Teddy to make your workflow easier.
 
