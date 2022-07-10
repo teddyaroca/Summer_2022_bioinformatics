@@ -16,7 +16,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 |												  |
 | 2. [DATASETS](#datasets)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[metadata](#metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw data](#raw data)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw-data](#raw-data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
 |												|
@@ -82,7 +82,7 @@ We will discuss these details in our regular small group meetings.
 
 This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in R Studio.
 
-## raw data
+## raw-data
 
 This folder contains raw genomic data that will be used in your analyses. Some of these data has been pre-processed by Teddy to make your workflow easier.
 
