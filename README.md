@@ -203,26 +203,26 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_prokka.sh
 ```
 
-## Core_genomes **(DONE)**
+## Core genome **(DONE)**
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
 
 
 To run the panaroo analysis:
 
-1. Navigate to the folder containing the script for prokka 
+1. Navigate to the folder containing the script for panaroo
 
 ```
 cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/
 ```
 
-2. Install Prokka using conda:
+2. Install Panaroo using conda:
 
 ```
 conda install -c bioconda panaroo
 ```
 
-3. Make the appropriate changes for prokka to send the files to your folder:
+3. Make the appropriate changes for panaroo to send the files to your folder:
 
 ```
 nano run_panaroo.sh
