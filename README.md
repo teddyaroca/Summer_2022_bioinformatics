@@ -99,7 +99,7 @@ This folder contains the Richardson et al. (2018)[^1] manuscript and supplementa
 
 Each of you will be assigned a sequence cluster to study the distribution of strains.
 
-## a. To build a phylogenetic tree 
+## a. Building a phylogenetic tree 
 
 A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
 
@@ -117,9 +117,9 @@ Antimicrobial resistance (AMR) genes are some of the most studied genes in bacte
 To better understand what was done here, I provide a little background about how the datasets were obtained, in case you want to emulate this in your own research in the future.
 **Note: all the software mentioned below should be installed in the cluster (except for analyses in R, which will be done locally in your laptop/computer) in order to run the programs. These examples are for running in your local laptop/computer if you want**)
 
-## If you want to run the analyses (**not required for this part (except for raxml analyses)**), do the following:
+**Note: if you want to run the analyses (**not required for this part, except for raxml analyses**), do the following:**
 
-### downloading raw reads from SRA (fastq files) **(DONE)**
+## Downloading raw reads from SRA (fastq files) **(DONE)**
 
 In order to download genomes for this workshop, we extracted the accession numbers found in Supp. Table 1 (Column "ERR number") of the Richardson et al. (2018)[^1] paper. Then, saved those as TAB separated values with one accession per line. Once this file was created, the genomes were donwloaded using the [sratoolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software). You can replicate this process if you want, but the raw data downloaded from [SRA](https://www.ncbi.nlm.nih.gov/sra) was close to 600 GB in space. The file mentioned and the scripts used to download the raw data are provided in the folder named "raw_data" inside the DATASETS folder. Do the following to replicate what was done (assuming you have 600 GB of empty space in your computer/laptop).
 
@@ -131,7 +131,7 @@ bash download_genomes_sra.sh
 
 The raw data (".fastq" files) should start downloading in your working directory. This can take several hours, perhaps even a day or two, so I suggest considering this before running this script, as the server may be taking a lot of jobs.
 
-### Assembling genomes **(DONE)**
+## Assembling genomes **(DONE)**
 
 Once the raw reads have been downloaded, genomes can be assembled assembled using a commonly used program called [Spades](https://github.com/ablab/spades.git). An example script is provided in the ./datasets/core_genome/assemblies/spades/ directory.
 
@@ -323,7 +323,7 @@ I am providing specific examples to address the scientific questions and objecti
 We will discuss these examples once everyone has ran their raxml analyses.
 
 
-## 6. HOW TO VIDEOS
+# 6. HOW TO VIDEOS
 
 Below are links to youtube videos that explain how to carry out the analysis and visualizations above
 

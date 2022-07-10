@@ -9,9 +9,6 @@
 
 source ~/.bashrc
 
-#The file needed for this analysis has been compressed with gzip, so we will have to decompress the file.
-gunzip /network/rit/lab/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/panaroo/output/core_gene_alignment.aln.gz
-
 # Run snp-sites to obtain a core gene alignment of the (Single Nucleotide Polymorphisms) SNPs only. This is done to reduce the computational time.
 snp-sites /network/rit/lab/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/panaroo/output/core_gene_alignment.aln -p -o ./core_gene_alignment.phy 
 
