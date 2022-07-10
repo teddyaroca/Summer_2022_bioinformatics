@@ -15,8 +15,8 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | 1. [INSTRUCTIONS](#instructions)                |
 |												  |
 | 2. [DATASETS](#datasets)                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[metadata](#metadata)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw data](#raw data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
 |												|
@@ -34,7 +34,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 |																			|
 | 5. [VISUALIZATION TOOLS](#visualization-tools)                              |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizations with R](#visualizations-with-r)                                |
-																						|
+|                                                                   |
 | 6. [HOW TO VIDEOS](#how-to-videos)                              |
 
 
