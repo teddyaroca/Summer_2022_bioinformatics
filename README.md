@@ -127,7 +127,6 @@ In order to download genomes for this workshop, we extracted the accession numbe
 conda install -c bioconda sra-tools
 cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raw_data/
 bash download_genomes_sra.sh
-
 ```
 
 The raw data (".fastq" files) should start downloading in your working directory. This can take several hours, perhaps even a day or two, so I suggest considering this before running this script, as the server may be taking a lot of jobs.
@@ -246,22 +245,11 @@ The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all 
 
 Building a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree) is one of the most informative ways to display genomic data when examining groups of isolates. To build a phylogenetic tree you will need a core alignment file produced by Panaroo (above). These alignment files are huge, as they contain the entire genome sequence for each isolate examined, aligned. Phylogenetic trees are built on genetic differences among genome sequences, therefore all we need to build a phylogenetic tree is the variable sites from the alignment file. We can easily extract those sites using snp-sites. 
 
-**snp-sites** Snp-sites extracts single nucleotide polymorphisms ([SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism)) from a large whole genome alignment. You can read more about snp-sites [here](https://github.com/sanger-pathogens/snp-sites#introduction).
+**snp-sites** SNP-sites extracts single nucleotide polymorphisms ([SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism)) from a large whole genome alignment. You can read more about snp-sites [here](https://github.com/sanger-pathogens/snp-sites#introduction).
 
-To install snp-sites using conda, copy and paste the code below after creating and activating the snp-sites conda environment:
-
-```
-conda install -c bioconda snp-sites
-```
-
-Once the conda environment is activated, you can process your .aln file produced by Roary or Panaroo using the code below:
-
-```
-snp-sites core_gene_alignment.aln -p -o core_alignement.phy
-```
-
-This will create a phyllip format (.phy) file with only variable sites which can be used in the next step to build a [maximum likelihood tree](https://en.wikipedia.org/wiki/Computational_phylogenetics#Maximum_likelihood). To build a maximum likelihood tree we are going use 
+SNP-sites will create a phyllip format (.phy) file with only variable sites which can be used in the next step to build a [maximum likelihood tree](https://en.wikipedia.org/wiki/Computational_phylogenetics#Maximum_likelihood). To build a maximum likelihood tree we are going use 
 RAxML.
+
 
 **RAxML** RAxML is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short
 reads. To read more about RAxML click [here](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true).
@@ -275,7 +263,11 @@ To run the RAxML analysis and build a phylogenetic tree with the core genome fro
 cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raxml/
 ```
 
-2. Install Prokka using conda:
+2. Install SNP-sites and RAxML using conda:
+
+```
+conda install -c bioconda snp-sites
+```
 
 ```
 conda install -c bioconda raxml
