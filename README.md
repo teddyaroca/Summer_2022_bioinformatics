@@ -13,32 +13,28 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | **CONTENTS**                                         |
 | -----------------------------------------------------|
 | 1. [INSTRUCTIONS](#instructions)                |
-|												|
-| 2. [OBJECTIVES](#objectives)                |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Distribution of isolates per host](#Distribution_per_host)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Distribution of resistance genes](#Distribution_resistance_genes)                      |
 |												  |
-| 3. [DATASETS](#datasets)                        |
+| 2. [DATASETS](#datasets)                        |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Metadata](#metadata)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Raw data](#raw_data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[output](#output)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
+|												|
+| 3. [OBJECTIVES](#objectives)                |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[b. Distribution of isolates per host](#Distribution_per_host)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[c. Distribution of resistance genes](#Distribution_resistance_genes)                      |
 |																			|
 | 4. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes **(Done)**](#downloading_genomes) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes **(Done)**](#assembling_genomes) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation **(Done)**](#annotation)                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[core genome alignments](#core_genomes)                                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[core genome alignments **(Done)**](#core_genomes)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tree Building](#tree-building)                                        |
 |																			|
 | 5. [VISUALIZATION TOOLS](#visualization-tools)                              |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizations with R](#visualizations-with-r)                                |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Visualizing Trees With iTOL](#visualizing-trees-with-itol)|
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Making a FastANI Heatmap](#making-a-fastani-heatmap)                        |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Pan-genome Visualizations](#pan-genome-visualizations)                            |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Combining Trees and Data](#combining-trees-and-data)                            |			
-|																													|
+																						|
 | 6. [HOW TO VIDEOS](#how-to-videos)                              |
 
 
@@ -47,30 +43,37 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also clone the repository from the command line using the following:
 
+**Note: don't forget YOURNAME throughout this repository refers to the name of your folder in the /network/rit/bioinformaticslab/ folder.**
+
+## Make a copy of this repository
+
+1. Login to the server as you did for project 1 (with ssh)
+
+ ```
+ ssh yourNetID@head.arcc.albany.edu
+ ```
+
+2. Navigate to your folder
+
+```
+cd /network/rit/lab/bioinformaticslab/YOURNAME/
+```
+
+3. Clone this repository with git
+
 ```
 git clone https://github.com/teddyaroca/Summer_2022_bioinformatics.git
 ```
 
-Please, make sure you download the repository to your copy of this repository to your desktop computer and not to the server (Do NOT log into the server with ```ssh```)
+Now you should be able to see the folders and scripts in your folder in your mapped drive.
 
 
-# 2. OBJECTIVES
 
-## a. Build a phylogenetic tree 
+# 2. DATASETS
 
-A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
+This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. This manuscript and supplementary material can be found in the "manuscript" folder. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 571 strains) to use in our initial phylogenetic analyses. Your assignment thorughout this workshop will be to **build a phylogenetic tree, then plot the number of strains per host, look at the gene presence/absence of your assigned genes (around 5), summarize and plot some of the metadata for visualization purposes, and prepare slides for the final sympossium.**
 
-## b. Distribution of strains per host
-
-In order to trace the amount of host transitions (jumps), we will be making bar- and box-plots, violin plots, scatter plots, and others that accurately represent the amount of strains per host.
-
-## c. Distribution of resistance genes
-
-Antimicrobial resistance (AMR) are some of the most studied genes in bacteria, because the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our datasets by host.
-
-# 3. DATASETS
-
-This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 600 strains) and individual gene alignments. Your assignment thorughout this workshop will be to build a phylogenetic tree and look a gene presence/absence of your assigned genes (around 5), summarize and plot some of the metadata for visualization purposes, and prepare slides for the final sympossium.
+We will discuss these details in our regular small group meetings.
 
 [^1]:Richardson, E. J., Bacigalupe, R., Harrison, E. M., Weinert, L. A., Lycett, S., Vrieling, M., Robb, K., Hoskisson, P. A., Holden, M. T. G., Feil, E. J., Paterson, G. K., Tong, S. Y. C., Shittu, A., van Wamel, W., Aanensen, D. M., Parkhill, J., Peacock, S. J., Corander, J., Holmes, M., & Fitzgerald, J. R. (2018). Gene exchange drives the ecological success of a multi-host bacterial pathogen. Nature Ecology and Evolution, 2(9), 1468–1478. https://doi.org/10.1038/s41559-018-0617-0
 
@@ -87,82 +90,156 @@ This folder contains raw genomic data that will be used in your analyses. Some o
 
 This folder contains examples of useful scripts for data analyses that will be covered in this part of the workshop. If you are comfortable sharing your code, feel free to create a folder within this folder, rename it with your name (or initials), and and add your scripts there.
 
-## output
+## manuscript
 
-This folder contains output figures/tables from the scripts mentioned above. Please, create a folder with your name inside this folder and add figures/tables that you think will be useful for your presentation at the end of the workshop (final sympossium), whether you have decided to share your scripts with the rest of the group or not.
+This folder contains the Richardson et al. (2018)[^1] manuscript and supplementary figures/tables.
+
+
+# 3. OBJECTIVES
+
+Each of you will be assigned a sequence cluster to study the distribution of strains.
+
+## a. To build a phylogenetic tree 
+
+A phylogenetic tree is one of the best methods to represent evolutionary relationships between micro- and macro-organisms. This year, we will be building a phylogenetic tree using a core genome alignment (provided).
+
+## b. Plotting distribution of strains per host
+
+In order to trace the amount of host transitions (jumps), we will be making bar- and box-plots, violin plots, scatter plots, and others that accurately represent the amount of strains per host.
+
+## c. Plotting distribution of resistance genes
+
+Antimicrobial resistance (AMR) genes are some of the most studied genes in bacteria, because of the widespread distribution and frequency of bacterial diseases caused by species carrying certain AMR genes. We will plot the amount of resistance genes found in our datasets by host.
 
 
 # 4. DATA ANALYSIS TOOLS
 
 To better understand what was done here, I provide a little background about how the datasets were obtained, in case you want to emulate this in your own research in the future.
+**Note: all the software mentioned below should be installed in the cluster (except for analyses in R, which will be done locally in your laptop/computer) in order to run the programs. These examples are for running in your local laptop/computer if you want**)
 
-## downloading_genomes
+## If you want to run the analyses (**not required for this part (except for raxml analyses)**), do the following:
+
+### downloading raw reads from SRA (fastq files) **(DONE)**
 
 In order to download genomes for this workshop, we extracted the accession numbers found in Supp. Table 1 (Column "ERR number") of the Richardson et al. (2018)[^1] paper. Then, saved those as TAB separated values with one accession per line. Once this file was created, the genomes were donwloaded using the [sratoolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software). You can replicate this process if you want, but the raw data downloaded from [SRA](https://www.ncbi.nlm.nih.gov/sra) was close to 600 GB in space. The file mentioned and the scripts used to download the raw data are provided in the folder named "raw_data" inside the DATASETS folder. Do the following to replicate what was done (assuming you have 600 GB of empty space in your computer/laptop).
 
 ```
-cd ./datasets/core_genome/raw_data/
+conda install -c bioconda sra-tools
+cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raw_data/
 bash download_genomes_sra.sh
 
 ```
 
-The raw data (".fastq" files) should start downloading in your working directory.
+The raw data (".fastq" files) should start downloading in your working directory. This can take several hours, perhaps even a day or two, so I suggest considering this before running this script, as the server may be taking a lot of jobs.
 
-## Assembling_genomes
+### Assembling genomes **(DONE)**
 
+Once the raw reads have been downloaded, genomes can be assembled assembled using a commonly used program called [Spades](https://github.com/ablab/spades.git). An example script is provided in the ./datasets/core_genome/assemblies/spades/ directory.
 
-## Annotation (DONE)
+To run this analysis, edit the script to point at your own copy of this repository in the server:
 
-Here I provide an exmple of how the genomes were annotated prior building a core genome of the sequences selected for this workshop. Although there are several tools for this sort of analysis, we will use the most popular:
+1. Go to the directory where the script is:
+
+```
+cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/assemblies/spades/
+```
+
+2. Install spades with conda
+
+```
+conda install -c bioconda spades
+```
+
+3. Make the appropriate changes for spades to send the files to your folder:
+
+```
+nano run_spades.sh
+```
+
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+
+Hit ```control + x``` on your keyboard and save the changes.
+
+4. Submit the job with sbatch
+
+```
+sbatch run_spades.sh
+```
+
+## Annotation **(DONE)**
+
+Here, you will find an exmple of how the genomes were annotated prior building a core genome of the sequences selected for this workshop. Although there are several tools for this sort of analysis, we will use the most popular:
 
 **Prokka:** Whole genome annotation is the process of identifying features of interest in a set of genomic DNA sequences, and labelling them with useful information. Prokka is a software tool to annotate bacterial, archaeal and viral genomes quickly and produce standards-compliant output files. More detailed information about Prokka can be found [here](https://pubmed.ncbi.nlm.nih.gov/24642063/).
 
 
-To install Prokka using conda, copy and paste the code below after creating and activating the Prokka conda environment (**Note: all the software mentioned here has been installed in the cluster already. These examples are for running in your local laptop/computer if you want**):
+To run the prokka analysis:
+
+1. Navigate to the folder containing the script for prokka 
+
+```
+cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/prokka/
+```
+
+2. Install Prokka using conda:
 
 ```
 conda install -c conda-forge -c bioconda -c defaults prokka
 ```
 
-Once the conda environment is activated, an example of how Prokka might be executed in a folder full of genomes can be found below:
+3. Make the appropriate changes for prokka to send the files to your folder:
 
 ```
-for file in *.fa; do tag=${file%.fa}; prokka --prefix "$tag" --genus Salmonella --outdir "$tag"_prokka $file; done
+nano run_prokka.sh
 ```
 
-The code above is a bit complicated because of the prefix and out directory names. To get rid of the extension for these names we are using "tag" which is the filename minus the extension (e.g. tag=${file%.fa}). So, for example, if you were running this on a single genome it would look like this:
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+
+Hit ```control + x``` on your keyboard and save the changes.
+
+4. Submit the job with sbatch
 
 ```
-prokka --prefix genome_1 --genus Salmonella --outdir genome_1_prokka genome_1.fa
+sbatch run_prokka.sh
 ```
 
-The --genus option above needs to be manipulated based on the species you are examining.
-
-Prokka creates a folder that has several files in it based on the results of the annotation. The main file we are interested in for downstream analysis is the [.gff file](https://en.wikipedia.org/wiki/General_feature_format). This file includes both the nucleotide sequence, and the position and names of genes present in the genome. Since you will likely want to move all of the .gff files to a single folder for downstream analysis, you can use the following code from the folder that contains all your genomes to do so, by first creating a folder named "annotations" and then moving all the ".gff" files from prokka into that annotations folder.
-
-```
-mkdir annotations
-mv **/*.gff annotations
-```
-
-## Core_genomes (DONE)
+## Core_genomes **(DONE)**
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
 
-To install Panaroo using conda, copy and paste the code below after creating and activating the Panaroo conda environment:
+
+To run the panaroo analysis:
+
+1. Navigate to the folder containing the script for prokka 
+
+```
+cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/
+```
+
+2. Install Prokka using conda:
 
 ```
 conda install -c bioconda panaroo
-
 ```
 
-Once the conda environment is activated, an example of how Panaroo might be executed in a folder full of .gff files can be found below:
+3. Make the appropriate changes for prokka to send the files to your folder:
 
 ```
-panaroo -t 16 -i *.gff -o panaroo_results --clean-mode strict -a core
+nano run_panaroo.sh
 ```
 
-The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all .gff files in the folder (\*.gff). It is also telling Panaroo to write the results to the folder panaroo_results (-o), using strict filtering (--clean-mode strict), and to create a core genome alignment (-a).Panaroo produces a large number of output files for downstream analysis and visualization. In fact, the majority of these output files are formatted identically. Therefore, you can use the [link](https://sanger-pathogens.github.io/Roary/) provided above from Roary to understand more about the output files and what you can with them. Again, of particular interest will be the core genome alignment (ending in .aln) which can be used to create a phylogenetic tree (see next step).
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+
+Hit ```control + x``` on your keyboard and save the changes.
+
+4. Submit the job with sbatch
+
+```
+sbatch run_panaroo.sh
+```
+
+
+The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all .gff files in the folder (\*.gff). It is also telling Panaroo to write the results to the folder panaroo_results (-o), using strict filtering (--clean-mode strict), and to create a core genome alignment (-a). Panaroo produces a large number of output files for downstream analysis and visualization. In fact, the majority of these output files are formatted identically. Therefore, you can use the [link](https://sanger-pathogens.github.io/Roary/) provided above from Roary to understand more about the output files and what you can with them. Again, of particular interest will be the core genome alignment (ending in .aln) which can be used to create a phylogenetic tree (see next step).
 
 
 ## Tree Building
@@ -175,7 +252,6 @@ To install snp-sites using conda, copy and paste the code below after creating a
 
 ```
 conda install -c bioconda snp-sites
-
 ```
 
 Once the conda environment is activated, you can process your .aln file produced by Roary or Panaroo using the code below:
@@ -190,39 +266,50 @@ RAxML.
 **RAxML** RAxML is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short
 reads. To read more about RAxML click [here](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true).
 
-To install RAxML using conda, copy and paste the code below after creating and activating the RAxML conda environment:
+
+To run the RAxML analysis and build a phylogenetic tree with the core genome from panaroo:
+
+1. Navigate to the folder containing the script for raxml 
+
+```
+cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raxml/
+```
+
+2. Install Prokka using conda:
 
 ```
 conda install -c bioconda raxml
 ```
 
-Once the conda environment is activated, you can build your tree using the file created by snp-sites using the code below:
+**Note: If you did not run the analyses mentioned above, copy the core gene alignment from Teddy's folder as follows**
 
 ```
-raxmlHPC -T 16 -s core_alignement.phy -p 12345 -m GTRGAMMA -n raxml_core_output 
+cp /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/
 ```
-The code above will run an algorithm to determine the best tree based on variable sites within your data (SNPs). It will create multiple output files, but the one you are interested will have the word "best" in it. In this example it would read "RAxML_bestTree.raxml_core_output". Now that you've built a tree you can open it in a tree viewer, and arrange it appropriately. For that we will use FigTree.
+
+Otherwise, skip the above note.
+
+
+3. Make the appropriate changes for prokka to send the files to your folder:
+
+```
+nano run_raxml.sh
+```
+
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+
+Hit ```control + x``` on your keyboard and save the changes.
+
+4. Submit the job with sbatch
+
+```
+sbatch run_raxml.sh
+```
+
 
 # 5. VISUALIZATION TOOLS
 
-**FigTree** FigTree is designed as a graphical viewer of phylogenetic trees and as a program for producing publication-ready figures. Unlike all of the other programs we have used so far FigTree has a graphical user interface (GUI), which just means it is a regular program you download and install on your computer. You can get the latest version [here](https://github.com/rambaut/figtree/releases).
-
-Once you have FigTree installed you can open it and import your tree by clicking File > Open, and there is your tree! We will want to properly root our tree using FigTree. To do so click Tree > Midpoint Root. As you can see this organizes your tree in a more readable way. Now that our tree is properly rooted we can export it. To do so go to File > Export Trees. At the prompt select Newick from the dropdown menu and click "Save as currently displayed. Name it something like "my_tree.tre".
-
-
-**Now that you have a phylogenetic tree, you will likely want to annotate it with data.**
-
-Hopefully at this point you have a acquired a large amount of data and are interested in visualizing that data. This is how scientists really communicate the results of their work. Below is a mix of general tools (that may be used to transform your data into figures that you conceive), along with some more specific tools (based on the analyses from above). We will start with the general:
-
-
-## Visualizing Trees With iTOL
-
-[iTOL](https://itol.embl.de/) can visualize trees with 50,000 or more leaves. With advanced search capabilities and display of unrooted, circular and regular cladograms or phylograms, exploring and navigating trees of any size is simple. There are a wide range of resources for annotating your phylogenetic trees with the data you've produced. Itol includes a number of instructive pages on [tree annotation](https://itol.embl.de/help.cgi#annot) and [how-to videos](https://itol.embl.de/video_tutorial.cgi) for your convenience.
-
-We have worked with iTOL to set up a shared account for this fellowship. 
-The user info is below: 
-
-username: bioinfo_2021 / password: ualbany
+We will be visualizing most of our data in R.
 
 ## Visualizations With R 
 
@@ -235,66 +322,14 @@ At this point in the course you should be familiar with R, and more specifically
 [Chord Diagrams](https://www.r-graph-gallery.com/chord-diagram.html) 
 A Chord diagram allows for the visualization of flows between a set of entities. Chord diagrams can be used to show how genes are distributed across different groupings of your genomes. They can also be used to show how your genomes are interrelated based on any given factor (host, year, etc.). 
 
-## Making a FastANI Heatmap
-
-One of the analysis techniques we looked at above was FastANI. FastANI allows you to calculate the average nulceotide identity (ANI) between all pairs of genomes you are examining. This can be visualized nicely with the R code here:
-
-```
-library("reshape2")
-library("ComplexHeatmap")
-library("gplots")
-
-### get data, convert to matrix
-x <- read.csv("fastani_schl.csv")
-matrix <- acast(x, X~Y, value.var="ANI")
-
-### define the colors within 2 zones
-breaks = seq(min(matrix), max(100), length.out=100)
-gradient1 = colorpanel( sum( breaks[-1]<=95 ), "blue", "white" )
-gradient2 = colorpanel( sum( breaks[-1]>95 & breaks[-1]<=100), "white", "red" )
-
-hm.colors = c(gradient1, gradient2)
-heatmap.2(matrix, scale = "none", trace = "none", col = hm.colors)
-```
-
-Prior to running this code, you should open your FastANI output in excel, remove the columns that are not needed, and rename the column headings X, Y and ANI so it looks like this:
-
-<img width="330" alt="Screen Shot 2021-06-07 at 11 06 48 AM" src="https://user-images.githubusercontent.com/43999021/121041139-7a81cb80-c780-11eb-807a-957cd05305bb.png">
-
-After doing so, sort your ANI column by the highest value to the lowest, and save it as a .csv file. After that you should be ready to go!
-
-## Pan-genome Visualizations
-
-There are many tools out there to visualize the output of Roary and Panaroo along with a tree. Some of them (straight from the [Roary website](https://sanger-pathogens.github.io/Roary/)) are listed here:
-
-_**roary_plots.py**_ This contributed script by Marco Galardini is very useful. Additional details can be found [here](https://github.com/sanger-pathogens/Roary/tree/master/contrib/roary_plots) in the repository. It provides 3 figures, showing the tree compared to a matrix with the presence and absence of core and accessory genes. The next is a pie chart of the breakdown of genes and the number of isolate they are present in, and finally there is a graph with the frequency of genes versus the number of genomes.
-
-<img width="477" alt="Screen Shot 2021-06-07 at 11 12 58 AM" src="https://user-images.githubusercontent.com/43999021/121042243-7c985a00-c781-11eb-9876-0da6ae7243cc.png">
-
-By dropping the python script in the same folder as your gene_presence_absence.csv you can run the following code to create them:
-
-```
-roary_plots.py name_of_your_newick_tree_file.tre gene_presence_absence.csv
-```
-_**Interactive visualization with Phandango**_ James Hadfield has produced the [Phandango website](http://jameshadfield.github.io/phandango/#/) which allows for interactive visualization of the output of Roary. You can drag and drop the results into your web browser, then interactively play around with the data. There is an example data set from Roary on the website.
-
-_**Interactive visualization with FriPan**_ David Powell has produced the [FriPan website](http://drpowell.github.io/FriPan/) which allows for interactive visualization of the output of Roary. Jason Kwong has created a [converter script](https://github.com/kwongj/roary2fripan) to transform the output of Roary into a suitable format for FriPan.
-
-_**PanVizGenerator**_ Thomas Lin Pedersen has created an R package which allows for some excellent visualisation of the output of Roary called [PanVizGenerator](https://github.com/thomasp85/PanVizGenerator).
-
-_**panX**_ panX can use the output of roary as input to their [excellent visualization tool](https://pangenome.tuebingen.mpg.de/).
-
-_**Roary2SVG**_ Torsten Seemann has contributed a script called [roary2svg.pl](https://github.com/sanger-pathogens/Roary/blob/master/contrib/roary2svg/roary2svg.pl) which will produce a nice figure with the gene presence and absence of each sample, plus a count of genes.
 
 ## Combining Trees and Data
 
-Above we introduced iTOL, an excellent tool for combining trees with data, but if you are loving R and would like to go the extra mile there are a wide array of resources for tree building. Click the links below to see some examples along with their scripts:
 
-[Phylogenetic trees in R using ggtree](https://www.molecularecologist.com/2017/02/08/phylogenetic-trees-in-r-using-ggtree/)
+I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **analyses**
 
-[phylo.heatmap: Creates a phylogenetic heat map](https://rdrr.io/cran/phytools/man/phylo.heatmap.html)
+We will discuss these examples once everyone has ran their raxml analyses.
 
-[Plotting tree with data](https://yulab-smu.top/treedata-book/chapter7.html)
 
 ## 6. HOW TO VIDEOS
 

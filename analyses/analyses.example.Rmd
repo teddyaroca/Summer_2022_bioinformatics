@@ -1,0 +1,143 @@
+---
+title: Summer 2022 RNA Institute Bioinformatics Workshop | *Group 5, Andam Lab*
+author: "Teddy Garcia-Aroca"
+date: "Last update: July 5th, 2022"
+output:
+  html_document: rmdformats::downcute
+pdf_document: default
+---
+
+# Description.
+
+In this tutorial, we will be showing examples of how to visualize data, from  
+common boxplots and violin plots to phylogenetic trees.
+
+    
+## First, create a vector to install the packages needed:
+  
+```{r}
+packages <- c("dplyr", "plyr", "ggplot2", "readr", "ggpubr",
+              "rcompanion", "tidyverse", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
+```
+
+## Install packages not yet installed (this method allows to install only new packages)
+
+```{r}
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+```
+
+## Load all packages
+```{r results='hide', message=FALSE, warning=FALSE}
+invisible(lapply(packages, library, character.only = T))
+```
+
+Note: after running this line, you may see several warning messages about the dependencies loaded and potential conflicts. Ignore those warnings for the purposes of this workshop.
+
+# Plotting metadata
+
+First, we will be plotting the data that are of interest to us, regarding the number such as the of strains per host. In the following example, we plot a simple boxplot for the number of strains per host in the [Richardson et al. 2018](../references/Richardson2018_multiHostPathogen.pdf) paper.
+
+## 1. Set the working directory to where the files are located. In my case (after mapping the network drive) /Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/
+
+```{r}
+setwd("/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/")
+```
+
+## 2. Load the data from the folder metadata
+
+This table represents the supplementary table 1 from 
+
+```{r}
+metadata <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/metadata/metadata.csv", sep=",", header=T)
+#head(metadata) 
+#tail(metadata)
+length(metadata$Number)
+```
+
+As you see, this file contains 800 rows of metadata.
+
+
+## Note: 
+
+Not all the genomes were found in databases. Only 571 genomes were found and used in our analyses, so we will have to filter out the metadata for the genomes that were not available and could not be used in our analyses. For that reason.
+
+To remove those datapoints for missing genomes, we will need to load the phylogenetic tree and extract the tip labels to be removed.
+
+```{r}
+tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
+aureus_tree <- read.tree(tree_file)
+length(aureus_tree$tip.label)
+
+```
+
+As you can see, this tree has 571 tips (isolates), so we will extract the metadata for those 571 tips from the metadata table above, which contains 800 rows (800 isolates).
+
+For this, we used the some functions from the dplyr package.
+
+```{r}
+metadata.filtered <- metadata[metadata$ERR.number.tips.filtered %in% aureus_tree$tip.label,] #Extract values in metadata based on tip labels on tree
+#head(metadata.filtered)
+#tail(metadata.filtered)
+length(metadata.filtered$ERR.number.tips.filtered)
+```  
+
+As you see, now we have 571 rows in the new metadata.filtered object, containing all the information we need for the tips (isolates) in our phylogenetic tree.
+
+## 3. Now, lets extract the values needed for plotting and rename the columns.
+
+If we look at the current column names for this dataframe:
+
+```{r}
+print(as_tibble(metadata.filtered), n = 2) # printing the first two rows only
+```
+
+We see that the column names are a bit confussing. For now, we will leaves as they are and only select the two that we need:
+
+-*ERR.number.tips.filtered* = Isolate names matched to the tip names on our phylogenetic tree (done by Teddy)
+
+-*Source* = host
+
+```{r}
+metadata.for.plotting <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source) #extract values needed from filtered table
+```
+
+Once we have selected the two columns we need, we rename them with more informative column names:
+
+```{r}
+colnames(metadata.for.plotting) <- c("Isolate", "Host") # rename columns
+length(metadata.for.plotting$Isolate)
+```
+
+As you see, we have 571 isolates total, wich matches what we have in our phylogenetic tree.
+
+## 4. Plot the number of isolates per host
+
+In this example, we plot all isolates per host. A simple count plot with ggplot:
+
+```{r}
+isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host)) + # load data into ggplot and define axes
+  geom_bar() + #Plot a geometric bar
+  ggtitle("Number of isolates per host") + # add a title
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1)) # Rotate labels
+isolate.per.host.ggplot
+```
+
+
+For your own data, you will need to obtain a specific sequence cluster or clonal complex as described by Richardson et a. 2018. 
+
+*An example of how to extract and plot your data from within these data sets is provided in the next few lines*
+
+# Objective 1: Building and plotting a phylogenetic tree
+
+At this point, you all of you should have your own phylogenetic tree from your analyses in the HPCC cluster. In this tutorial, I provide examples of how to plot and visualize your phylo-tree and append data for visualization purposes.
+
+## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in our phylogenetic trees (using the dplyr package).
+
+
+
+
+
+

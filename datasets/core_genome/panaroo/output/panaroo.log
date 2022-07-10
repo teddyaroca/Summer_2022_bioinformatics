@@ -1,0 +1,2058 @@
+  0%|          | 0/37 [00:00<?, ?it/s]pre-processing gff3 files...
+  3%|▎         | 1/37 [00:03<02:22,  3.95s/it]  5%|▌         | 2/37 [00:07<02:04,  3.55s/it]  8%|▊         | 3/37 [00:10<01:58,  3.49s/it] 11%|█         | 4/37 [00:14<01:56,  3.52s/it] 14%|█▎        | 5/37 [00:17<01:53,  3.54s/it] 16%|█▌        | 6/37 [00:21<01:48,  3.48s/it] 19%|█▉        | 7/37 [00:24<01:44,  3.48s/it] 22%|██▏       | 8/37 [00:28<01:41,  3.50s/it] 24%|██▍       | 9/37 [00:31<01:37,  3.49s/it] 27%|██▋       | 10/37 [00:35<01:34,  3.49s/it] 30%|██▉       | 11/37 [00:38<01:31,  3.52s/it] 32%|███▏      | 12/37 [00:42<01:31,  3.67s/it] 35%|███▌      | 13/37 [00:46<01:28,  3.68s/it] 38%|███▊      | 14/37 [00:50<01:24,  3.65s/it] 41%|████      | 15/37 [00:53<01:19,  3.63s/it] 43%|████▎     | 16/37 [00:57<01:14,  3.56s/it] 46%|████▌     | 17/37 [01:00<01:12,  3.63s/it] 49%|████▊     | 18/37 [01:04<01:08,  3.61s/it] 51%|█████▏    | 19/37 [01:08<01:10,  3.90s/it] 54%|█████▍    | 20/37 [01:12<01:04,  3.81s/it] 57%|█████▋    | 21/37 [01:16<00:59,  3.74s/it] 59%|█████▉    | 22/37 [01:19<00:56,  3.78s/it] 62%|██████▏   | 23/37 [01:23<00:52,  3.72s/it] 65%|██████▍   | 24/37 [01:26<00:46,  3.61s/it] 68%|██████▊   | 25/37 [01:30<00:43,  3.64s/it] 70%|███████   | 26/37 [01:34<00:40,  3.66s/it] 73%|███████▎  | 27/37 [01:38<00:38,  3.80s/it] 76%|███████▌  | 28/37 [01:43<00:37,  4.22s/it] 78%|███████▊  | 29/37 [01:47<00:31,  3.97s/it] 81%|████████  | 30/37 [01:50<00:26,  3.77s/it] 84%|████████▍ | 31/37 [01:54<00:22,  3.83s/it] 86%|████████▋ | 32/37 [01:56<00:16,  3.27s/it] 89%|████████▉ | 33/37 [01:58<00:11,  2.92s/it] 92%|█████████▏| 34/37 [02:01<00:08,  2.97s/it] 95%|█████████▍| 35/37 [02:05<00:06,  3.17s/it] 97%|█████████▋| 36/37 [02:08<00:03,  3.27s/it]100%|██████████| 37/37 [02:10<00:00,  2.98s/it]100%|██████████| 37/37 [02:10<00:00,  3.54s/it]
+================================================================
+Program: CD-HIT, V4.8.1 (+OpenMP), Apr 07 2021, 10:57:21
+Command: cd-hit -T 16 -i
+         /network/rit/lab/andamlab/teddy/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/combined_protein_CDS.fasta
+         -o
+         /network/rit/lab/andamlab/teddy/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/combined_protein_cdhit_out.txt
+         -c 0.98 -s 0.98 -aL 0.0 -AL 99999999 -aS 0.0 -AS
+         99999999 -M 0 -d 999 -g 1 -n 2
+
+Started: Sat Jun  4 22:14:03 2022
+================================================================
+                            Output                              
+----------------------------------------------------------------
+Your word length is 2, using 5 may be faster!
+total seq: 1438667
+longest and shortest : 10701 and 29
+Total letters: 417784732
+Sequences have been sorted
+
+Approximated minimal memory consumption:
+Sequence        : 595M
+Buffer          : 16 X 30M = 480M
+Table           : 2 X 23M = 46M
+Miscellaneous   : 18M
+Total           : 1140M
+
+Table limit with the given memory limit:
+Max number of representatives: 625000
+Max number of word counting entries: 37242265
+
+# comparing sequences from          0  to       1464
+.---------- new table with      310 representatives
+# comparing sequences from       1464  to      81308
+.....................----------  79118 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       2190  to      81994
+....................----------  79523 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       2471  to      82259
+......................----------  77847 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       4412  to      84092
+.....................----------  78270 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from       5822  to      85424
+...................................    10000  finished        792  clusters
+----------  74602 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      10822  to      90146
+......................----------  77162 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      12984  to      92188
+......................----------  77515 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      14673  to      93783
+......................----------  77459 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      16324  to      95343
+......................----------  76785 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      18558  to      97452
+................................    20000  finished       1269  clusters
+.----------  76056 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      21396  to     100133
+.........................----------  73908 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      26225  to     104694
+......................----------  76014 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      28680  to     107012
+.....................----------  77020 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      29992  to     108251
+...............................    30000  finished       1610  clusters
+......----------  71725 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      36526  to     114422
+......................----------  75670 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      38752  to     116525
+................................    40000  finished       1847  clusters
+..----------  73902 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      42623  to     120181
+........................----------  73980 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      46201  to     123560
+..................................    50000  finished       2093  clusters
+.----------  72388 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      51172  to     128255
+.........................----------  72198 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      56057  to     132868
+......................----------  74033 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      58835  to     135492
+................................    60000  finished       2333  clusters
+....----------  70729 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      64763  to     141091
+....................................    70000  finished       2508  clusters
+----------  70850 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      70241  to     146264
+......................----------  73961 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      72303  to     148212
+.....................----------  75018 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      73194  to     149053
+........................----------  71782 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      77271  to     152904
+.................................    80000  finished       2895  clusters
+----------  72026 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      80878  to     156310
+........................----------  72211 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      84099  to     159352
+.......................----------  71497 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      87855  to     162900
+.................................    90000  finished       3176  clusters
+.----------  71109 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      91791  to     166617
+..........................----------  69248 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from      97369  to     171885
+.................................   100000  finished       3360  clusters
+..----------  68959 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     102926  to     177133
+...........................----------  67591 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     109542  to     183382
+...............................   110000  finished       3515  clusters
+........----------  64543 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     118839  to     192162
+................................   120000  finished       3634  clusters
+....----------  68103 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     124059  to     197092
+.......................----------  70061 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     127031  to     199899
+.................................   130000  finished       3851  clusters
+..----------  67335 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     132564  to     205125
+.........................----------  67565 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     137560  to     209843
+.................................   140000  finished       4047  clusters
+....----------  65748 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     144095  to     216015
+........................----------  67111 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     148904  to     220557
+................................   150000  finished       4225  clusters
+....----------  66131 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     154426  to     225772
+........................----------  67312 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     158460  to     229582
+................................   160000  finished       4433  clusters
+.....----------  64542 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     165040  to     235797
+...................................   170000  finished       4559  clusters
+..----------  63588 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     172209  to     242567
+........................----------  65973 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     176594  to     246709
+..................................   180000  finished       4762  clusters
+..----------  64502 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     182207  to     252010
+.......................----------  66486 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     185524  to     255143
+...................................   190000  finished       4991  clusters
+----------  64304 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     190839  to     260162
+............................----------  61652 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     198510  to     267407
+................................   200000  finished       5117  clusters
+....----------  63152 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     204255  to     272833
+....................................   210000  finished       5270  clusters
+.----------  61310 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     211523  to     279697
+.........................----------  63581 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     216116  to     284035
+..................................   220000  finished       5452  clusters
+......----------  57582 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     226453  to     293798
+..................................   230000  finished       5587  clusters
+...----------  60680 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     233118  to     300092
+..........................----------  60502 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     239590  to     306205
+...............................   240000  finished       5725  clusters
+.----------  65193 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     241012  to     307548
+.........................----------  60775 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     246773  to     312989
+..................................   250000  finished       5965  clusters
+..----------  60651 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     252338  to     318245
+......................................   260000  finished       6107  clusters
+----------  58113 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     260132  to     325606
+.........................----------  60549 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     265057  to     330257
+...................................   270000  finished       6290  clusters
+----------  59705 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     270552  to     335447
+........................................   280000  finished       6398  clusters
+.----------  54316 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     281131  to     345438
+........................----------  59998 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     285440  to     349508
+...................................   290000  finished       6568  clusters
+.----------  57742 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     291766  to     355482
+..........................----------  58294 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     297188  to     360603
+.................................   300000  finished       6746  clusters
+...----------  57130 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     303473  to     366539
+.......................----------  60203 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     306336  to     369243
+..................................   310000  finished       6983  clusters
+.----------  58032 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     311211  to     373847
+.........................----------  57652 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     316195  to     378554
+..................................   320000  finished       7204  clusters
+----------  58101 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     320453  to     382576
+...........................----------  55203 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     327373  to     389111
+.................................   330000  finished       7359  clusters
+...----------  55834 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     333277  to     394687
+.........................----------  56033 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     338654  to     399765
+................................   340000  finished       7542  clusters
+..----------  56805 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     342960  to     403832
+.........................----------  56132 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     347700  to     408309
+.................................   350000  finished       7767  clusters
+..----------  55848 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     352461  to     412805
+..........................----------  54403 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     358402  to     418416
+................................   360000  finished       7940  clusters
+..----------  56020 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     362396  to     422188
+........................----------  56116 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     366072  to     425660
+..................................   370000  finished       8167  clusters
+.----------  53691 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     371969  to     431230
+.........................----------  54623 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     376607  to     435610
+..................................   380000  finished       8405  clusters
+----------  55350 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     380260  to     439060
+........................----------  54156 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     384904  to     443446
+.........................----------  53825 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     389621  to     447901
+...............................   390000  finished       8610  clusters
+..----------  55252 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     392649  to     450761
+...........................----------  51486 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     399275  to     457019
+...............................   400000  finished       8824  clusters
+.....----------  51259 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     405760  to     463143
+...................................   410000  finished       8993  clusters
+----------  52788 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     410355  to     467483
+..........................----------  51461 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     416022  to     472835
+..................................   420000  finished       9193  clusters
+----------  52228 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     420607  to     477165
+........................----------  53042 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     424123  to     480486
+........................----------  51968 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     428518  to     484637
+................................   430000  finished       9435  clusters
+...----------  51486 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     433151  to     489013
+........................----------  51324 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     437689  to     493298
+.................................   440000  finished       9629  clusters
+...----------  49614 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     443684  to     498960
+........................----------  51516 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     447444  to     502511
+.................................   450000  finished       9892  clusters
+.----------  51317 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     451194  to     506053
+...........................----------  47540 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     458513  to     512966
+................................   460000  finished      10029  clusters
+...----------  49619 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     463347  to     517531
+.......................----------  51350 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     466181  to     520208
+..................................   470000  finished      10277  clusters
+.----------  48838 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     471370  to     525108
+............................----------  45278 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     479830  to     533098
+...............................   480000  finished      10425  clusters
+......----------  47076 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     486022  to     538946
+..................................   490000  finished      10572  clusters
+.----------  46967 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     491979  to     544572
+..........................----------  47268 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     497304  to     549601
+.................................   500000  finished      10730  clusters
+.....----------  44479 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     505122  to     556985
+........................----------  47579 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     509406  to     561031
+...............................   510000  finished      10914  clusters
+....----------  46915 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     514116  to     565479
+.......................----------  48098 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     517381  to     568563
+.................................   520000  finished      11194  clusters
+.----------  46832 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     521731  to     572671
+........................----------  47160 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     525511  to     576241
+...................................   530000  finished      11394  clusters
+.----------  44977 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     531264  to     581675
+...........................----------  43301 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     538374  to     588390
+................................   540000  finished      11553  clusters
+.----------  46448 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     541942  to     591760
+..........................----------  44026 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     547734  to     597230
+.................................   550000  finished      11763  clusters
+..----------  44391 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     552839  to     602051
+...........................----------  42117 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     559934  to     608752
+...............................   560000  finished      11923  clusters
+..----------  46090 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     562662  to     611328
+..........................----------  43110 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     568218  to     616576
+................................   570000  finished      12168  clusters
+.----------  44810 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     571766  to     619927
+........................----------  44859 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     575068  to     623045
+.....................----------  46160 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     576885  to     624761
+..................................   580000  finished      12487  clusters
+.----------  43119 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     581642  to     629254
+........................----------  43937 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     585317  to     632725
+...................................   590000  finished      12679  clusters
+.----------  41080 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     591645  to     638701
+........................----------  43114 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     595587  to     642424
+...................................   600000  finished      12907  clusters
+----------  42370 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     600054  to     646643
+.........................----------  41451 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     605192  to     651496
+........................----------  41793 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     609703  to     655756
+...............................   610000  finished      13117  clusters
+...----------  42180 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     613576  to     659414
+.......................----------  42467 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     616947  to     662598
+..................................   620000  finished      13375  clusters
+.----------  41360 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     621238  to     666650
+.......................----------  42504 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     624146  to     669397
+......................----------  42535 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     626862  to     671962
+..................................   630000  finished      13683  clusters
+.----------  39997 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     631965  to     676781
+.........................----------  39778 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     637003  to     681539
+.................................   640000  finished      13892  clusters
+----------  40766 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     640773  to     685100
+........................----------  40398 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     644702  to     688811
+.........................----------  38847 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     649964  to     693780
+...............................   650000  finished      14112  clusters
+...----------  40148 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     653632  to     697245
+........................----------  39911 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     657334  to     700741
+......................----------  40965 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     659776  to     703047
+...............................   660000  finished      14414  clusters
+...----------  39796 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     663251  to     706329
+........................----------  39241 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     667088  to     709953
+.................................   670000  finished      14653  clusters
+.----------  38467 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     671486  to     714107
+........................----------  38433 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     675674  to     718062
+........................----------  38237 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     679825  to     721982
+...............................   680000  finished      14915  clusters
+.----------  40111 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     681871  to     723915
+........................----------  38833 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     685082  to     726947
+.....................----------  40288 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     686659  to     728437
+......................----------  40276 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     688161  to     729855
+................................   690000  finished      15393  clusters
+----------  39011 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     690844  to     732389
+.......................----------  39358 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     693031  to     734455
+......................----------  38806 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     695649  to     736927
+.......................----------  38440 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     698487  to     739608
+................................   700000  finished      15751  clusters
+----------  39036 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     700572  to     741577
+........................----------  37537 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     704040  to     744852
+.....................----------  39039 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     705813  to     746527
+.......................----------  37749 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     708778  to     749327
+................................   710000  finished      16163  clusters
+...----------  35670 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     713657  to     753935
+.........................----------  35224 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     718711  to     758708
+................................   720000  finished      16344  clusters
+..----------  36315 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     722393  to     762186
+........................----------  35326 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     726860  to     766404
+..................................   730000  finished      16584  clusters
+----------  35940 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     730464  to     769808
+......................----------  37644 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     732164  to     771414
+......................----------  36639 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     734775  to     773880
+........................----------  35527 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     738353  to     777259
+................................   740000  finished      16941  clusters
+..----------  35213 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     742046  to     780747
+.......................----------  35497 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     745250  to     783773
+......................----------  36384 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     747389  to     785793
+.................................   750000  finished      17304  clusters
+----------  35654 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     750139  to     788390
+.......................----------  34860 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     753530  to     791593
+.......................----------  34797 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     756796  to     794677
+.......................----------  34896 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     759781  to     797496
+...............................   760000  finished      17626  clusters
+..----------  35388 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     762108  to     799694
+......................----------  34864 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     764830  to     802265
+........................----------  33391 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     768874  to     806084
+................................   770000  finished      17948  clusters
+.----------  34790 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     771294  to     808370
+......................----------  35199 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     773171  to     810143
+......................----------  34328 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     775815  to     812640
+...................................   780000  finished      18251  clusters
+..----------  30618 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     782022  to     818502
+......................----------  34051 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     784451  to     820796
+......................----------  34268 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     786528  to     822757
+.......................----------  33277 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     789480  to     825545
+...............................   790000  finished      18619  clusters
+..----------  32632 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     792913  to     828788
+.........................----------  31090 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     797698  to     833307
+.................................   800000  finished      18873  clusters
+----------  32507 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     800800  to     836237
+..........................----------  29984 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     806253  to     841387
+......................----------  32987 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     808400  to     843414
+................................   810000  finished      19168  clusters
+----------  32957 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     810457  to     845357
+.......................----------  32304 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     813053  to     847809
+......................----------  31939 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     815870  to     850469
+.......................----------  32419 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     818050  to     852528
+................................   820000  finished      19588  clusters
+----------  31755 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     820773  to     855100
+........................----------  30828 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     824272  to     858405
+.......................----------  30886 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     827519  to     861471
+.................................   830000  finished      19892  clusters
+----------  30791 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     830680  to     864457
+.........................----------  29392 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     835065  to     868598
+......................----------  31533 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     837065  to     870487
+......................----------  30794 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     839693  to     872969
+...............................   840000  finished      20241  clusters
+----------  32217 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     840752  to     873969
+.......................----------  30503 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     843466  to     876532
+........................----------  29281 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     847251  to     880107
+.....................----------  31921 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     848186  to     880990
+................................   850000  finished      20668  clusters
+.----------  29505 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     851485  to     884106
+.....................----------  31706 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     852400  to     884970
+......................----------  30247 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     854723  to     887164
+........................----------  28223 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     858941  to     891148
+................................   860000  finished      21069  clusters
+.----------  29219 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     861929  to     893970
+.......................----------  29646 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     864324  to     896231
+......................----------  29987 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     866244  to     898045
+..................................   870000  finished      21398  clusters
+----------  27660 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     870385  to     901956
+........................----------  27849 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     874107  to     905471
+.......................----------  28306 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     877165  to     908359
+.....................----------  29670 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     878689  to     909798
+................................   880000  finished      21762  clusters
+..----------  26909 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     882889  to     913765
+.......................----------  28675 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     885090  to     915844
+.......................----------  27802 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     888042  to     918632
+................................   890000  finished      22099  clusters
+----------  28366 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     890266  to     920732
+......................----------  28096 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     892636  to     922971
+.......................----------  27961 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     895010  to     925213
+......................----------  27506 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     897707  to     927760
+.................................   900000  finished      22478  clusters
+.----------  26475 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     901285  to     931139
+.......................----------  26663 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     904476  to     934153
+.....................----------  28526 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     905627  to     935240
+.......................----------  26824 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     908416  to     937874
+.....................----------  28507 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     909367  to     938772
+...............................   910000  finished      22976  clusters
+.----------  27715 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     911057  to     940368
+.......................----------  26090 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     914278  to     943410
+......................----------  26622 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     916788  to     945781
+......................----------  27460 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     918321  to     947229
+................................   920000  finished      23380  clusters
+----------  26286 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     920943  to     949705
+......................----------  26756 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     922949  to     951600
+.......................----------  26553 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     925047  to     953581
+......................----------  26266 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     927315  to     955723
+.....................----------  26802 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     928921  to     957240
+................................   930000  finished      23851  clusters
+..----------  25180 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     932060  to     960204
+......................----------  25944 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     934260  to     962282
+.......................----------  25159 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     937123  to     964986
+.................................   940000  finished      24200  clusters
+----------  24884 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     940102  to     967800
+........................----------  23485 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     944315  to     971779
+.....................----------  25791 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     945988  to     973359
+..................................   950000  finished      24479  clusters
+----------  22847 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     950512  to     977631
+.......................----------  23712 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     953919  to     980849
+......................----------  25261 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     955588  to     982425
+......................----------  25247 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     957178  to     983927
+.....................----------  25590 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     958337  to     985022
+................................   960000  finished      24986  clusters
+----------  24773 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     960249  to     986827
+.......................----------  22988 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     963839  to     990218
+........................----------  22332 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     967886  to     994040
+.................................   970000  finished      25291  clusters
+----------  23388 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     970652  to     996652
+.......................----------  23517 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     973135  to     998997
+.....................----------  24404 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     974593  to    1000374
+.......................----------  22958 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     977416  to    1003041
+.....................----------  24166 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     978875  to    1004419
+................................   980000  finished      25770  clusters
+----------  23592 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     980827  to    1006262
+........................----------  22217 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     984045  to    1009301
+......................----------  23260 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     986041  to    1011186
+.....................----------  23219 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     987967  to    1013005
+......................----------  23947 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     989058  to    1014036
+...............................   990000  finished      26275  clusters
+.----------  22794 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     991242  to    1016098
+......................----------  23009 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     993089  to    1017843
+.....................----------  23387 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     994456  to    1019134
+......................----------  22420 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     996714  to    1021266
+.......................----------  21547 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from     999719  to    1024105
+...............................  1000000  finished      26711  clusters
+.----------  22134 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1001971  to    1026231
+.......................----------  21782 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1004449  to    1028572
+.....................----------  23281 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1005291  to    1029367
+......................----------  21641 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1007726  to    1031667
+.................................  1010000  finished      27206  clusters
+----------  21620 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1010047  to    1033859
+......................----------  21682 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1012177  to    1035870
+.....................----------  22024 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1013846  to    1037447
+.........................----------  19342 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1018105  to    1041469
+.....................----------  22420 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1019049  to    1042361
+...............................  1020000  finished      27637  clusters
+..----------  20290 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1022071  to    1045215
+.....................----------  22154 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1023061  to    1046150
+.....................----------  21655 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1024495  to    1047504
+......................----------  20876 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1026628  to    1049519
+......................----------  21006 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1028513  to    1051299
+................................  1030000  finished      28147  clusters
+.----------  20078 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1031221  to    1053856
+.......................----------  19719 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1034137  to    1056610
+......................----------  20509 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1036101  to    1058465
+......................----------  20273 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1038192  to    1060440
+................................  1040000  finished      28596  clusters
+----------  19851 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1040589  to    1062704
+.......................----------  19391 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1043313  to    1065277
+........................----------  18205 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1047072  to    1068827
+.................................  1050000  finished      28906  clusters
+----------  18557 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1050270  to    1071847
+.......................----------  18064 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1053783  to    1075165
+.........................----------  16172 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1058993  to    1080086
+.....................----------  20336 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1059750  to    1080800
+...............................  1060000  finished      29242  clusters
+----------  20190 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1060610  to    1081613
+.......................----------  18534 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1063079  to    1083945
+......................----------  18312 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1065633  to    1086357
+......................----------  18536 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1067821  to    1088423
+.................................  1070000  finished      29688  clusters
+----------  17681 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1070742  to    1091182
+......................----------  18223 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1072959  to    1093276
+......................----------  18437 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1074839  to    1095051
+.......................----------  17839 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1077212  to    1097292
+.....................----------  18930 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1078362  to    1098378
+................................  1080000  finished      30195  clusters
+----------  17790 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1080588  to    1100481
+.......................----------  16985 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1083496  to    1103227
+.......................----------  16881 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1086346  to    1105919
+......................----------  17443 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1088476  to    1107931
+................................  1090000  finished      30588  clusters
+----------  17447 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1090484  to    1109827
+......................----------  17719 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1092108  to    1111361
+......................----------  16490 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1094871  to    1113970
+.......................----------  16714 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1097256  to    1116223
+......................----------  16875 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1099348  to    1118199
+...............................  1100000  finished      31085  clusters
+----------  17554 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1100645  to    1119424
+.......................----------  16142 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1103282  to    1121914
+.....................----------  17610 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1104304  to    1122879
+.....................----------  17305 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1105574  to    1124079
+......................----------  16280 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1107799  to    1126180
+.................................  1110000  finished      31563  clusters
+.----------  14562 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1111618  to    1129787
+......................----------  16700 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1113087  to    1131174
+.......................----------  15172 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1116002  to    1133927
+....................----------  16938 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1116989  to    1134860
+.......................----------  15860 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1119000  to    1136759
+...............................  1120000  finished      32107  clusters
+----------  16682 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1120077  to    1137776
+.....................----------  15807 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1121969  to    1139563
+.....................----------  16638 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1122925  to    1140466
+......................----------  16178 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1124288  to    1141753
+....................----------  16870 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1124883  to    1142315
+....................----------  16346 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1125969  to    1143341
+.....................----------  16441 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1126900  to    1144220
+......................----------  15338 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1128882  to    1146092
+................................  1130000  finished      32909  clusters
+----------  16090 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1130002  to    1147150
+.......................----------  14112 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1133038  to    1150017
+......................----------  14610 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1135407  to    1152254
+......................----------  14719 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1137535  to    1154264
+.....................----------  15538 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1138726  to    1155389
+................................  1140000  finished      33361  clusters
+.----------  14129 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1141260  to    1157782
+......................----------  14351 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1143431  to    1159833
+......................----------  14652 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1145181  to    1161485
+.....................----------  14582 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1146903  to    1163112
+......................----------  14139 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1148973  to    1165067
+................................  1150000  finished      33855  clusters
+.----------  13401 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1151666  to    1167610
+.....................----------  15103 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1152507  to    1168404
+......................----------  14017 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1154387  to    1170180
+.....................----------  14963 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1155217  to    1170964
+.....................----------  13544 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1157420  to    1173044
+.....................----------  14228 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1158816  to    1174363
+................................  1160000  finished      34483  clusters
+----------  13814 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1160549  to    1176000
+......................----------  13939 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1162061  to    1177428
+.....................----------  14414 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1163014  to    1178328
+.....................----------  13877 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1164451  to    1179685
+......................----------  13675 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1166010  to    1181157
+......................----------  13102 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1168055  to    1183089
+....................----------  14144 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1168945  to    1183929
+................................  1170000  finished      35198  clusters
+----------  13767 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1170162  to    1185078
+.....................----------  13613 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1171465  to    1186309
+.......................----------  12277 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1174032  to    1188733
+.....................----------  13319 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1175414  to    1190039
+.......................----------  11099 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1178940  to    1193369
+................................  1180000  finished      35681  clusters
+----------  12884 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1180485  to    1194828
+......................----------  11965 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1182863  to    1197074
+......................----------  12286 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1184788  to    1198892
+......................----------  12390 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1186502  to    1200511
+......................----------  12061 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1188450  to    1202350
+................................  1190000  finished      36205  clusters
+----------  12303 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1190047  to    1203859
+.......................----------  10839 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1193020  to    1206667
+.....................----------  11929 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1194738  to    1208289
+.......................----------  11238 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1197051  to    1210474
+.....................----------  11807 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1198667  to    1212000
+................................  1200000  finished      36651  clusters
+.----------  10256 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1201744  to    1214906
+......................----------  11469 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1203437  to    1216505
+......................----------  11408 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1205097  to    1218073
+.....................----------  11233 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1206840  to    1219719
+.......................----------   9916 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1209803  to    1222517
+...............................  1210000  finished      37158  clusters
+----------  12020 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1210497  to    1223173
+......................----------  10627 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1212546  to    1225108
+.....................----------  11790 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1213318  to    1225837
+.....................----------  11785 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1214052  to    1226530
+....................----------  11923 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1214607  to    1227054
+.....................----------  11587 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1215467  to    1227867
+.....................----------  11415 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1216452  to    1228797
+......................----------  10691 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1218106  to    1230359
+....................----------  11384 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1218975  to    1231180
+................................  1220000  finished      38040  clusters
+.----------   9764 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1221416  to    1233485
+.....................----------  10922 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1222563  to    1234568
+......................----------   9959 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1224609  to    1236501
+......................----------  10262 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1226239  to    1238040
+......................----------  10036 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1228004  to    1239707
+.....................----------  10560 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1229147  to    1240787
+...............................  1230000  finished      38655  clusters
+.----------   9745 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1231042  to    1242576
+......................----------   9343 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1233233  to    1244646
+.....................----------   9974 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1234672  to    1246005
+.......................----------   8915 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1237090  to    1248288
+.....................----------   9986 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1238302  to    1249433
+................................  1240000  finished      39166  clusters
+.----------   8117 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1241316  to    1252279
+......................----------   8374 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1243905  to    1254725
+.....................----------   9165 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1245560  to    1256288
+......................----------   8945 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1247343  to    1257972
+......................----------   8784 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1249188  to    1259714
+...............................  1250000  finished      39656  clusters
+.----------   8381 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1251333  to    1261740
+.....................----------   9429 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1252311  to    1262664
+.....................----------   9520 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1253144  to    1263450
+....................----------   9729 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1253721  to    1263995
+......................----------   8083 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1255912  to    1266065
+.......................----------   7705 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1258360  to    1268377
+....................----------   9469 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1258908  to    1268894
+................................  1260000  finished      40367  clusters
+----------   8095 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1260799  to    1270680
+.....................----------   9097 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1261583  to    1271421
+......................----------   8314 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1263107  to    1272860
+.....................----------   7912 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1264948  to    1274599
+.....................----------   9038 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1265561  to    1275178
+......................----------   7650 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1267528  to    1277035
+.....................----------   8537 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1268498  to    1277951
+.....................----------   8160 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1269791  to    1279173
+...............................  1270000  finished      41114  clusters
+.----------   7764 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1271409  to    1280701
+.....................----------   8567 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1272134  to    1281385
+.....................----------   7927 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1273458  to    1282636
+.....................----------   8258 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1274378  to    1283505
+.....................----------   8116 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1275389  to    1284460
+.......................----------   6416 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1278044  to    1286967
+................................  1280000  finished      41775  clusters
+----------   6807 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1280160  to    1288965
+.....................----------   7927 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1281038  to    1289795
+....................----------   7965 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1281830  to    1290543
+......................----------   7526 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1283017  to    1291664
+.....................----------   7070 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1284594  to    1293153
+.....................----------   7846 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1285307  to    1293827
+......................----------   6236 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1287591  to    1295984
+......................----------   6825 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1289159  to    1297465
+....................----------   7642 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1289823  to    1298092
+...............................  1290000  finished      42634  clusters
+----------   7467 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1290625  to    1298849
+.....................----------   7050 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1291799  to    1299958
+......................----------   6407 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1293551  to    1301613
+.....................----------   7102 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1294511  to    1302519
+......................----------   5902 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1296617  to    1304508
+......................----------   6227 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1298281  to    1306080
+.....................----------   6363 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1299717  to    1307436
+...............................  1300000  finished      43318  clusters
+.----------   5863 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1301573  to    1309189
+.....................----------   6754 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1302435  to    1310003
+.....................----------   6215 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1303788  to    1311281
+......................----------   5513 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1305768  to    1313151
+.....................----------   6543 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1306608  to    1313944
+.....................----------   6341 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1307603  to    1314884
+.....................----------   6433 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1308451  to    1315685
+....................----------   6837 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1308848  to    1316060
+................................  1310000  finished      44203  clusters
+----------   5877 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1310183  to    1317321
+.....................----------   5464 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1311857  to    1318902
+.....................----------   6087 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1312815  to    1319806
+......................----------   4968 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1314838  to    1321717
+......................----------   5275 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1316442  to    1323232
+.....................----------   6212 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1317020  to    1323778
+.....................----------   5749 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1318029  to    1324731
+.....................----------   5470 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1319261  to    1325894
+....................----------   5995 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1319899  to    1326497
+...............................  1320000  finished      45044  clusters
+----------   6102 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1320395  to    1326965
+.....................----------   5765 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1321200  to    1327725
+....................----------   6032 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1321693  to    1328191
+.....................----------   5981 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1322210  to    1328679
+.....................----------   5149 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1323530  to    1329926
+.....................----------   5339 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1324587  to    1330924
+.....................----------   5674 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1325250  to    1331550
+.....................----------   5168 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1326382  to    1332620
+....................----------   5691 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1326929  to    1333136
+......................----------   4183 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1328953  to    1335048
+................................  1330000  finished      46076  clusters
+----------   4256 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1330792  to    1336785
+.....................----------   4918 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1331867  to    1337800
+.......................----------   3699 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1334101  to    1339910
+......................----------   3420 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1336490  to    1342166
+.....................----------   5065 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1337101  to    1342743
+.....................----------   4470 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1338273  to    1343850
+.....................----------   4449 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1339401  to    1344915
+...............................  1340000  finished      46807  clusters
+----------   4899 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1340016  to    1345496
+.....................----------   4321 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1341175  to    1346591
+....................----------   4789 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1341802  to    1347183
+.....................----------   4256 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1342927  to    1348245
+.....................----------   4474 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1343771  to    1349043
+.....................----------   4670 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1344373  to    1349611
+.....................----------   4427 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1345184  to    1350377
+....................----------   4398 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1345979  to    1351128
+......................----------   4046 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1347082  to    1352170
+......................----------   2753 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1349417  to    1354375
+...............................  1350000  finished      47723  clusters
+.----------   2883 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1351492  to    1356335
+....................----------   4413 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1351922  to    1356741
+......................----------   3672 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1353069  to    1357824
+.....................----------   3690 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1354134  to    1358830
+....................----------   4404 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1354426  to    1359106
+.....................----------   3559 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1355547  to    1360164
+......................----------   2995 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1357169  to    1361696
+....................----------   3788 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1357908  to    1362394
+.....................----------   3443 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1358951  to    1363379
+.....................----------   3481 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1359898  to    1364274
+...............................  1360000  finished      48751  clusters
+----------   3934 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1360340  to    1364691
+.....................----------   3064 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1361627  to    1365907
+.....................----------   3149 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1362758  to    1366975
+.....................----------   3669 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1363306  to    1367492
+......................----------   2205 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1365287  to    1369363
+......................----------   1480 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1367883  to    1371815
+.....................----------   2848 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1368967  to    1372839
+.....................----------   2923 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1369916  to    1373735
+...............................  1370000  finished      49511  clusters
+..----------   1087 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1372648  to    1376315
+.....................----------   1793 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1374522  to    1378085
+.....................----------   2761 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1375324  to    1378843
+.....................----------   2548 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1376295  to    1379760
+....................----------   3022 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1376738  to    1380178
+....................----------   2431 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1377747  to    1381131
+.....................----------   2369 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1378762  to    1382090
+....................----------   2480 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1379610  to    1382890
+...............................  1380000  finished      50326  clusters
+.----------   1109 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1381781  to    1384941
+......................----------   1836 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1383105  to    1386191
+.....................----------   1651 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1384540  to    1387547
+......................----------   1223 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1386324  to    1389231
+.....................----------   2096 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1387135  to    1389997
+.....................----------   1679 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1388318  to    1391115
+................................  1390000  finished      50997  clusters
+----------    659 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1390456  to    1393134
+.....................----------   1538 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1391596  to    1394211
+.....................----------   1524 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1392687  to    1395241
+......................----------   1150 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1394091  to    1396567
+....................----------   1984 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1394583  to    1397032
+....................----------   1747 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1395285  to    1397695
+....................----------   1882 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1395813  to    1398193
+......................----------    957 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1397236  to    1399537
+....................----------    720 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1398817  to    1401030
+.....................----------   1596 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1399434  to    1401613
+...............................  1400000  finished      51948  clusters
+.----------    541 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1401072  to    1403160
+.....................----------    862 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1402298  to    1404318
+....................----------   1143 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1403175  to    1405146
+.....................----------    341 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1404805  to    1406686
+.....................----------   1206 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1405480  to    1407323
+.....................----------   1018 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1406305  to    1408102
+....................----------   1377 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1406725  to    1408499
+.....................----------    789 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1407710  to    1409429
+.....................----------   1154 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1408275  to    1409963
+.....................----------    839 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1409124  to    1410765
+...............................  1410000  finished      52997  clusters
+----------    739 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1410026  to    1411617
+....................----------   1083 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1410534  to    1412096
+.....................----------    912 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1411184  to    1412710
+...................----------   1247 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1411463  to    1412974
+.....................----------    943 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1412031  to    1413510
+....................----------   1160 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1412350  to    1413812
+.....................---------- new table with       85 representatives
+# comparing sequences from    1413812  to    1415192
+......................----------     62 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1415130  to    1416437
+.....................----------    312 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1416125  to    1417377
+....................----------    442 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1416935  to    1418142
+.....................----------    812 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1417330  to    1418515
+....................----------    112 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1418403  to    1419528
+....................----------    124 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1419404  to    1420474
+....................----------    615 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1419859  to    1420903
+...............................  1420000  finished      54327  clusters
+----------    561 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1420342  to    1421360
+....................----------    512 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1420848  to    1421837
+.....................----------    412 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1421425  to    1422382
+....................----------    106 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1422276  to    1423186
+....................---------- new table with       76 representatives
+# comparing sequences from    1423186  to    1424046
+....................----------     32 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1424014  to    1424828
+...................---------- new table with       41 representatives
+# comparing sequences from    1424828  to    1425596
+....................---------- new table with       56 representatives
+# comparing sequences from    1425596  to    1426322
+.....................----------    181 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1426141  to    1426836
+....................----------    457 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1426379  to    1427061
+....................----------    223 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1426838  to    1427495
+.....................----------    194 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1427301  to    1427932
+...................----------     38 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1427894  to    1428492
+.....................---------- new table with       90 representatives
+# comparing sequences from    1428492  to    1429057
+...................----------    135 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1428922  to    1429463
+.....................----------      5 remaining sequences to the next cycle
+---------- new table with      100 representatives
+# comparing sequences from    1429458  to    1429969
+...................---------- new table with       49 representatives
+# comparing sequences from    1429969  to    1430452
+...............................  1430000  finished      55807  clusters
+---------- new table with       29 representatives
+# comparing sequences from    1430452  to    1430908
+....................---------- new table with       26 representatives
+# comparing sequences from    1430908  to    1431339
+....................---------- new table with       69 representatives
+# comparing sequences from    1431339  to    1431746
+....................---------- new table with       21 representatives
+# comparing sequences from    1431746  to    1432130
+....................---------- new table with       40 representatives
+# comparing sequences from    1432130  to    1432493
+...................---------- new table with       24 representatives
+# comparing sequences from    1432493  to    1432836
+...................---------- new table with       84 representatives
+# comparing sequences from    1432836  to    1433159
+....................---------- new table with       91 representatives
+# comparing sequences from    1433159  to    1433465
+...................---------- new table with       69 representatives
+# comparing sequences from    1433465  to    1433754
+...................---------- new table with       29 representatives
+# comparing sequences from    1433754  to    1434026
+.....................---------- new table with       11 representatives
+# comparing sequences from    1434026  to    1434283
+....................---------- new table with        4 representatives
+# comparing sequences from    1434283  to    1434526
+...................---------- new table with       17 representatives
+# comparing sequences from    1434526  to    1434756
+...................---------- new table with       14 representatives
+# comparing sequences from    1434756  to    1434973
+....................---------- new table with       17 representatives
+# comparing sequences from    1434973  to    1435178
+...................---------- new table with        6 representatives
+# comparing sequences from    1435178  to    1435371
+....................---------- new table with       68 representatives
+# comparing sequences from    1435371  to    1435554
+..................---------- new table with       27 representatives
+# comparing sequences from    1435554  to    1435726
+....................---------- new table with       48 representatives
+# comparing sequences from    1435726  to    1435889
+..................---------- new table with       12 representatives
+# comparing sequences from    1435889  to    1436043
+....................---------- new table with       13 representatives
+# comparing sequences from    1436043  to    1436188
+..................---------- new table with       18 representatives
+# comparing sequences from    1436188  to    1436325
+....................---------- new table with       39 representatives
+# comparing sequences from    1436325  to    1436455
+..................---------- new table with       18 representatives
+# comparing sequences from    1436455  to    1436577
+..................---------- new table with       38 representatives
+# comparing sequences from    1436577  to    1436693
+...................---------- new table with       26 representatives
+# comparing sequences from    1436693  to    1436802
+..................99.9%---------- new table with       18 representatives
+# comparing sequences from    1436802  to    1436905
+..................100.0%---------- new table with        6 representatives
+# comparing sequences from    1436905  to    1437002
+.....................---------- new table with        7 representatives
+# comparing sequences from    1437002  to    1437094
+..................---------- new table with        1 representatives
+# comparing sequences from    1437094  to    1437181
+..................---------- new table with        4 representatives
+# comparing sequences from    1437181  to    1437263
+................---------- new table with        2 representatives
+# comparing sequences from    1437263  to    1437341
+....................---------- new table with        0 representatives
+# comparing sequences from    1437341  to    1437414
+---------- new table with       12 representatives
+# comparing sequences from    1437414  to    1437483
+.................---------- new table with        3 representatives
+# comparing sequences from    1437483  to    1437548
+................99.9%---------- new table with        6 representatives
+# comparing sequences from    1437548  to    1437610
+................---------- new table with        5 representatives
+# comparing sequences from    1437610  to    1437668
+...................---------- new table with        2 representatives
+# comparing sequences from    1437668  to    1438667
+.....................---------- new table with      100 representatives
+
+  1438667  finished      56831  clusters
+
+Approximated maximum memory consumption: 1141M
+writing new database
+writing clustering information
+program completed !
+
+Total CPU time 1110.10
+  0%|          | 0/114 [00:00<?, ?it/s]  3%|▎         | 3/114 [00:00<00:04, 24.69it/s]  5%|▌         | 6/114 [00:00<00:11,  9.46it/s]  7%|▋         | 8/114 [00:00<00:13,  7.77it/s]  9%|▉         | 10/114 [00:01<00:15,  6.73it/s] 10%|▉         | 11/114 [00:03<00:50,  2.03it/s] 13%|█▎        | 15/114 [00:03<00:25,  3.89it/s] 15%|█▍        | 17/114 [00:03<00:23,  4.20it/s] 18%|█▊        | 20/114 [00:03<00:16,  5.85it/s] 20%|██        | 23/114 [00:04<00:11,  8.08it/s] 24%|██▎       | 27/114 [00:04<00:07, 11.29it/s] 27%|██▋       | 31/114 [00:04<00:05, 15.05it/s] 30%|██▉       | 34/114 [00:04<00:04, 17.14it/s] 35%|███▌      | 40/114 [00:04<00:05, 13.12it/s] 42%|████▏     | 48/114 [00:05<00:03, 21.06it/s] 46%|████▌     | 52/114 [00:05<00:03, 20.38it/s] 54%|█████▍    | 62/114 [00:05<00:01, 30.53it/s] 60%|█████▉    | 68/114 [00:05<00:01, 34.09it/s] 89%|████████▊ | 101/114 [00:05<00:00, 89.65it/s]100%|██████████| 114/114 [00:05<00:00, 19.86it/s]
+invalid gene! file - id:  ERR1801389.gff  -  KEOAHLGH_00003
+invalid gene! file - id:  ERR1801392.gff  -  EHNKKKIP_00001
+invalid gene! file - id:  ERR1801393.gff  -  DNMNCPMH_00001
+invalid gene! file - id:  ERR1801399.gff  -  JKOLKFNJ_00006
+running cmd: cd-hit -T 16 -i /network/rit/lab/andamlab/teddy/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/combined_protein_CDS.fasta -o /network/rit/lab/andamlab/teddy/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/combined_protein_cdhit_out.txt -c 0.98 -s 0.98 -aL 0.0 -AL 99999999 -aS 0.0 -AS 99999999 -M 0 -d 999 -g 1 -n 2
+generating initial network...
+Processing paralogs...
+collapse mistranslations...
+  0%|          | 0/56946 [00:00<?, ?it/s]  1%|▏         | 776/56946 [00:00<00:07, 7721.46it/s]  3%|▎         | 1549/56946 [00:00<00:08, 6158.35it/s]  4%|▍         | 2185/56946 [00:00<00:09, 5668.16it/s]  5%|▍         | 2763/56946 [00:00<00:11, 4721.76it/s]  6%|▌         | 3255/56946 [00:00<00:11, 4521.66it/s]  7%|▋         | 3718/56946 [00:00<00:12, 4295.44it/s]  7%|▋         | 4153/56946 [00:00<00:12, 4094.92it/s]  8%|▊         | 4565/56946 [00:01<00:13, 3937.72it/s]  9%|▉         | 5060/56946 [00:01<00:12, 4208.71it/s] 10%|▉         | 5486/56946 [00:01<00:13, 3956.87it/s] 10%|█         | 5963/56946 [00:01<00:12, 4165.95it/s] 11%|█         | 6397/56946 [00:01<00:12, 4204.44it/s] 12%|█▏        | 6855/56946 [00:01<00:11, 4308.92it/s] 13%|█▎        | 7331/56946 [00:01<00:11, 4422.79it/s] 14%|█▍        | 7872/56946 [00:01<00:10, 4707.03it/s] 15%|█▍        | 8346/56946 [00:01<00:10, 4711.35it/s] 16%|█▌        | 8938/56946 [00:01<00:09, 5055.02it/s] 17%|█▋        | 9577/56946 [00:02<00:08, 5427.31it/s] 18%|█▊        | 10122/56946 [00:02<00:08, 5394.71it/s] 19%|█▊        | 10663/56946 [00:02<00:09, 4865.88it/s] 20%|█▉        | 11362/56946 [00:02<00:08, 5435.28it/s] 21%|██        | 11931/56946 [00:02<00:08, 5503.66it/s] 22%|██▏       | 12773/56946 [00:02<00:06, 6332.72it/s] 24%|██▍       | 13564/56946 [00:02<00:06, 6789.06it/s] 25%|██▌       | 14517/56946 [00:02<00:05, 7575.49it/s] 27%|██▋       | 15282/56946 [00:02<00:05, 7512.11it/s] 28%|██▊       | 16039/56946 [00:02<00:05, 7511.69it/s] 30%|██▉       | 16950/56946 [00:03<00:05, 7971.08it/s] 31%|███       | 17751/56946 [00:03<00:05, 7789.30it/s] 33%|███▎      | 18533/56946 [00:03<00:05, 7310.24it/s] 34%|███▍      | 19275/56946 [00:03<00:05, 7327.32it/s] 36%|███▌      | 20245/56946 [00:03<00:04, 7992.24it/s] 37%|███▋      | 21218/56946 [00:03<00:04, 8490.57it/s] 39%|███▉      | 22083/56946 [00:03<00:04, 8470.95it/s] 41%|████      | 23315/56946 [00:03<00:03, 9551.26it/s] 43%|████▎     | 24289/56946 [00:03<00:03, 9602.98it/s] 45%|████▍     | 25625/56946 [00:04<00:02, 10705.50it/s] 47%|████▋     | 26951/56946 [00:04<00:02, 11456.54it/s] 49%|████▉     | 28137/56946 [00:04<00:02, 11509.10it/s] 51%|█████▏    | 29291/56946 [00:04<00:02, 10799.07it/s] 54%|█████▎    | 30498/56946 [00:04<00:02, 11154.04it/s] 56%|█████▌    | 31855/56946 [00:04<00:02, 11849.54it/s] 58%|█████▊    | 33049/56946 [00:04<00:02, 11376.26it/s] 60%|██████    | 34197/56946 [00:04<00:02, 10818.54it/s] 63%|██████▎   | 35686/56946 [00:04<00:01, 11951.14it/s] 65%|██████▌   | 37067/56946 [00:04<00:01, 12445.44it/s] 67%|██████▋   | 38325/56946 [00:05<00:01, 12461.31it/s] 70%|██████▉   | 39581/56946 [00:05<00:01, 11631.84it/s] 72%|███████▏  | 40761/56946 [00:05<00:01, 11491.64it/s] 75%|███████▍  | 42528/56946 [00:05<00:01, 13231.13it/s] 78%|███████▊  | 44614/56946 [00:05<00:00, 15403.40it/s] 81%|████████▏ | 46407/56946 [00:05<00:00, 16120.65it/s] 85%|████████▍ | 48132/56946 [00:05<00:00, 16451.55it/s] 87%|████████▋ | 49791/56946 [00:05<00:00, 15313.29it/s] 90%|█████████ | 51347/56946 [00:05<00:00, 14651.49it/s] 93%|█████████▎| 52845/56946 [00:06<00:00, 14723.63it/s] 97%|█████████▋| 55221/56946 [00:06<00:00, 17282.30it/s]100%|██████████| 56946/56946 [00:06<00:00, 9027.81it/s] 
+  0%|          | 0/3982 [00:00<?, ?it/s]  2%|▏         | 62/3982 [00:00<00:06, 613.49it/s]  3%|▎         | 128/3982 [00:00<00:06, 639.18it/s]  5%|▌         | 212/3982 [00:00<00:05, 728.76it/s]  8%|▊         | 299/3982 [00:00<00:04, 776.54it/s] 10%|▉         | 396/3982 [00:00<00:04, 836.41it/s] 12%|█▏        | 480/3982 [00:00<00:04, 819.87it/s] 14%|█▍        | 562/3982 [00:00<00:04, 747.19it/s] 16%|█▋        | 648/3982 [00:00<00:04, 774.76it/s] 19%|█▊        | 743/3982 [00:00<00:03, 823.76it/s] 21%|██        | 829/3982 [00:01<00:03, 831.88it/s] 23%|██▎       | 913/3982 [00:01<00:03, 812.90it/s] 25%|██▍       | 995/3982 [00:01<00:03, 810.75it/s] 28%|██▊       | 1101/3982 [00:01<00:03, 879.92it/s] 30%|██▉       | 1190/3982 [00:01<00:03, 836.97it/s] 32%|███▏      | 1275/3982 [00:01<00:03, 826.93it/s] 34%|███▍      | 1360/3982 [00:01<00:03, 832.25it/s] 36%|███▋      | 1450/3982 [00:01<00:02, 851.59it/s] 39%|███▉      | 1552/3982 [00:01<00:02, 899.57it/s] 41%|████▏     | 1643/3982 [00:01<00:02, 896.75it/s] 45%|████▍     | 1775/3982 [00:02<00:02, 1021.45it/s] 47%|████▋     | 1878/3982 [00:02<00:02, 1011.65it/s] 50%|█████     | 1994/3982 [00:02<00:01, 1041.34it/s] 53%|█████▎    | 2118/3982 [00:02<00:01, 1091.46it/s] 56%|█████▌    | 2229/3982 [00:02<00:01, 1095.10it/s] 59%|█████▊    | 2339/3982 [00:02<00:01, 1086.85it/s] 62%|██████▏   | 2476/3982 [00:02<00:01, 1166.88it/s] 65%|██████▌   | 2608/3982 [00:02<00:01, 1211.31it/s] 69%|██████▊   | 2730/3982 [00:02<00:01, 1211.31it/s] 72%|███████▏  | 2853/3982 [00:03<00:00, 1215.47it/s] 75%|███████▌  | 2993/3982 [00:03<00:00, 1263.75it/s] 78%|███████▊  | 3125/3982 [00:03<00:00, 1280.38it/s] 82%|████████▏ | 3267/3982 [00:03<00:00, 1317.57it/s] 87%|████████▋ | 3456/3982 [00:03<00:00, 1480.29it/s] 91%|█████████▏| 3636/3982 [00:03<00:00, 1571.32it/s] 96%|█████████▌| 3804/3982 [00:03<00:00, 1598.00it/s]100%|██████████| 3982/3982 [00:03<00:00, 1075.41it/s]
+  0%|          | 0/2419 [00:00<?, ?it/s]  4%|▍         | 106/2419 [00:00<00:02, 1058.70it/s]  9%|▉         | 212/2419 [00:00<00:02, 1011.15it/s] 15%|█▍        | 351/2419 [00:00<00:01, 1177.76it/s] 20%|█▉        | 478/2419 [00:00<00:01, 1204.85it/s] 25%|██▌       | 610/2419 [00:00<00:01, 1243.70it/s] 30%|███       | 735/2419 [00:00<00:01, 1219.06it/s] 36%|███▌      | 862/2419 [00:00<00:01, 1226.67it/s] 42%|████▏     | 1014/2419 [00:00<00:01, 1316.03it/s] 50%|████▉     | 1207/2419 [00:00<00:00, 1501.48it/s] 56%|█████▌    | 1360/2419 [00:01<00:00, 1507.21it/s] 63%|██████▎   | 1518/2419 [00:01<00:00, 1527.28it/s] 69%|██████▉   | 1671/2419 [00:01<00:00, 1514.42it/s] 75%|███████▌  | 1826/2419 [00:01<00:00, 1524.04it/s] 82%|████████▏ | 1982/2419 [00:01<00:00, 1529.12it/s] 88%|████████▊ | 2135/2419 [00:01<00:00, 1504.31it/s] 95%|█████████▌| 2308/2419 [00:01<00:00, 1570.81it/s]100%|██████████| 2419/2419 [00:01<00:00, 1422.55it/s]
+  0%|          | 0/898 [00:00<?, ?it/s] 15%|█▌        | 138/898 [00:00<00:00, 1378.05it/s] 33%|███▎      | 294/898 [00:00<00:00, 1481.63it/s] 49%|████▉     | 443/898 [00:00<00:00, 1474.44it/s] 66%|██████▌   | 591/898 [00:00<00:00, 1441.70it/s] 85%|████████▍ | 761/898 [00:00<00:00, 1530.62it/s]100%|██████████| 898/898 [00:00<00:00, 1499.38it/s]
+  0%|          | 0/260 [00:00<?, ?it/s] 52%|█████▏    | 135/260 [00:00<00:00, 1347.91it/s]100%|██████████| 260/260 [00:00<00:00, 1244.80it/s]
+  0%|          | 0/73 [00:00<?, ?it/s]100%|██████████| 73/73 [00:00<00:00, 1087.90it/s]
+  0%|          | 0/25 [00:00<?, ?it/s]100%|██████████| 25/25 [00:00<00:00, 955.02it/s]
+  0%|          | 0/9 [00:00<?, ?it/s]100%|██████████| 9/9 [00:00<00:00, 1080.26it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 1676.38it/s]
+  0%|          | 0/28572 [00:00<?, ?it/s]  4%|▍         | 1125/28572 [00:00<00:02, 11214.69it/s]  8%|▊         | 2247/28572 [00:00<00:02, 10854.88it/s] 12%|█▏        | 3370/28572 [00:00<00:02, 11009.74it/s] 16%|█▌        | 4472/28572 [00:00<00:02, 10484.13it/s] 19%|█▉        | 5524/28572 [00:00<00:02, 10059.55it/s] 24%|██▎       | 6762/28572 [00:00<00:02, 10707.71it/s] 28%|██▊       | 7984/28572 [00:00<00:01, 11171.19it/s] 32%|███▏      | 9107/28572 [00:00<00:01, 11175.47it/s] 36%|███▋      | 10388/28572 [00:00<00:01, 11652.20it/s] 40%|████      | 11557/28572 [00:01<00:01, 11572.34it/s] 46%|████▌     | 13091/28572 [00:01<00:01, 12685.18it/s] 50%|█████     | 14363/28572 [00:01<00:01, 12314.54it/s] 57%|█████▋    | 16173/28572 [00:01<00:00, 13982.40it/s] 62%|██████▏   | 17764/28572 [00:01<00:00, 14551.28it/s] 67%|██████▋   | 19226/28572 [00:01<00:00, 12873.32it/s] 72%|███████▏  | 20552/28572 [00:01<00:00, 12261.32it/s] 77%|███████▋  | 22064/28572 [00:01<00:00, 13003.26it/s] 82%|████████▏ | 23436/28572 [00:01<00:00, 13197.56it/s] 87%|████████▋ | 24778/28572 [00:02<00:00, 5391.83it/s]  90%|█████████ | 25783/28572 [00:03<00:00, 3774.12it/s] 93%|█████████▎| 26543/28572 [00:03<00:00, 3163.07it/s] 95%|█████████▍| 27133/28572 [00:03<00:00, 2846.59it/s] 97%|█████████▋| 27605/28572 [00:04<00:00, 2524.36it/s] 98%|█████████▊| 27985/28572 [00:04<00:00, 2319.17it/s] 99%|█████████▉| 28301/28572 [00:04<00:00, 2106.73it/s]100%|█████████▉| 28565/28572 [00:04<00:00, 1915.63it/s]100%|██████████| 28572/28572 [00:04<00:00, 6085.82it/s]
+  0%|          | 0/563 [00:00<?, ?it/s] 13%|█▎        | 74/563 [00:00<00:00, 730.20it/s] 29%|██▉       | 163/563 [00:00<00:00, 813.46it/s] 45%|████▌     | 255/563 [00:00<00:00, 851.76it/s] 61%|██████▏   | 346/563 [00:00<00:00, 872.82it/s] 81%|████████▏ | 458/563 [00:00<00:00, 957.85it/s] 98%|█████████▊| 554/563 [00:00<00:00, 866.37it/s]100%|██████████| 563/563 [00:00<00:00, 867.37it/s]
+  0%|          | 0/78 [00:00<?, ?it/s]100%|██████████| 78/78 [00:00<00:00, 872.93it/s]
+  0%|          | 0/14 [00:00<?, ?it/s]100%|██████████| 14/14 [00:00<00:00, 670.02it/s]
+  0%|          | 0/8 [00:00<?, ?it/s]100%|██████████| 8/8 [00:00<00:00, 922.94it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 671.41it/s]
+  0%|          | 0/27601 [00:00<?, ?it/s]  3%|▎         | 820/27601 [00:00<00:03, 8047.15it/s]  6%|▌         | 1625/27601 [00:00<00:03, 7416.62it/s]  9%|▉         | 2483/27601 [00:00<00:03, 7922.01it/s] 12%|█▏        | 3308/27601 [00:00<00:03, 8007.40it/s] 15%|█▍        | 4112/27601 [00:00<00:03, 6767.80it/s] 17%|█▋        | 4816/27601 [00:00<00:03, 6207.39it/s] 20%|█▉        | 5459/27601 [00:00<00:03, 6001.52it/s] 22%|██▏       | 6151/27601 [00:00<00:03, 6250.69it/s] 25%|██▌       | 6908/27601 [00:01<00:03, 6619.67it/s] 27%|██▋       | 7583/27601 [00:01<00:03, 6318.21it/s] 30%|██▉       | 8226/27601 [00:01<00:03, 6148.94it/s] 32%|███▏      | 8872/27601 [00:01<00:03, 6217.09it/s] 34%|███▍      | 9500/27601 [00:01<00:02, 6105.61it/s] 37%|███▋      | 10262/27601 [00:01<00:02, 6510.72it/s] 40%|███▉      | 10918/27601 [00:01<00:02, 6350.93it/s] 43%|████▎     | 11746/27601 [00:01<00:02, 6872.82it/s] 46%|████▌     | 12663/27601 [00:01<00:01, 7518.25it/s] 49%|████▊     | 13421/27601 [00:01<00:02, 7005.24it/s] 52%|█████▏    | 14282/27601 [00:02<00:01, 7440.31it/s] 55%|█████▌    | 15272/27601 [00:02<00:01, 8085.69it/s] 58%|█████▊    | 16090/27601 [00:02<00:01, 7075.23it/s] 62%|██████▏   | 16988/27601 [00:02<00:01, 7558.76it/s] 64%|██████▍   | 17770/27601 [00:02<00:01, 6709.18it/s] 67%|██████▋   | 18474/27601 [00:02<00:01, 5817.14it/s] 69%|██████▉   | 19094/27601 [00:03<00:02, 3234.09it/s] 72%|███████▏  | 19962/27601 [00:03<00:01, 4085.33it/s] 74%|███████▍  | 20554/27601 [00:03<00:01, 4276.99it/s] 80%|████████  | 22109/27601 [00:03<00:00, 6550.47it/s] 83%|████████▎ | 22970/27601 [00:04<00:01, 2466.51it/s] 86%|████████▌ | 23601/27601 [00:05<00:02, 1955.13it/s] 87%|████████▋ | 24077/27601 [00:06<00:03, 1095.37it/s] 88%|████████▊ | 24422/27601 [00:06<00:03, 1037.71it/s] 89%|████████▉ | 24688/27601 [00:06<00:02, 1012.67it/s] 90%|█████████ | 24901/27601 [00:07<00:02, 985.27it/s]  91%|█████████ | 25076/27601 [00:07<00:02, 956.87it/s] 91%|█████████▏| 25223/27601 [00:07<00:02, 953.28it/s] 92%|█████████▏| 25354/27601 [00:07<00:02, 971.59it/s] 92%|█████████▏| 25478/27601 [00:07<00:02, 961.09it/s] 93%|█████████▎| 25593/27601 [00:07<00:02, 961.74it/s] 93%|█████████▎| 25708/27601 [00:08<00:01, 996.06it/s] 94%|█████████▎| 25819/27601 [00:08<00:01, 956.03it/s] 94%|█████████▍| 25922/27601 [00:08<00:01, 926.66it/s] 94%|█████████▍| 26020/27601 [00:08<00:01, 882.84it/s] 95%|█████████▍| 26112/27601 [00:08<00:01, 803.82it/s] 95%|█████████▍| 26195/27601 [00:08<00:01, 804.45it/s] 95%|█████████▌| 26278/27601 [00:08<00:01, 782.49it/s] 95%|█████████▌| 26358/27601 [00:08<00:01, 764.17it/s] 96%|█████████▌| 26435/27601 [00:09<00:01, 726.87it/s] 96%|█████████▌| 26509/27601 [00:09<00:01, 684.16it/s] 96%|█████████▋| 26578/27601 [00:09<00:01, 602.85it/s] 97%|█████████▋| 26644/27601 [00:09<00:01, 600.07it/s] 97%|█████████▋| 26719/27601 [00:09<00:01, 637.28it/s] 97%|█████████▋| 26785/27601 [00:09<00:01, 635.39it/s] 97%|█████████▋| 26850/27601 [00:09<00:01, 579.20it/s] 97%|█████████▋| 26910/27601 [00:09<00:01, 569.07it/s] 98%|█████████▊| 26968/27601 [00:09<00:01, 568.89it/s] 98%|█████████▊| 27026/27601 [00:10<00:01, 505.94it/s] 98%|█████████▊| 27079/27601 [00:10<00:01, 466.69it/s] 98%|█████████▊| 27128/27601 [00:10<00:01, 472.32it/s] 98%|█████████▊| 27177/27601 [00:10<00:00, 456.36it/s] 99%|█████████▊| 27224/27601 [00:10<00:00, 445.91it/s] 99%|█████████▉| 27282/27601 [00:10<00:00, 481.85it/s] 99%|█████████▉| 27331/27601 [00:10<00:00, 444.43it/s] 99%|█████████▉| 27377/27601 [00:10<00:00, 446.63it/s] 99%|█████████▉| 27423/27601 [00:11<00:00, 446.80it/s]100%|█████████▉| 27469/27601 [00:11<00:00, 406.65it/s]100%|█████████▉| 27515/27601 [00:11<00:00, 415.46it/s]100%|█████████▉| 27576/27601 [00:11<00:00, 457.25it/s]100%|██████████| 27601/27601 [00:11<00:00, 2416.84it/s]
+  0%|          | 0/140 [00:00<?, ?it/s] 35%|███▌      | 49/140 [00:00<00:00, 485.80it/s] 70%|███████   | 98/140 [00:00<00:00, 456.24it/s]100%|██████████| 140/140 [00:00<00:00, 453.39it/s]
+  0%|          | 0/5 [00:00<?, ?it/s]100%|██████████| 5/5 [00:00<00:00, 520.88it/s]
+  0%|          | 0/27424 [00:00<?, ?it/s]  4%|▍         | 1175/27424 [00:00<00:02, 11642.56it/s]  9%|▉         | 2446/27424 [00:00<00:02, 12229.92it/s] 14%|█▍        | 3818/27424 [00:00<00:01, 12897.73it/s] 19%|█▊        | 5109/27424 [00:00<00:01, 11412.15it/s] 24%|██▍       | 6618/27424 [00:00<00:01, 12607.04it/s] 29%|██▉       | 7903/27424 [00:00<00:01, 12520.21it/s] 34%|███▎      | 9214/27424 [00:00<00:01, 12691.61it/s] 38%|███▊      | 10506/27424 [00:00<00:01, 12749.65it/s] 45%|████▍     | 12327/27424 [00:00<00:01, 14405.40it/s] 50%|█████     | 13777/27424 [00:01<00:00, 14082.35it/s] 58%|█████▊    | 15864/27424 [00:01<00:00, 16082.64it/s] 65%|██████▍   | 17738/27424 [00:01<00:00, 16800.20it/s] 71%|███████   | 19455/27424 [00:01<00:00, 16897.50it/s] 80%|████████  | 21954/27424 [00:01<00:00, 19256.49it/s] 87%|████████▋ | 23886/27424 [00:02<00:00, 5915.49it/s]  92%|█████████▏| 25304/27424 [00:02<00:00, 4351.39it/s] 96%|█████████▌| 26366/27424 [00:03<00:00, 3569.76it/s] 99%|█████████▉| 27172/27424 [00:03<00:00, 3085.42it/s]100%|██████████| 27424/27424 [00:03<00:00, 6917.91it/s]
+  0%|          | 0/2077 [00:00<?, ?it/s]  5%|▌         | 110/2077 [00:00<00:01, 1089.71it/s] 11%|█         | 219/2077 [00:00<00:01, 958.26it/s]  15%|█▌        | 316/2077 [00:00<00:01, 946.40it/s] 20%|██        | 425/2077 [00:00<00:01, 992.47it/s] 26%|██▌       | 542/2077 [00:00<00:01, 1053.83it/s] 33%|███▎      | 687/2077 [00:00<00:01, 1182.52it/s] 41%|████      | 852/2077 [00:00<00:00, 1331.43it/s] 47%|████▋     | 986/2077 [00:00<00:00, 1327.64it/s] 54%|█████▍    | 1120/2077 [00:00<00:00, 1305.02it/s] 63%|██████▎   | 1304/2077 [00:01<00:00, 1449.89it/s] 70%|██████▉   | 1450/2077 [00:01<00:00, 1442.47it/s] 77%|███████▋  | 1595/2077 [00:01<00:00, 1416.36it/s] 85%|████████▍ | 1756/2077 [00:01<00:00, 1468.39it/s] 92%|█████████▏| 1904/2077 [00:01<00:00, 1439.12it/s] 99%|█████████▊| 2049/2077 [00:01<00:00, 1398.13it/s]100%|██████████| 2077/2077 [00:01<00:00, 1290.95it/s]
+  0%|          | 0/813 [00:00<?, ?it/s] 15%|█▍        | 121/813 [00:00<00:00, 1204.52it/s] 30%|██▉       | 242/813 [00:00<00:00, 1163.94it/s] 44%|████▍     | 359/813 [00:00<00:00, 1109.55it/s] 58%|█████▊    | 471/813 [00:00<00:00, 1043.89it/s] 71%|███████   | 576/813 [00:00<00:00, 952.68it/s]  83%|████████▎ | 674/813 [00:00<00:00, 938.56it/s] 95%|█████████▍| 769/813 [00:00<00:00, 915.20it/s]100%|██████████| 813/813 [00:00<00:00, 979.20it/s]
+  0%|          | 0/332 [00:00<?, ?it/s] 25%|██▌       | 83/332 [00:00<00:00, 822.48it/s] 50%|█████     | 166/332 [00:00<00:00, 816.75it/s] 75%|███████▍  | 248/332 [00:00<00:00, 646.49it/s]100%|██████████| 332/332 [00:00<00:00, 726.28it/s]
+  0%|          | 0/160 [00:00<?, ?it/s] 43%|████▎     | 69/160 [00:00<00:00, 640.88it/s] 84%|████████▍ | 134/160 [00:00<00:00, 501.84it/s]100%|██████████| 160/160 [00:00<00:00, 531.18it/s]
+  0%|          | 0/83 [00:00<?, ?it/s] 63%|██████▎   | 52/83 [00:00<00:00, 484.49it/s]100%|██████████| 83/83 [00:00<00:00, 470.56it/s]
+  0%|          | 0/48 [00:00<?, ?it/s]100%|██████████| 48/48 [00:00<00:00, 528.21it/s]
+  0%|          | 0/26 [00:00<?, ?it/s]100%|██████████| 26/26 [00:00<00:00, 455.58it/s]
+  0%|          | 0/10 [00:00<?, ?it/s]100%|██████████| 10/10 [00:00<00:00, 331.73it/s]
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 438.41it/s]
+  0%|          | 0/18762 [00:00<?, ?it/s]  4%|▍         | 782/18762 [00:00<00:02, 7630.53it/s]  8%|▊         | 1580/18762 [00:00<00:02, 7808.86it/s] 13%|█▎        | 2486/18762 [00:00<00:01, 8239.93it/s] 18%|█▊        | 3310/18762 [00:00<00:02, 7669.71it/s] 22%|██▏       | 4082/18762 [00:00<00:01, 7679.76it/s] 26%|██▌       | 4853/18762 [00:00<00:01, 7590.44it/s] 30%|███       | 5651/18762 [00:00<00:01, 7701.40it/s] 34%|███▍      | 6423/18762 [00:00<00:02, 5694.32it/s] 38%|███▊      | 7065/18762 [00:01<00:02, 4786.93it/s] 41%|████      | 7611/18762 [00:01<00:02, 4350.76it/s] 43%|████▎     | 8093/18762 [00:01<00:02, 4379.48it/s] 46%|████▌     | 8565/18762 [00:01<00:02, 4384.03it/s] 48%|████▊     | 9027/18762 [00:01<00:02, 4140.67it/s] 50%|█████     | 9458/18762 [00:01<00:02, 3956.03it/s] 53%|█████▎    | 9864/18762 [00:01<00:02, 3563.16it/s] 55%|█████▍    | 10231/18762 [00:02<00:02, 2903.65it/s] 56%|█████▌    | 10544/18762 [00:02<00:02, 2923.69it/s] 58%|█████▊    | 10853/18762 [00:02<00:02, 2689.33it/s] 60%|██████    | 11322/18762 [00:02<00:02, 3155.20it/s] 63%|██████▎   | 11734/18762 [00:02<00:02, 3374.94it/s] 64%|██████▍   | 12090/18762 [00:02<00:02, 3021.77it/s] 68%|██████▊   | 12669/18762 [00:02<00:01, 3709.36it/s] 70%|██████▉   | 13067/18762 [00:02<00:01, 3610.97it/s] 72%|███████▏  | 13447/18762 [00:03<00:01, 3210.40it/s] 73%|███████▎  | 13788/18762 [00:03<00:01, 2790.67it/s] 75%|███████▌  | 14088/18762 [00:03<00:01, 2440.93it/s] 76%|███████▋  | 14351/18762 [00:03<00:01, 2278.05it/s] 78%|███████▊  | 14591/18762 [00:03<00:02, 2044.41it/s] 79%|███████▉  | 14805/18762 [00:03<00:02, 1777.39it/s] 80%|███████▉  | 14992/18762 [00:04<00:02, 1713.42it/s] 81%|████████  | 15169/18762 [00:04<00:02, 1451.22it/s] 82%|████████▏ | 15322/18762 [00:04<00:02, 1238.13it/s] 82%|████████▏ | 15454/18762 [00:04<00:02, 1150.91it/s] 83%|████████▎ | 15574/18762 [00:04<00:02, 1092.58it/s] 94%|█████████▍| 17673/18762 [00:04<00:00, 5450.81it/s] 99%|█████████▉| 18668/18762 [00:04<00:00, 6518.81it/s]100%|██████████| 18762/18762 [00:04<00:00, 3856.61it/s]
+  0%|          | 0/270 [00:00<?, ?it/s] 10%|▉         | 26/270 [00:00<00:00, 257.48it/s] 20%|█▉        | 53/270 [00:00<00:00, 244.92it/s] 29%|██▉       | 78/270 [00:00<00:00, 231.87it/s] 38%|███▊      | 102/270 [00:00<00:00, 193.88it/s] 46%|████▋     | 125/270 [00:00<00:00, 204.42it/s] 55%|█████▍    | 148/270 [00:00<00:00, 211.81it/s] 66%|██████▌   | 178/270 [00:00<00:00, 235.18it/s] 75%|███████▍  | 202/270 [00:00<00:00, 210.48it/s] 86%|████████▌ | 232/270 [00:01<00:00, 233.10it/s] 97%|█████████▋| 261/270 [00:01<00:00, 246.05it/s]100%|██████████| 270/270 [00:01<00:00, 229.56it/s]
+  0%|          | 0/41 [00:00<?, ?it/s] 66%|██████▌   | 27/41 [00:00<00:00, 246.95it/s]100%|██████████| 41/41 [00:00<00:00, 260.70it/s]
+  0%|          | 0/11 [00:00<?, ?it/s]100%|██████████| 11/11 [00:00<00:00, 550.62it/s]
+  0%|          | 0/4 [00:00<?, ?it/s]100%|██████████| 4/4 [00:00<00:00, 231.03it/s]
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 413.53it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 178.37it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 170.49it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 119.48it/s]
+  0%|          | 0/18312 [00:00<?, ?it/s]  1%|          | 117/18312 [00:00<00:31, 569.81it/s]  3%|▎         | 493/18312 [00:00<00:09, 1834.90it/s]  4%|▍         | 784/18312 [00:00<00:07, 2206.51it/s]  7%|▋         | 1212/18312 [00:00<00:05, 2895.35it/s]  9%|▉         | 1609/18312 [00:00<00:05, 3180.70it/s] 11%|█         | 1950/18312 [00:00<00:05, 3067.46it/s] 13%|█▎        | 2437/18312 [00:00<00:04, 3583.60it/s] 15%|█▌        | 2810/18312 [00:01<00:05, 3058.97it/s] 17%|█▋        | 3138/18312 [00:01<00:05, 2743.72it/s] 19%|█▉        | 3442/18312 [00:01<00:05, 2747.11it/s] 20%|██        | 3730/18312 [00:01<00:05, 2746.84it/s] 22%|██▏       | 4014/18312 [00:01<00:05, 2696.41it/s] 23%|██▎       | 4290/18312 [00:01<00:05, 2603.33it/s] 25%|██▍       | 4555/18312 [00:01<00:05, 2552.63it/s] 26%|██▋       | 4813/18312 [00:01<00:05, 2515.38it/s] 28%|██▊       | 5154/18312 [00:01<00:04, 2730.79it/s] 30%|███       | 5524/18312 [00:02<00:04, 2919.30it/s] 32%|███▏      | 5818/18312 [00:02<00:04, 2790.49it/s] 33%|███▎      | 6099/18312 [00:02<00:05, 2064.65it/s] 35%|███▍      | 6333/18312 [00:02<00:06, 1835.96it/s] 36%|███▌      | 6538/18312 [00:02<00:07, 1666.48it/s] 37%|███▋      | 6720/18312 [00:02<00:07, 1532.86it/s] 38%|███▊      | 6884/18312 [00:02<00:07, 1484.17it/s] 38%|███▊      | 7039/18312 [00:03<00:08, 1405.14it/s] 39%|███▉      | 7203/18312 [00:03<00:07, 1456.66it/s] 40%|████      | 7353/18312 [00:03<00:07, 1443.82it/s] 41%|████      | 7501/18312 [00:03<00:08, 1317.28it/s] 42%|████▏     | 7705/18312 [00:03<00:07, 1498.53it/s] 44%|████▎     | 8007/18312 [00:03<00:05, 1859.10it/s] 45%|████▍     | 8200/18312 [00:03<00:05, 1709.63it/s] 46%|████▌     | 8377/18312 [00:03<00:05, 1712.02it/s] 47%|████▋     | 8553/18312 [00:04<00:06, 1489.73it/s] 48%|████▊     | 8710/18312 [00:04<00:06, 1435.63it/s] 49%|████▊     | 8907/18312 [00:04<00:06, 1554.91it/s] 50%|████▉     | 9068/18312 [00:04<00:06, 1409.53it/s] 50%|█████     | 9215/18312 [00:04<00:07, 1264.87it/s] 51%|█████     | 9347/18312 [00:04<00:07, 1274.42it/s] 52%|█████▏    | 9479/18312 [00:04<00:07, 1124.19it/s] 52%|█████▏    | 9597/18312 [00:04<00:08, 1077.90it/s] 53%|█████▎    | 9708/18312 [00:05<00:10, 817.82it/s]  54%|█████▎    | 9828/18312 [00:05<00:09, 886.15it/s] 55%|█████▍    | 10012/18312 [00:05<00:07, 1077.50it/s] 55%|█████▌    | 10131/18312 [00:05<00:08, 999.86it/s]  56%|█████▌    | 10239/18312 [00:05<00:08, 1003.36it/s] 57%|█████▋    | 10413/18312 [00:05<00:06, 1176.01it/s] 58%|█████▊    | 10538/18312 [00:05<00:07, 1032.80it/s] 58%|█████▊    | 10652/18312 [00:06<00:07, 1032.19it/s] 59%|█████▉    | 10798/18312 [00:06<00:06, 1131.79it/s] 60%|█████▉    | 10917/18312 [00:06<00:07, 1035.80it/s] 60%|██████    | 11026/18312 [00:06<00:07, 917.45it/s]  61%|██████    | 11123/18312 [00:06<00:08, 861.60it/s] 61%|██████▏   | 11259/18312 [00:06<00:07, 946.73it/s] 62%|██████▏   | 11357/18312 [00:06<00:09, 749.29it/s] 62%|██████▏   | 11440/18312 [00:06<00:09, 759.64it/s] 63%|██████▎   | 11522/18312 [00:07<00:09, 727.65it/s] 63%|██████▎   | 11599/18312 [00:07<00:10, 650.52it/s] 64%|██████▍   | 11704/18312 [00:07<00:09, 732.15it/s] 65%|██████▌   | 11936/18312 [00:07<00:05, 1117.97it/s] 66%|██████▌   | 12059/18312 [00:07<00:05, 1120.11it/s] 67%|██████▋   | 12226/18312 [00:07<00:04, 1259.94it/s] 67%|██████▋   | 12359/18312 [00:07<00:04, 1268.92it/s] 68%|██████▊   | 12491/18312 [00:07<00:05, 1030.55it/s] 69%|██████▉   | 12621/18312 [00:08<00:05, 1093.25it/s] 70%|██████▉   | 12739/18312 [00:08<00:06, 882.90it/s]  70%|███████   | 12902/18312 [00:08<00:05, 1033.26it/s] 71%|███████   | 13018/18312 [00:08<00:05, 995.32it/s]  72%|███████▏  | 13126/18312 [00:08<00:06, 823.40it/s] 72%|███████▏  | 13219/18312 [00:08<00:07, 698.31it/s] 73%|███████▎  | 13328/18312 [00:09<00:06, 768.34it/s] 73%|███████▎  | 13447/18312 [00:09<00:05, 859.23it/s] 74%|███████▍  | 13542/18312 [00:09<00:06, 732.10it/s] 74%|███████▍  | 13636/18312 [00:09<00:06, 772.03it/s] 75%|███████▍  | 13721/18312 [00:09<00:06, 761.70it/s] 75%|███████▌  | 13803/18312 [00:09<00:06, 688.67it/s] 76%|███████▌  | 13889/18312 [00:09<00:06, 729.60it/s] 76%|███████▋  | 13966/18312 [00:09<00:07, 613.53it/s] 77%|███████▋  | 14063/18312 [00:10<00:06, 693.54it/s] 77%|███████▋  | 14139/18312 [00:10<00:06, 629.26it/s] 78%|███████▊  | 14207/18312 [00:10<00:07, 519.26it/s] 78%|███████▊  | 14311/18312 [00:10<00:06, 622.23it/s] 79%|███████▊  | 14383/18312 [00:10<00:06, 634.72it/s] 79%|███████▉  | 14452/18312 [00:10<00:06, 579.58it/s] 79%|███████▉  | 14515/18312 [00:10<00:07, 522.36it/s] 80%|███████▉  | 14571/18312 [00:11<00:08, 427.45it/s] 80%|███████▉  | 14619/18312 [00:11<00:09, 402.34it/s] 80%|████████  | 14699/18312 [00:11<00:07, 486.48it/s] 81%|████████  | 14767/18312 [00:11<00:06, 531.11it/s] 81%|████████  | 14825/18312 [00:11<00:07, 462.60it/s] 81%|████████▏ | 14886/18312 [00:11<00:07, 480.60it/s] 82%|████████▏ | 14938/18312 [00:11<00:07, 429.37it/s] 82%|████████▏ | 14984/18312 [00:12<00:08, 385.27it/s] 82%|████████▏ | 15025/18312 [00:12<00:09, 342.56it/s] 82%|████████▏ | 15078/18312 [00:12<00:08, 374.88it/s] 83%|████████▎ | 15118/18312 [00:12<00:09, 352.32it/s] 83%|████████▎ | 15155/18312 [00:12<00:10, 303.09it/s] 83%|████████▎ | 15250/18312 [00:12<00:07, 427.89it/s] 84%|████████▎ | 15296/18312 [00:12<00:07, 408.38it/s] 84%|████████▍ | 15339/18312 [00:13<00:07, 384.18it/s] 84%|████████▍ | 15379/18312 [00:13<00:08, 334.63it/s] 84%|████████▍ | 15415/18312 [00:13<00:08, 324.96it/s] 88%|████████▊ | 16089/18312 [00:13<00:01, 1827.76it/s] 91%|█████████ | 16619/18312 [00:13<00:00, 2673.46it/s] 92%|█████████▏| 16923/18312 [00:13<00:00, 2726.59it/s] 94%|█████████▍| 17249/18312 [00:13<00:00, 2786.80it/s] 96%|█████████▌| 17547/18312 [00:13<00:00, 2269.18it/s] 97%|█████████▋| 17802/18312 [00:14<00:00, 1924.28it/s] 98%|█████████▊| 18022/18312 [00:14<00:00, 1982.16it/s]100%|█████████▉| 18241/18312 [00:14<00:00, 1921.06it/s]100%|██████████| 18312/18312 [00:14<00:00, 1273.35it/s]
+  0%|          | 0/125 [00:00<?, ?it/s] 10%|▉         | 12/125 [00:00<00:00, 116.49it/s] 24%|██▍       | 30/125 [00:00<00:00, 150.10it/s] 36%|███▌      | 45/125 [00:00<00:00, 133.15it/s] 47%|████▋     | 59/125 [00:00<00:00, 129.92it/s] 62%|██████▏   | 77/125 [00:00<00:00, 144.27it/s] 74%|███████▎  | 92/125 [00:00<00:00, 145.17it/s] 86%|████████▌ | 107/125 [00:01<00:00, 82.93it/s]100%|██████████| 125/125 [00:01<00:00, 115.95it/s]
+  0%|          | 0/28 [00:00<?, ?it/s] 79%|███████▊  | 22/28 [00:00<00:00, 217.98it/s]100%|██████████| 28/28 [00:00<00:00, 237.51it/s]
+  0%|          | 0/7 [00:00<?, ?it/s]100%|██████████| 7/7 [00:00<00:00, 1415.56it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 1388.84it/s]
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 1610.41it/s]
+0it [00:00, ?it/s]32it [00:08,  3.63it/s]48it [00:15,  3.09it/s]64it [00:23,  2.46it/s]80it [00:31,  2.28it/s]96it [00:41,  2.05it/s]112it [00:53,  1.71it/s]128it [01:04,  1.65it/s]144it [01:14,  1.62it/s]160it [01:23,  1.65it/s]176it [01:31,  1.75it/s]192it [01:40,  1.75it/s]208it [01:49,  1.78it/s]224it [01:57,  1.85it/s]240it [02:06,  1.81it/s]256it [02:15,  1.79it/s]272it [02:25,  1.74it/s]288it [02:35,  1.72it/s]304it [02:44,  1.73it/s]320it [02:53,  1.76it/s]336it [03:02,  1.73it/s]352it [03:12,  1.71it/s]368it [03:21,  1.73it/s]384it [03:29,  1.76it/s]400it [03:38,  1.79it/s]416it [03:47,  1.80it/s]432it [03:55,  1.84it/s]448it [04:04,  1.81it/s]464it [04:16,  1.63it/s]480it [04:26,  1.63it/s]496it [04:34,  1.72it/s]512it [04:44,  1.69it/s]528it [04:50,  1.91it/s]544it [04:57,  2.00it/s]560it [05:05,  1.98it/s]576it [05:15,  1.89it/s]588it [05:15,  1.87it/s]
+  0%|          | 0/5366 [00:00<?, ?it/s] 18%|█▊        | 966/5366 [00:00<00:00, 9608.69it/s] 36%|███▌      | 1927/5366 [00:00<00:00, 6784.95it/s] 49%|████▉     | 2654/5366 [00:00<00:00, 5138.88it/s] 60%|█████▉    | 3219/5366 [00:00<00:00, 4434.97it/s] 69%|██████▉   | 3694/5366 [00:00<00:00, 4065.86it/s] 77%|███████▋  | 4117/5366 [00:01<00:00, 3146.51it/s] 83%|████████▎ | 4460/5366 [00:01<00:00, 2421.50it/s] 88%|████████▊ | 4736/5366 [00:01<00:00, 1764.80it/s] 92%|█████████▏| 4952/5366 [00:01<00:00, 1455.92it/s] 96%|█████████▌| 5126/5366 [00:01<00:00, 1439.24it/s]100%|██████████| 5366/5366 [00:01<00:00, 2693.72it/s]
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 489.91it/s]
+  0%|          | 0/5363 [00:00<?, ?it/s] 10%|▉         | 531/5363 [00:00<00:00, 5222.28it/s] 20%|█▉        | 1054/5363 [00:00<00:01, 3958.24it/s] 27%|██▋       | 1468/5363 [00:00<00:01, 2842.47it/s] 33%|███▎      | 1784/5363 [00:00<00:01, 2842.29it/s] 39%|███▉      | 2088/5363 [00:00<00:01, 2886.26it/s] 45%|████▍     | 2391/5363 [00:00<00:01, 2158.42it/s] 49%|████▉     | 2637/5363 [00:01<00:01, 1728.06it/s] 53%|█████▎    | 2838/5363 [00:01<00:01, 1430.63it/s] 57%|█████▋    | 3043/5363 [00:01<00:01, 1545.75it/s] 60%|██████    | 3221/5363 [00:01<00:01, 1478.26it/s] 64%|██████▍   | 3420/5363 [00:01<00:01, 1575.56it/s] 67%|██████▋   | 3592/5363 [00:01<00:01, 1432.28it/s] 70%|██████▉   | 3746/5363 [00:02<00:01, 1198.59it/s] 72%|███████▏  | 3878/5363 [00:02<00:01, 1129.66it/s] 75%|███████▍  | 3999/5363 [00:02<00:01, 949.83it/s]  77%|███████▋  | 4103/5363 [00:02<00:01, 946.47it/s] 78%|███████▊  | 4203/5363 [00:02<00:01, 866.00it/s] 80%|████████  | 4294/5363 [00:02<00:01, 679.36it/s] 81%|████████▏ | 4370/5363 [00:03<00:01, 636.43it/s] 83%|████████▎ | 4439/5363 [00:03<00:01, 562.93it/s] 84%|████████▍ | 4499/5363 [00:03<00:01, 521.48it/s] 85%|████████▍ | 4554/5363 [00:03<00:01, 490.85it/s] 86%|████████▌ | 4605/5363 [00:03<00:01, 408.15it/s] 87%|████████▋ | 4648/5363 [00:03<00:01, 394.97it/s] 87%|████████▋ | 4689/5363 [00:03<00:01, 378.61it/s] 88%|████████▊ | 4728/5363 [00:04<00:01, 353.42it/s] 89%|████████▉ | 4764/5363 [00:04<00:01, 342.60it/s] 89%|████████▉ | 4799/5363 [00:04<00:01, 320.94it/s] 90%|█████████ | 4832/5363 [00:04<00:01, 280.40it/s] 91%|█████████ | 4861/5363 [00:04<00:02, 247.66it/s] 91%|█████████ | 4888/5363 [00:04<00:01, 244.75it/s] 92%|█████████▏| 4913/5363 [00:04<00:01, 244.78it/s] 92%|█████████▏| 4938/5363 [00:04<00:01, 228.93it/s] 93%|█████████▎| 4962/5363 [00:05<00:01, 227.23it/s] 93%|█████████▎| 5005/5363 [00:05<00:01, 278.44it/s] 94%|█████████▍| 5054/5363 [00:05<00:00, 334.81it/s] 95%|█████████▌| 5105/5363 [00:05<00:00, 383.18it/s] 98%|█████████▊| 5229/5363 [00:05<00:00, 625.20it/s]100%|██████████| 5363/5363 [00:05<00:00, 977.58it/s]
+  0%|          | 0/5363 [00:00<?, ?it/s]  4%|▍         | 231/5363 [00:00<00:02, 2261.04it/s]  9%|▊         | 458/5363 [00:00<00:02, 1898.01it/s] 12%|█▏        | 652/5363 [00:00<00:03, 1285.13it/s] 15%|█▍        | 798/5363 [00:00<00:03, 1196.83it/s] 17%|█▋        | 927/5363 [00:00<00:03, 1109.71it/s] 20%|██        | 1074/5363 [00:00<00:03, 1193.26it/s] 22%|██▏       | 1200/5363 [00:01<00:04, 923.20it/s]  24%|██▍       | 1304/5363 [00:01<00:05, 798.71it/s] 26%|██▌       | 1393/5363 [00:01<00:05, 717.21it/s] 28%|██▊       | 1486/5363 [00:01<00:05, 761.41it/s] 29%|██▉       | 1569/5363 [00:01<00:05, 697.14it/s] 31%|███▏      | 1684/5363 [00:01<00:04, 790.41it/s] 33%|███▎      | 1769/5363 [00:01<00:04, 779.26it/s] 35%|███▍      | 1862/5363 [00:01<00:04, 808.09it/s] 36%|███▋      | 1946/5363 [00:02<00:04, 757.08it/s] 38%|███▊      | 2057/5363 [00:02<00:03, 841.97it/s] 40%|███▉      | 2145/5363 [00:02<00:04, 703.36it/s] 41%|████▏     | 2221/5363 [00:02<00:05, 605.43it/s] 43%|████▎     | 2287/5363 [00:02<00:05, 574.53it/s] 44%|████▍     | 2348/5363 [00:02<00:05, 505.36it/s] 45%|████▍     | 2402/5363 [00:03<00:06, 472.76it/s] 46%|████▌     | 2452/5363 [00:03<00:06, 420.32it/s] 47%|████▋     | 2504/5363 [00:03<00:06, 439.09it/s] 48%|████▊     | 2565/5363 [00:03<00:05, 472.71it/s] 49%|████▉     | 2629/5363 [00:03<00:05, 512.56it/s] 50%|█████     | 2686/5363 [00:03<00:05, 522.83it/s] 51%|█████▏    | 2757/5363 [00:03<00:04, 572.84it/s] 53%|█████▎    | 2816/5363 [00:03<00:05, 435.42it/s] 53%|█████▎    | 2866/5363 [00:04<00:05, 418.63it/s] 55%|█████▍    | 2924/5363 [00:04<00:05, 456.31it/s] 56%|█████▌    | 2990/5363 [00:04<00:04, 505.85it/s] 57%|█████▋    | 3066/5363 [00:04<00:04, 572.17it/s] 58%|█████▊    | 3129/5363 [00:04<00:03, 579.56it/s] 59%|█████▉    | 3190/5363 [00:04<00:04, 522.80it/s] 61%|██████    | 3245/5363 [00:04<00:04, 496.80it/s] 62%|██████▏   | 3309/5363 [00:04<00:03, 517.45it/s] 63%|██████▎   | 3363/5363 [00:04<00:04, 498.90it/s] 64%|██████▍   | 3425/5363 [00:05<00:03, 529.96it/s] 65%|██████▍   | 3480/5363 [00:05<00:04, 456.86it/s] 66%|██████▌   | 3529/5363 [00:05<00:04, 422.62it/s] 67%|██████▋   | 3599/5363 [00:05<00:03, 484.59it/s] 68%|██████▊   | 3650/5363 [00:05<00:04, 402.82it/s] 69%|██████▉   | 3694/5363 [00:05<00:04, 344.67it/s] 70%|██████▉   | 3732/5363 [00:05<00:05, 310.41it/s] 70%|███████   | 3766/5363 [00:06<00:06, 263.82it/s] 71%|███████   | 3817/5363 [00:06<00:04, 310.11it/s] 72%|███████▏  | 3874/5363 [00:06<00:04, 362.38it/s] 73%|███████▎  | 3915/5363 [00:06<00:04, 333.84it/s] 74%|███████▎  | 3952/5363 [00:06<00:04, 326.96it/s] 74%|███████▍  | 3987/5363 [00:06<00:04, 319.74it/s] 75%|███████▍  | 4021/5363 [00:06<00:04, 319.39it/s] 76%|███████▌  | 4061/5363 [00:06<00:03, 332.18it/s] 76%|███████▋  | 4102/5363 [00:07<00:03, 351.29it/s] 77%|███████▋  | 4138/5363 [00:07<00:03, 324.72it/s] 78%|███████▊  | 4172/5363 [00:07<00:03, 308.56it/s] 78%|███████▊  | 4204/5363 [00:07<00:03, 293.94it/s] 79%|███████▉  | 4234/5363 [00:07<00:04, 263.54it/s] 79%|███████▉  | 4262/5363 [00:07<00:04, 242.08it/s] 80%|███████▉  | 4287/5363 [00:07<00:04, 243.27it/s] 80%|████████  | 4312/5363 [00:08<00:05, 201.68it/s] 81%|████████  | 4334/5363 [00:08<00:05, 197.62it/s] 82%|████████▏ | 4372/5363 [00:08<00:04, 239.72it/s] 82%|████████▏ | 4406/5363 [00:08<00:03, 252.64it/s] 83%|████████▎ | 4433/5363 [00:08<00:04, 212.93it/s] 83%|████████▎ | 4456/5363 [00:08<00:04, 186.26it/s] 83%|████████▎ | 4477/5363 [00:08<00:05, 168.85it/s] 84%|████████▍ | 4499/5363 [00:09<00:04, 173.35it/s] 84%|████████▍ | 4518/5363 [00:09<00:05, 166.92it/s] 85%|████████▍ | 4543/5363 [00:09<00:04, 185.67it/s] 85%|████████▌ | 4569/5363 [00:09<00:04, 196.27it/s] 86%|████████▌ | 4590/5363 [00:09<00:04, 173.56it/s] 86%|████████▌ | 4609/5363 [00:09<00:04, 155.53it/s] 86%|████████▋ | 4634/5363 [00:09<00:04, 176.94it/s] 87%|████████▋ | 4653/5363 [00:09<00:04, 163.40it/s] 87%|████████▋ | 4671/5363 [00:10<00:04, 164.65it/s] 87%|████████▋ | 4689/5363 [00:10<00:04, 144.92it/s] 88%|████████▊ | 4705/5363 [00:10<00:04, 135.20it/s] 88%|████████▊ | 4722/5363 [00:10<00:04, 141.56it/s] 88%|████████▊ | 4737/5363 [00:10<00:04, 128.70it/s] 89%|████████▊ | 4751/5363 [00:10<00:05, 118.46it/s] 89%|████████▉ | 4769/5363 [00:10<00:04, 132.01it/s] 89%|████████▉ | 4783/5363 [00:10<00:04, 128.04it/s] 89%|████████▉ | 4797/5363 [00:11<00:04, 129.93it/s] 90%|████████▉ | 4811/5363 [00:11<00:04, 127.57it/s] 90%|████████▉ | 4824/5363 [00:11<00:04, 123.61it/s] 90%|█████████ | 4837/5363 [00:11<00:04, 109.91it/s] 90%|█████████ | 4853/5363 [00:11<00:04, 117.45it/s] 91%|█████████ | 4866/5363 [00:11<00:04, 105.24it/s] 91%|█████████ | 4880/5363 [00:11<00:04, 113.52it/s] 91%|█████████ | 4892/5363 [00:11<00:04, 103.22it/s] 91%|█████████▏| 4905/5363 [00:12<00:04, 109.84it/s] 92%|█████████▏| 4917/5363 [00:12<00:04, 109.51it/s] 92%|█████████▏| 4929/5363 [00:12<00:04, 97.58it/s]  92%|█████████▏| 4945/5363 [00:12<00:03, 112.83it/s] 92%|█████████▏| 4957/5363 [00:12<00:03, 102.77it/s] 93%|█████████▎| 4976/5363 [00:12<00:03, 124.57it/s] 93%|█████████▎| 4990/5363 [00:12<00:02, 125.49it/s] 93%|█████████▎| 5005/5363 [00:12<00:02, 129.42it/s] 94%|█████████▎| 5024/5363 [00:12<00:02, 145.94it/s] 94%|█████████▍| 5042/5363 [00:13<00:02, 154.92it/s] 94%|█████████▍| 5058/5363 [00:13<00:02, 138.91it/s] 95%|█████████▍| 5073/5363 [00:13<00:02, 135.74it/s] 95%|█████████▍| 5087/5363 [00:13<00:02, 119.55it/s] 95%|█████████▌| 5111/5363 [00:13<00:01, 149.16it/s] 96%|█████████▌| 5144/5363 [00:13<00:01, 190.01it/s] 98%|█████████▊| 5276/5363 [00:13<00:00, 486.42it/s]100%|██████████| 5363/5363 [00:13<00:00, 386.41it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 323.76it/s]
+  0%|          | 0/1682 [00:00<?, ?it/s]  2%|▏         | 32/1682 [00:40<34:26,  1.25s/it]  3%|▎         | 48/1682 [01:20<48:45,  1.79s/it]  4%|▍         | 64/1682 [02:00<55:14,  2.05s/it]  5%|▍         | 80/1682 [02:40<58:55,  2.21s/it]  6%|▌         | 96/1682 [03:21<1:01:11,  2.32s/it]  7%|▋         | 112/1682 [04:01<1:02:13,  2.38s/it]  8%|▊         | 128/1682 [04:41<1:02:39,  2.42s/it]  9%|▊         | 144/1682 [05:21<1:02:50,  2.45s/it] 10%|▉         | 160/1682 [06:02<1:02:43,  2.47s/it] 10%|█         | 176/1682 [06:42<1:02:24,  2.49s/it] 11%|█▏        | 192/1682 [07:22<1:02:01,  2.50s/it] 12%|█▏        | 208/1682 [08:03<1:01:34,  2.51s/it] 13%|█▎        | 224/1682 [08:43<1:01:03,  2.51s/it] 14%|█▍        | 240/1682 [09:24<1:00:29,  2.52s/it] 15%|█▌        | 256/1682 [10:04<1:00:00,  2.52s/it] 16%|█▌        | 272/1682 [10:45<59:17,  2.52s/it]   17%|█▋        | 288/1682 [11:26<58:54,  2.54s/it] 18%|█▊        | 304/1682 [12:06<58:16,  2.54s/it] 19%|█▉        | 320/1682 [12:47<57:27,  2.53s/it] 20%|█▉        | 336/1682 [13:27<56:48,  2.53s/it] 21%|██        | 352/1682 [14:08<56:07,  2.53s/it] 22%|██▏       | 368/1682 [14:48<55:27,  2.53s/it] 23%|██▎       | 384/1682 [15:29<54:52,  2.54s/it] 24%|██▍       | 400/1682 [16:09<54:09,  2.53s/it] 25%|██▍       | 416/1682 [16:49<53:18,  2.53s/it] 26%|██▌       | 432/1682 [17:29<52:18,  2.51s/it] 27%|██▋       | 448/1682 [18:09<51:21,  2.50s/it] 28%|██▊       | 464/1682 [18:48<50:25,  2.48s/it] 29%|██▊       | 480/1682 [19:28<49:49,  2.49s/it] 29%|██▉       | 496/1682 [20:07<49:10,  2.49s/it] 30%|███       | 512/1682 [20:47<48:15,  2.48s/it] 31%|███▏      | 528/1682 [21:27<47:54,  2.49s/it] 32%|███▏      | 544/1682 [22:08<47:45,  2.52s/it] 33%|███▎      | 560/1682 [22:50<47:42,  2.55s/it] 34%|███▍      | 576/1682 [23:31<47:00,  2.55s/it] 35%|███▌      | 592/1682 [24:12<46:10,  2.54s/it] 36%|███▌      | 608/1682 [24:52<45:17,  2.53s/it] 37%|███▋      | 624/1682 [25:33<44:46,  2.54s/it] 38%|███▊      | 640/1682 [26:13<44:03,  2.54s/it] 39%|███▉      | 656/1682 [26:53<43:06,  2.52s/it] 40%|███▉      | 672/1682 [27:32<42:10,  2.51s/it] 41%|████      | 688/1682 [28:12<41:27,  2.50s/it] 42%|████▏     | 704/1682 [28:52<40:40,  2.50s/it] 43%|████▎     | 720/1682 [29:33<40:24,  2.52s/it] 44%|████▍     | 736/1682 [30:14<39:48,  2.53s/it] 45%|████▍     | 752/1682 [30:55<39:16,  2.53s/it] 46%|████▌     | 768/1682 [31:35<38:40,  2.54s/it] 47%|████▋     | 784/1682 [32:16<37:59,  2.54s/it] 48%|████▊     | 800/1682 [32:57<37:19,  2.54s/it] 49%|████▊     | 816/1682 [33:37<36:37,  2.54s/it] 49%|████▉     | 832/1682 [34:18<35:53,  2.53s/it] 50%|█████     | 848/1682 [34:58<35:02,  2.52s/it] 51%|█████▏    | 864/1682 [35:38<34:19,  2.52s/it] 52%|█████▏    | 880/1682 [36:18<33:35,  2.51s/it] 53%|█████▎    | 896/1682 [36:59<33:09,  2.53s/it] 54%|█████▍    | 912/1682 [37:39<32:30,  2.53s/it] 55%|█████▌    | 928/1682 [38:20<31:51,  2.54s/it] 56%|█████▌    | 944/1682 [39:00<30:57,  2.52s/it] 57%|█████▋    | 960/1682 [39:40<30:22,  2.52s/it] 58%|█████▊    | 976/1682 [40:22<29:52,  2.54s/it] 59%|█████▉    | 992/1682 [41:02<29:15,  2.54s/it] 60%|█████▉    | 1008/1682 [41:43<28:33,  2.54s/it] 61%|██████    | 1024/1682 [42:23<27:44,  2.53s/it] 62%|██████▏   | 1040/1682 [43:04<27:09,  2.54s/it] 63%|██████▎   | 1056/1682 [43:45<26:28,  2.54s/it] 64%|██████▎   | 1072/1682 [44:26<25:56,  2.55s/it] 65%|██████▍   | 1088/1682 [45:06<25:04,  2.53s/it] 66%|██████▌   | 1104/1682 [45:46<24:24,  2.53s/it] 67%|██████▋   | 1120/1682 [46:26<23:35,  2.52s/it] 68%|██████▊   | 1136/1682 [47:06<22:52,  2.51s/it] 68%|██████▊   | 1152/1682 [47:46<22:06,  2.50s/it] 69%|██████▉   | 1168/1682 [48:25<21:14,  2.48s/it] 70%|███████   | 1184/1682 [49:05<20:43,  2.50s/it] 71%|███████▏  | 1200/1682 [49:45<20:04,  2.50s/it] 72%|███████▏  | 1216/1682 [50:25<19:26,  2.50s/it] 73%|███████▎  | 1232/1682 [51:05<18:47,  2.50s/it] 74%|███████▍  | 1248/1682 [51:46<18:07,  2.51s/it] 75%|███████▌  | 1264/1682 [52:27<17:38,  2.53s/it] 76%|███████▌  | 1280/1682 [53:08<16:58,  2.53s/it] 77%|███████▋  | 1296/1682 [53:48<16:19,  2.54s/it] 78%|███████▊  | 1312/1682 [54:29<15:37,  2.53s/it] 79%|███████▉  | 1328/1682 [55:09<14:55,  2.53s/it] 80%|███████▉  | 1344/1682 [55:50<14:15,  2.53s/it] 81%|████████  | 1360/1682 [56:30<13:34,  2.53s/it] 82%|████████▏ | 1376/1682 [57:10<12:52,  2.53s/it] 83%|████████▎ | 1392/1682 [57:52<12:16,  2.54s/it] 84%|████████▎ | 1408/1682 [58:32<11:36,  2.54s/it] 85%|████████▍ | 1424/1682 [59:12<10:52,  2.53s/it] 86%|████████▌ | 1440/1682 [59:53<10:12,  2.53s/it] 87%|████████▋ | 1456/1682 [1:00:34<09:35,  2.55s/it] 88%|████████▊ | 1472/1682 [1:01:16<09:00,  2.57s/it] 88%|████████▊ | 1488/1682 [1:01:57<08:17,  2.57s/it] 89%|████████▉ | 1504/1682 [1:02:39<07:37,  2.57s/it] 90%|█████████ | 1520/1682 [1:03:20<06:56,  2.57s/it] 91%|█████████▏| 1536/1682 [1:04:01<06:16,  2.58s/it] 92%|█████████▏| 1552/1682 [1:04:42<05:34,  2.57s/it] 93%|█████████▎| 1568/1682 [1:05:24<04:55,  2.59s/it] 94%|█████████▍| 1584/1682 [1:06:05<04:12,  2.58s/it] 95%|█████████▌| 1600/1682 [1:06:45<03:29,  2.56s/it] 96%|█████████▌| 1616/1682 [1:07:26<02:48,  2.55s/it] 97%|█████████▋| 1632/1682 [1:08:06<02:07,  2.55s/it] 98%|█████████▊| 1648/1682 [1:08:48<01:27,  2.56s/it] 99%|█████████▉| 1664/1682 [1:09:29<00:46,  2.57s/it]100%|█████████▉| 1680/1682 [1:10:16<00:05,  2.67s/it]100%|██████████| 1682/1682 [1:10:16<00:00,  2.51s/it]
+  0%|          | 0/1682 [00:00<?, ?it/s]  2%|▏         | 32/1682 [00:01<01:31, 18.03it/s]  3%|▎         | 48/1682 [00:05<03:11,  8.55it/s]  4%|▍         | 64/1682 [00:08<04:27,  6.04it/s]  5%|▍         | 80/1682 [00:11<04:15,  6.26it/s]  6%|▌         | 96/1682 [00:16<05:40,  4.65it/s]  7%|▋         | 112/1682 [00:21<06:30,  4.02it/s]  8%|▊         | 128/1682 [00:25<06:27,  4.01it/s]  9%|▊         | 144/1682 [00:30<06:53,  3.72it/s] 10%|▉         | 160/1682 [00:36<07:44,  3.28it/s] 10%|█         | 176/1682 [00:42<08:11,  3.07it/s] 11%|█▏        | 192/1682 [00:48<08:22,  2.97it/s] 12%|█▏        | 208/1682 [00:53<07:58,  3.08it/s] 13%|█▎        | 224/1682 [01:00<08:40,  2.80it/s] 14%|█▍        | 240/1682 [01:06<08:59,  2.67it/s] 15%|█▌        | 256/1682 [01:13<08:57,  2.65it/s] 16%|█▌        | 272/1682 [01:19<08:59,  2.61it/s] 17%|█▋        | 288/1682 [01:24<08:28,  2.74it/s] 18%|█▊        | 304/1682 [01:31<08:55,  2.57it/s] 19%|█▉        | 320/1682 [01:35<07:58,  2.84it/s] 20%|█▉        | 336/1682 [01:41<08:02,  2.79it/s] 21%|██        | 352/1682 [01:47<08:04,  2.75it/s] 22%|██▏       | 368/1682 [01:55<08:43,  2.51it/s] 23%|██▎       | 384/1682 [02:00<08:04,  2.68it/s] 24%|██▍       | 400/1682 [02:08<08:36,  2.48it/s] 25%|██▍       | 416/1682 [02:14<08:31,  2.48it/s] 26%|██▌       | 432/1682 [02:23<09:10,  2.27it/s] 27%|██▋       | 448/1682 [02:36<11:22,  1.81it/s] 28%|██▊       | 464/1682 [02:45<11:17,  1.80it/s] 29%|██▊       | 480/1682 [02:55<11:34,  1.73it/s] 29%|██▉       | 496/1682 [03:06<12:00,  1.65it/s] 30%|███       | 512/1682 [03:14<11:17,  1.73it/s] 31%|███▏      | 528/1682 [03:20<09:55,  1.94it/s] 32%|███▏      | 544/1682 [03:29<10:16,  1.85it/s] 33%|███▎      | 560/1682 [03:37<09:55,  1.88it/s] 34%|███▍      | 576/1682 [03:46<09:52,  1.87it/s] 35%|███▌      | 592/1682 [03:56<10:19,  1.76it/s] 36%|███▌      | 608/1682 [04:03<09:13,  1.94it/s] 37%|███▋      | 624/1682 [04:13<09:45,  1.81it/s] 38%|███▊      | 640/1682 [04:21<09:14,  1.88it/s] 39%|███▉      | 656/1682 [04:27<08:17,  2.06it/s] 40%|███▉      | 672/1682 [04:34<07:55,  2.13it/s] 41%|████      | 688/1682 [04:40<07:25,  2.23it/s] 42%|████▏     | 704/1682 [04:49<07:59,  2.04it/s] 43%|████▎     | 720/1682 [04:56<07:32,  2.13it/s] 44%|████▍     | 736/1682 [05:05<07:41,  2.05it/s] 45%|████▍     | 752/1682 [05:12<07:21,  2.11it/s] 46%|████▌     | 768/1682 [05:19<07:07,  2.14it/s] 47%|████▋     | 784/1682 [05:29<07:40,  1.95it/s] 48%|████▊     | 800/1682 [05:36<07:08,  2.06it/s] 49%|████▊     | 816/1682 [05:43<06:53,  2.10it/s] 49%|████▉     | 832/1682 [05:53<07:19,  1.94it/s] 50%|█████     | 848/1682 [06:01<07:03,  1.97it/s] 51%|█████▏    | 864/1682 [06:13<07:56,  1.72it/s] 52%|█████▏    | 880/1682 [06:20<07:20,  1.82it/s] 53%|█████▎    | 896/1682 [06:30<07:29,  1.75it/s] 54%|█████▍    | 912/1682 [06:38<07:03,  1.82it/s] 55%|█████▌    | 928/1682 [06:44<06:11,  2.03it/s] 56%|█████▌    | 944/1682 [06:52<06:10,  1.99it/s] 57%|█████▋    | 960/1682 [07:01<06:11,  1.94it/s] 58%|█████▊    | 976/1682 [07:11<06:22,  1.84it/s] 59%|█████▉    | 992/1682 [07:22<06:46,  1.70it/s] 60%|█████▉    | 1008/1682 [07:34<07:05,  1.58it/s] 61%|██████    | 1024/1682 [07:43<06:48,  1.61it/s] 62%|██████▏   | 1040/1682 [07:53<06:43,  1.59it/s] 63%|██████▎   | 1056/1682 [08:01<06:07,  1.70it/s] 64%|██████▎   | 1072/1682 [08:10<05:49,  1.74it/s] 65%|██████▍   | 1088/1682 [08:17<05:15,  1.88it/s] 66%|██████▌   | 1104/1682 [08:23<04:43,  2.04it/s] 67%|██████▋   | 1120/1682 [08:30<04:29,  2.09it/s] 68%|██████▊   | 1136/1682 [08:42<05:03,  1.80it/s] 68%|██████▊   | 1152/1682 [08:51<04:50,  1.82it/s] 69%|██████▉   | 1168/1682 [08:59<04:38,  1.84it/s] 70%|███████   | 1184/1682 [09:08<04:35,  1.81it/s] 71%|███████▏  | 1200/1682 [09:16<04:14,  1.89it/s] 72%|███████▏  | 1216/1682 [09:22<03:46,  2.06it/s] 73%|███████▎  | 1232/1682 [09:30<03:36,  2.08it/s] 74%|███████▍  | 1248/1682 [09:36<03:17,  2.20it/s] 75%|███████▌  | 1264/1682 [09:43<03:08,  2.22it/s] 76%|███████▌  | 1280/1682 [09:48<02:44,  2.44it/s] 77%|███████▋  | 1296/1682 [09:52<02:22,  2.70it/s] 78%|███████▊  | 1312/1682 [10:01<02:32,  2.42it/s] 79%|███████▉  | 1328/1682 [10:07<02:23,  2.47it/s] 80%|███████▉  | 1344/1682 [10:14<02:21,  2.38it/s] 81%|████████  | 1360/1682 [10:21<02:15,  2.38it/s] 82%|████████▏ | 1376/1682 [10:27<02:03,  2.48it/s] 83%|████████▎ | 1392/1682 [10:33<01:54,  2.54it/s] 84%|████████▎ | 1408/1682 [10:39<01:49,  2.49it/s] 85%|████████▍ | 1424/1682 [10:44<01:37,  2.66it/s] 86%|████████▌ | 1440/1682 [10:51<01:35,  2.54it/s] 87%|████████▋ | 1456/1682 [10:59<01:33,  2.43it/s] 88%|████████▊ | 1472/1682 [11:08<01:39,  2.12it/s] 88%|████████▊ | 1488/1682 [11:16<01:32,  2.09it/s] 89%|████████▉ | 1504/1682 [11:25<01:27,  2.05it/s] 90%|█████████ | 1520/1682 [11:33<01:20,  2.02it/s] 91%|█████████▏| 1536/1682 [11:42<01:16,  1.91it/s] 92%|█████████▏| 1552/1682 [11:49<01:04,  2.03it/s] 93%|█████████▎| 1568/1682 [11:57<00:57,  1.99it/s] 94%|█████████▍| 1584/1682 [12:02<00:42,  2.31it/s] 95%|█████████▌| 1600/1682 [12:10<00:37,  2.17it/s] 96%|█████████▌| 1616/1682 [12:15<00:27,  2.42it/s] 97%|█████████▋| 1632/1682 [12:22<00:20,  2.41it/s] 98%|█████████▊| 1648/1682 [12:31<00:15,  2.14it/s] 99%|█████████▉| 1664/1682 [12:37<00:07,  2.30it/s]100%|█████████▉| 1680/1682 [12:44<00:00,  2.29it/s]100%|██████████| 1682/1682 [12:44<00:00,  2.20it/s]
+Processing depth:  1
+Iteration:  1
+Iteration:  2
+Iteration:  3
+Iteration:  4
+Iteration:  5
+Iteration:  6
+Iteration:  7
+Iteration:  8
+Iteration:  9
+Processing depth:  2
+Iteration:  1
+Iteration:  2
+Iteration:  3
+Iteration:  4
+Iteration:  5
+Iteration:  6
+Processing depth:  3
+Iteration:  1
+Iteration:  2
+Iteration:  3
+collapse gene families...
+Processing depth:  1
+Iteration:  1
+Iteration:  2
+Iteration:  3
+Iteration:  4
+Iteration:  5
+Iteration:  6
+Iteration:  7
+Iteration:  8
+Iteration:  9
+Iteration:  10
+Processing depth:  2
+Iteration:  1
+Iteration:  2
+Iteration:  3
+Iteration:  4
+Iteration:  5
+Iteration:  6
+Iteration:  7
+Iteration:  8
+Iteration:  9
+Processing depth:  3
+Iteration:  1
+Iteration:  2
+Iteration:  3
+Iteration:  4
+Iteration:  5
+Iteration:  6
+trimming contig ends...
+refinding genes...
+Number of searches to perform:  1369903
+Searching...
+translating hits...
+removing by consensus...
+Updating output...
+Number of refound genes:  9072
+collapse gene families with refound genes...
+Processing depth:  1
+Iteration:  1
+Iteration:  2
+Processing depth:  2
+Iteration:  1
+Processing depth:  3
+Iteration:  1
+Iteration:  2
+writing output...
+generating core genome MSAs...
