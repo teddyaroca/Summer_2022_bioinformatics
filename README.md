@@ -5,7 +5,7 @@
 
 # PROJECT 2 RESOURCES
 
-This GitHub repository serves as a resource for students in the Andam Lab (group 5) during project 2 of the 2022 RNA Institute Bioinformatics Fellowship. Students can find information on the datasets available to them as well as tools for analysis and visualization here.
+This GitHub repository serves as a resource for students in the Andam Lab (group 5) during project 2 of the 2022 RNA Institute Bioinformatics Fellowship. Here, students will find information on the datasets available to them as well as tools for analysis and visualization purposes.
 
 Our intention is to make this GitHub site available indefinitely as a resource for ongoing and future projects. This repository is built on previous contributions by [Spencer Bruce](mailto:sbruce@albany.edu) and has been updated most recently by [Teddy Garcia-Aroca](mailto:tgarciaaroca@albany.edu). Please, visit previous versions of this github repository at [2021_Bioinformatics_Fellowship](https://github.com/spencer411/2021_Bioinformatics_Fellowship). If you are interested in collaborating with these repositories, please contact either one of the creators.
 
@@ -18,7 +18,6 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[datasets](#datasets)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[metadata](#metadata)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw-data](#raw-data)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RStudio](#RStudio)                      |
 |												|
 | 3. [OBJECTIVES](#objectives)                |
@@ -92,7 +91,7 @@ We will discuss these details in our regular small group meetings.
 
 ## datasets
 
-This directory cointains all the datasets needed for the second part of this workshop. Most files are too large to be submitted to github, so I have provided scripts to download all the data and reproduce all of the analyses if you wish to do so. However, please read the instructions here before you do so.
+This directory cointains all the datasets needed for the second part of this workshop. Most files are too large to be submitted to github, so I have provided scripts to download all the data and reproduce all of the analyses **if you wish to do so**. However, please read the instructions here before you try.
 
 ## manuscript
 
@@ -101,10 +100,6 @@ This folder contains the Richardson et al. (2018)[^1] manuscript and supplementa
 ## metadata
 
 This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in RStudio.
-
-## raw-data
-
-This folder contains raw genomic data that will be used in your analyses. Some of these data has been pre-processed by Teddy to make your workflow easier.
 
 ## RStudio
 

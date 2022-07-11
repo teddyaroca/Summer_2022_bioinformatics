@@ -38,20 +38,20 @@ Note: after running this line, you may see several warning messages about the de
 
 # Plotting metadata
 
-First, we will be plotting the data that are of interest to us, regarding the number such as the of strains per host. In the following example, we plot a simple boxplot for the number of strains per host in the [Richardson et al. 2018](../references/Richardson2018_multiHostPathogen.pdf) paper.
+First, we will be plotting the data that are of interest to us, regarding the number such as the of strains per host. In the following example, we plot a simple boxplot for the number of strains per host in the [Richardson et al. 2018](../manuscript/Richardson2018_multiHostPathogen.pdf) paper.
 
-## 1. Set the working directory to where the files are located. In my case (after mapping the network drive) /Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/
+## 1. Set the working directory to where the files are located. In my case (after mapping the network drive) /Volumes/bioinformaticslab/TGarciaAroca/Project2/
 
 ```{r}
-setwd("/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/")
+setwd("/Volumes/bioinformaticslab/TGarciaAroca/Project2/RStudio/")
 ```
 
 ## 2. Load the data from the folder metadata
 
-This table represents the supplementary table 1 from 
+This table represents the supplementary table 1 from the [Richardson et al. 2018](../manuscript/Richardson2018_multiHostPathogen.pdf) manuscript.
 
 ```{r}
-metadata <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/metadata/metadata.csv", sep=",", header=T)
+metadata <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/metadata/metadata.csv", sep=",", header=T)
 #head(metadata) 
 #tail(metadata)
 length(metadata$Number)
@@ -67,7 +67,7 @@ Not all the genomes were found in databases. Only 571 genomes were found and use
 To remove those datapoints for missing genomes, we will need to load the phylogenetic tree and extract the tip labels to be removed.
 
 ```{r}
-tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
+tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
 aureus_tree <- read.tree(tree_file)
 length(aureus_tree$tip.label)
 
@@ -100,6 +100,8 @@ We see that the column names are a bit confussing. For now, we will leaves as th
 
 -*Source* = host
 
+Now, lets plot and example:
+
 ```{r}
 metadata.for.plotting <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source) #extract values needed from filtered table
 ```
@@ -126,15 +128,15 @@ isolate.per.host.ggplot
 ```
 
 
-For your own data, you will need to obtain a specific sequence cluster or clonal complex as described by Richardson et a. 2018. 
+For your own data, you will need to obtain a specific sequence cluster or clonal complex (CC) as described by Richardson et a. 2018. 
 
 *An example of how to extract and plot your data from within these data sets is provided in the next few lines*
 
-# Objective 1: Building and plotting a phylogenetic tree
+# Objective 1: Plotting a phylogenetic tree
 
 At this point, you all of you should have your own phylogenetic tree from your analyses in the HPCC cluster. In this tutorial, I provide examples of how to plot and visualize your phylo-tree and append data for visualization purposes.
 
-## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in our phylogenetic trees (using the dplyr package).
+## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in our phylogenetic trees (using the dplyr package). We need to extract the hosts and clonal complexes for plotting.
 
 
 
