@@ -14,11 +14,12 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | -----------------------------------------------------|
 | 1. [INSTRUCTIONS](#instructions)                |
 |												  |
-| 2. [DATASETS](#datasets)                        |
+| 2. [DATA](#data)                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[datasets](#datasets)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[metadata](#metadata)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw-data](#raw-data)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[analyses](#analyses)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Rstudio](#Rstudio)                      |
 |												|
 | 3. [OBJECTIVES](#objectives)                |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
@@ -43,7 +44,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also clone the repository from the command line using the following:
 
-**Note: don't forget YOURNAME throughout this repository refers to the name of your folder in the /network/rit/bioinformaticslab/ folder.**
+Note: don't forget **YOURNAME** refers to the name of your folder in the /network/rit/bioinformaticslab/ folder throughout this repository.
 
 ## Make a copy of this repository
 
@@ -65,11 +66,22 @@ cd /network/rit/lab/bioinformaticslab/YOURNAME/
 git clone https://github.com/teddyaroca/Summer_2022_bioinformatics.git
 ```
 
-Now you should be able to see the folders and scripts in your folder in your mapped drive.
+4. To explore folders in the command line and run analyses:
+
+```
+cd Summer_2022_bioinformatics
+``` 
+
+At this point you should be able to see the folders and scripts in your folder in your mapped drive.
+
+5. To update any cahnges to this repository:
+
+```
+git pull
+```
 
 
-
-# 2. DATASETS
+# 2. DATA
 
 This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. This manuscript and supplementary material can be found in the "manuscript" folder. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 571 strains) to use in our initial phylogenetic analyses. Your assignment thorughout this workshop will be to **build a phylogenetic tree, then plot the number of strains per host, look at the gene presence/absence of your assigned genes (around 5), summarize and plot some of the metadata for visualization purposes, and prepare slides for the final sympossium.**
 
@@ -78,21 +90,25 @@ We will discuss these details in our regular small group meetings.
 [^1]:Richardson, E. J., Bacigalupe, R., Harrison, E. M., Weinert, L. A., Lycett, S., Vrieling, M., Robb, K., Hoskisson, P. A., Holden, M. T. G., Feil, E. J., Paterson, G. K., Tong, S. Y. C., Shittu, A., van Wamel, W., Aanensen, D. M., Parkhill, J., Peacock, S. J., Corander, J., Holmes, M., & Fitzgerald, J. R. (2018). Gene exchange drives the ecological success of a multi-host bacterial pathogen. Nature Ecology and Evolution, 2(9), 1468–1478. https://doi.org/10.1038/s41559-018-0617-0
 
 
+## datasets
+
+This directory cointains all the datasets needed for the second part of this workshop. Most files are too large to be submitted to github, so I have provided scripts to download all the data and reproduce all of the analyses if you wish to do so. However, please read the instructions here before you do so.
+
+## manuscript
+
+This folder contains the Richardson et al. (2018)[^1] manuscript and supplementary figures/tables.
+
 ## metadata
 
-This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in R Studio.
+This folder contains a single comma separated file (.csv file) containing all the metadata for each strain used in the Richardson et al. paper. This metadata will be useful to summarize data and create figures in RStudio.
 
 ## raw-data
 
 This folder contains raw genomic data that will be used in your analyses. Some of these data has been pre-processed by Teddy to make your workflow easier.
 
-## analyses
+## RStudio
 
-This folder contains examples of useful scripts for data analyses that will be covered in this part of the workshop. If you are comfortable sharing your code, feel free to create a folder within this folder, rename it with your name (or initials), and and add your scripts there.
-
-## manuscript
-
-This folder contains the Richardson et al. (2018)[^1] manuscript and supplementary figures/tables.
+This folder contains examples of useful scripts for data analyses in **RStudio** that will be covered in project 2. We will discuss this in the first and second week of our small group meetings.
 
 
 # 3. OBJECTIVES
@@ -243,15 +259,15 @@ The code above is telling Panaroo to run using 16 threads (-t 16) utilizing all 
 
 ## Tree Building
 
-Building a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree) is one of the most informative ways to display genomic data when examining groups of isolates. To build a phylogenetic tree you will need a core alignment file produced by Panaroo (above). These alignment files are huge, as they contain the entire genome sequence for each isolate examined, aligned. Phylogenetic trees are built on genetic differences among genome sequences, therefore all we need to build a phylogenetic tree is the variable sites from the alignment file. We can easily extract those sites using snp-sites. 
+A [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetic_tree) is one of the most informative ways to display genomic data when examining groups of isolates. To build a phylogenetic tree you will need a core alignment file produced by Panaroo (above). These alignment files are huge, as they contain the entire genome sequence for each isolate examined, aligned. Phylogenetic trees are built on genetic differences among genome sequences, therefore all we need to build a phylogenetic tree is the variable sites from the alignment file. We can easily extract those sites using snp-sites. 
 
-**snp-sites** SNP-sites extracts single nucleotide polymorphisms ([SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism)) from a large whole genome alignment. You can read more about snp-sites [here](https://github.com/sanger-pathogens/snp-sites#introduction).
+**snp-sites**: SNP-sites extracts single nucleotide polymorphisms ([SNPs](https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism)) from a large whole genome alignment. You can read more about snp-sites [here](https://github.com/sanger-pathogens/snp-sites#introduction).
 
 SNP-sites will create a phyllip format (.phy) file with only variable sites which can be used in the next step to build a [maximum likelihood tree](https://en.wikipedia.org/wiki/Computational_phylogenetics#Maximum_likelihood). To build a maximum likelihood tree we are going use 
 RAxML.
 
 
-**RAxML** RAxML is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short
+**RAxML**: RAxML is a program for sequential and parallel Maximum Likelihood based inference of large phylogenetic trees. It can also be used for post-analyses of sets of phylogenetic trees, analyses of alignments and, evolutionary placement of short
 reads. To read more about RAxML click [here](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true).
 
 
@@ -273,13 +289,13 @@ conda install -c bioconda snp-sites
 conda install -c bioconda raxml
 ```
 
-**Note: If you did not run the analyses mentioned above, copy the core gene alignment from Teddy's folder as follows**
+**Note: If you did not run all of the analyses mentioned above, copy the core gene alignment from Teddy's folder as follows**
 
 ```
 cp /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/
 ```
 
-Otherwise, skip the above note.
+Otherwise, you will find your own core gene alignment at ```/network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/```.
 
 
 3. Make the appropriate changes for prokka to send the files to your folder:
@@ -298,10 +314,10 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_raxml.sh
 ```
 
-
 # 5. VISUALIZATION TOOLS
 
-We will be visualizing most of our data in R.
+We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **analyses** We will discuss these examples once everyone has ran their raxml analyses.
+
 
 ## Visualizations With R 
 
@@ -313,14 +329,6 @@ At this point in the course you should be familiar with R, and more specifically
 
 [Chord Diagrams](https://www.r-graph-gallery.com/chord-diagram.html) 
 A Chord diagram allows for the visualization of flows between a set of entities. Chord diagrams can be used to show how genes are distributed across different groupings of your genomes. They can also be used to show how your genomes are interrelated based on any given factor (host, year, etc.). 
-
-
-## Combining Trees and Data
-
-
-I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **analyses**
-
-We will discuss these examples once everyone has ran their raxml analyses.
 
 
 # 6. HOW TO VIDEOS
