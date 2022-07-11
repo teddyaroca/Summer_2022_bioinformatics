@@ -19,7 +19,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[manuscript](#manuscript)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[metadata](#metadata)                      |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[raw-data](#raw-data)                      |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Rstudio](#Rstudio)                      |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[RStudio](#RStudio)                      |
 |												|
 | 3. [OBJECTIVES](#objectives)                |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[a. Build a phylogenetic tree](#phylogenetics)                      |
@@ -113,7 +113,7 @@ This folder contains examples of useful scripts for data analyses in **RStudio**
 
 # 3. OBJECTIVES
 
-Each of you will be assigned a sequence cluster to study the distribution of strains.
+Each of you will be assigned a sequence cluster to study the distribution of strains. Generally, the first task will be to build a phylogenetic tree, then we will extract the important metadata and plot the results by host species and the amount of antimicrobial resistance (AMR) genes per host.
 
 ## a. Building a phylogenetic tree 
 
