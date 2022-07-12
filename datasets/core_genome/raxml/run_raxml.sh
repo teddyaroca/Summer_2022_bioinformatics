@@ -10,7 +10,7 @@
 source ~/.bashrc
 
 # Run snp-sites to obtain a core gene alignment of the (Single Nucleotide Polymorphisms) SNPs only. This is done to reduce the computational time.
-snp-sites /network/rit/lab/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/panaroo/output/core_gene_alignment.aln -p -o ./core_gene_alignment.phy 
+snp-sites /network/rit/lab/bioinformaticslab/TGarciaAroca/project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln -p -o ./core_gene_alignment.phy 
 
 #Run raxml with 16 threads
 raxmlHPC-PTHREADS -T 16 -s ./core_gene_alignment.phy -p 12345 -m GTRGAMMA -n aureus_raxml_out
