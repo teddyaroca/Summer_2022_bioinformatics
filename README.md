@@ -128,7 +128,7 @@ Antimicrobial resistance (AMR) genes are some of the most studied genes in bacte
 To better understand what was done here, I provide a little background about how the datasets were obtained, in case you want to emulate this in your own research in the future.
 **Note: all the software mentioned below should be installed in the cluster (except for analyses in R, which will be done locally in your laptop/computer) in order to run the programs. These examples are for running in your local laptop/computer if you want**)
 
-**Note: if you want to run the analyses (**not required for this part, except for raxml analyses**), do the following:**
+**Note: if you want to run the analyses (**not required for this part, except for RAxML analyses**), do the following:**
 
 ## Downloading raw reads from SRA (fastq files) **(DONE)**
 
@@ -268,7 +268,7 @@ reads. To read more about RAxML click [here](https://academic.oup.com/bioinforma
 
 To run the RAxML analysis and build a phylogenetic tree with the **core genome alignment** from panaroo:
 
-1. Navigate to the folder containing the script for raxml 
+1. Navigate to the folder containing the script for RAxML 
 
 ```
 cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/raxml/
@@ -311,7 +311,7 @@ sbatch run_raxml.sh
 
 # 5. VISUALIZATION TOOLS
 
-We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **RStudio** We will discuss these examples once everyone has ran their raxml analyses.
+We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **RStudio** We will discuss these examples once everyone has ran their RAxML analyses.
 
 
 ## Visualizations With R 
