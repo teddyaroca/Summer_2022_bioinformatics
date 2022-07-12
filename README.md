@@ -43,7 +43,7 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also clone the repository from the command line using the following:
 
-Note: don't forget **YOURNAME** refers to the name of your folder in the /network/rit/bioinformaticslab/ folder throughout this repository.
+Note: don't forget **YOURFOLDER** refers to the name of your folder in the /network/rit/bioinformaticslab/ directory throughout this repository.
 
 ## Make a copy of this repository
 
@@ -56,7 +56,7 @@ Note: don't forget **YOURNAME** refers to the name of your folder in the /networ
 2. Navigate to your folder
 
 ```
-cd /network/rit/lab/bioinformaticslab/YOURNAME/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/
 ```
 
 3. Clone this repository with git
@@ -136,7 +136,7 @@ In order to download genomes for this workshop, we extracted the accession numbe
 
 ```
 conda install -c bioconda sra-tools
-cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raw_data/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/raw_data/
 bash download_genomes_sra.sh
 ```
 
@@ -151,7 +151,7 @@ To run this analysis, edit the script to point at your own copy of this reposito
 1. Go to the directory where the script is:
 
 ```
-cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/assemblies/spades/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/assemblies/spades/
 ```
 
 2. Install spades with conda
@@ -166,7 +166,7 @@ conda install -c bioconda spades
 nano run_spades.sh
 ```
 
-Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURFOLDER/Summer_2022_bioinformatics
 
 Hit ```control + x``` on your keyboard and save the changes.
 
@@ -188,7 +188,7 @@ To run the prokka analysis:
 1. Navigate to the folder containing the script for prokka 
 
 ```
-cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/prokka/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/prokka/
 ```
 
 2. Install Prokka using conda:
@@ -203,7 +203,7 @@ conda install -c conda-forge -c bioconda -c defaults prokka
 nano run_prokka.sh
 ```
 
-Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURFOLDER/Summer_2022_bioinformatics
 
 Hit ```control + x``` on your keyboard and save the changes.
 
@@ -223,7 +223,7 @@ To run the panaroo analysis:
 1. Navigate to the folder containing the script for panaroo
 
 ```
-cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/panaroo/
 ```
 
 2. Install Panaroo using conda:
@@ -238,7 +238,7 @@ conda install -c bioconda panaroo
 nano run_panaroo.sh
 ```
 
-Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURFOLDER/Summer_2022_bioinformatics
 
 Hit ```control + x``` on your keyboard and save the changes.
 
@@ -266,12 +266,12 @@ RAxML.
 reads. To read more about RAxML click [here](https://academic.oup.com/bioinformatics/article/30/9/1312/238053?login=true).
 
 
-To run the RAxML analysis and build a phylogenetic tree with the core genome from panaroo:
+To run the RAxML analysis and build a phylogenetic tree with the **core genome alignment** from panaroo:
 
 1. Navigate to the folder containing the script for raxml 
 
 ```
-cd /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/raxml/
+cd /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/raxml/
 ```
 
 2. Install SNP-sites and RAxML using conda:
@@ -287,10 +287,10 @@ conda install -c bioconda raxml
 **Note: If you did not run all of the analyses mentioned above, copy the core gene alignment from Teddy's folder as follows**
 
 ```
-cp /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln /network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/
+cp /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln /network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/
 ```
 
-Otherwise, you will find your own core gene alignment at ```/network/rit/lab/bioinformaticslab/YOURNAME/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/```.
+Otherwise, you will find your own core gene alignment at ```/network/rit/lab/bioinformaticslab/YOURFOLDER/Summer_2022_bioinformatics/datasets/core_genome/panaroo/output/```.
 
 
 3. Make the appropriate changes for prokka to send the files to your folder:
@@ -299,7 +299,7 @@ Otherwise, you will find your own core gene alignment at ```/network/rit/lab/bio
 nano run_raxml.sh
 ```
 
-Replace all the instances in which you see 'TGarciaAroca/project2' with YOURNAME/Summer_2022_bioinformatics
+Replace all the instances in which you see 'TGarciaAroca/project2' with YOURFOLDER/Summer_2022_bioinformatics
 
 Hit ```control + x``` on your keyboard and save the changes.
 
@@ -311,7 +311,7 @@ sbatch run_raxml.sh
 
 # 5. VISUALIZATION TOOLS
 
-We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **analyses** We will discuss these examples once everyone has ran their raxml analyses.
+We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **RStudio** We will discuss these examples once everyone has ran their raxml analyses.
 
 
 ## Visualizations With R 

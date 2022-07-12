@@ -127,8 +127,21 @@ isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host)) + # load d
 isolate.per.host.ggplot
 ```
 
+As we see here, this is not an easy plot to read. So now, lets plot by Host_group.
 
-For your own data, you will need to obtain a specific sequence cluster or clonal complex (CC) as described by Richardson et a. 2018. 
+```{r}
+metadata.for.plotting <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source.group, CC) #extract values needed from filtered table
+colnames(metadata.for.plotting) <- c("Isolate", "Host_group", "CC")
+print(as_tibble(metadata.for.plotting), n = 2)
+
+isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host_group)) + # load data into ggplot and define axes
+  geom_bar() + #Plot a geometric bar
+  ggtitle("Number of isolates per host") + # add a title
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1)) # Rotate labels
+isolate.per.host.ggplot
+```
+This is much better!
+
 
 *An example of how to extract and plot your data from within these data sets is provided in the next few lines*
 
@@ -136,10 +149,103 @@ For your own data, you will need to obtain a specific sequence cluster or clonal
 
 At this point, you all of you should have your own phylogenetic tree from your analyses in the HPCC cluster. In this tutorial, I provide examples of how to plot and visualize your phylo-tree and append data for visualization purposes.
 
-## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in our phylogenetic trees (using the dplyr package). We need to extract the hosts and clonal complexes for plotting.
+## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in our phylogenetic trees (using the dplyr package). 
+
+We need to extract the hosts and clonal complexes for plotting. We use the same approach we used above:
+
+```{r}
+metadata.for.tree <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source, CC) #extract values needed from filtered table
+length(metadata.for.tree$ERR.number.tips.filtered)
+```
+
+## Now, lets plot:
+
+But first, lets change the column names of our dataframe for R to be able to associate the tips of the tree with our metadata.
+
+```{r}
+print(as_tibble(metadata.for.tree), n = 2)
+```
+As we see, the first column should be called "tips" because those are the names of the tips in our tree file (aureus_tree).
+
+```{r}
+aureus_tree$tip.label
+```
+
+To change the column names:
+
+```{r}
+colnames(metadata.for.tree) <- c("tip.label", "Host", "CC")
+print(as_tibble(metadata.for.tree), n = 2)
+```
+
+Now we plot with ggplot:
+
+```{r}
+gg1 <- ggtree(aureus_tree, layout = "circular", ladderize = T)  #+ geom_tiplab(align = F, linesize = 0.3, as_ylab=TRUE, color='black')
+gg1 <- gg1 %<+% metadata.for.tree + xlim(NA, 0.8) +
+#levels <- as.character(hb.results$partition.df$`level 1`)
+  geom_tippoint(aes(color = factor(Host)), size=3) + 
+  #geom_tiplab(aes(fill = factor(CC)), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=2.5, align=TRUE, family='mono', linetype = "dotted", linesize = .2) + 
+  geom_treescale(x=0.08, y=35) #+
+#geom_label(aes(x=branch, label=country), fill='lightgreen')
+#gg1 <- add_colorbar(gg1, country, font.size=3)#+ scale_fill_discrete(name = "isolation source") #+ theme(plot.margin = unit(c(20,10,20,10), "mm")) #+ geom_tiplab(size=3)
+gg1 <- gg1 + theme(legend.position="right") + labs(tag="A") + ggtitle("S. albidoflavus") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Isolation source") #+ # + theme(plot.margin = unit(c(2,10,2,10), "cm")) +
+  #geom_tiplab(aes(fill = factor(iso_source.y)),
+           # color = "black", # color for label font
+            #geom = "label",  # labels not text
+            #label.padding = unit(0.15, "lines"), # amount of padding around the labels
+            #label.size = 0)# + # size of label border
+gg1
+```
+
+As you see, this tree is hard to read. We will plot it with the "Source.group" column in the metadata. We will do it in the same manner we made the previous figure.
+
+```{r}
+metadata.for.tree.2 <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source.group, CC) #extract values needed from filtered table
+colnames(metadata.for.tree.2) <- c("tip.label", "Host_group", "CC")
+print(as_tibble(metadata.for.tree.2), n = 2)
+```
+For your own data, you will need to obtain a specific sequence cluster or clonal complex (CC) as described by Richardson et a. 2018. 
+
+We plot using this new metadata.
+
+```{r}
+unique(metadata.filtered$CC)
+```
 
 
 
+```{r}
+#first, group the clonal complexes (ccs) with dplyr
 
+cc_1 <-  metadata.filtered %>% select(ERR.number.tips.filtered) %>% 
+  filter(CC == 1)
 
+```
 
+```{r}
+aureus_tree_updated <- groupClade(aureus_tree, clades)
+gg2 <- ggtree(aureus_tree_updated, layout = "circular", ladderize = T, aes(color=group))
+
+```
+
+```{r}
+gg2 <- gg2 %<+% metadata.for.tree.2 + #xlim(NA, 0.8) +
+#levels <- as.character(hb.results$partition.df$`level 1`)
+  geom_tippoint(aes(color = factor(Host_group)), size=3) + 
+  geom_tiplab(aes(fill = factor(CC)), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=0, align=TRUE, family='mono', linetype = "dotted", linesize = .2) + 
+  geom_treescale(x=0.1, y=200) #+
+#geom_label(aes(x=branch, label=country), fill='lightgreen')
+#gg1 <- add_colorbar(gg1, country, font.size=3)#+ scale_fill_discrete(name = "isolation source") #+ theme(plot.margin = unit(c(20,10,20,10), "mm")) #+ geom_tiplab(size=3)
+gg2 <- gg2 + theme(legend.position="right") + labs(tag="B") + ggtitle("S. albidoflavus") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Isolation source") #+ # + theme(plot.margin = unit(c(2,10,2,10), "cm")) +
+  #geom_tiplab(aes(fill = factor(iso_source.y)),
+           # color = "black", # color for label font
+            #geom = "label",  # labels not text
+            #label.padding = unit(0.15, "lines"), # amount of padding around the labels
+            #label.size = 0)# + # size of label border
+gg2
+```

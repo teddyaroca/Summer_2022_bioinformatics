@@ -12,7 +12,7 @@ set.seed(1234)
 #setwd("/Volumes/LaCie/teddy/TGA_PhD/Xylaria_WGS/fastbaps_Xn_157_genomes/")
 
 #Andamlab macBook
-setwd("/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/analyses/")
+setwd("/Volumes/bioinformaticslab/TGarciaAroca/Project2/RStudio/")
 
 fasta.file.name <- "../datasets/core_genome/panaroo/output/core_gene_alignment.aln"
 #snp.matrix <- load_fasta(fasta.file.name) #This is very computationally intensive, so try doing it in the interactive server instead of your own laptop.
@@ -29,7 +29,7 @@ unique(hb.results$partition.df$`level 1`)
 
 #system.time(hierBAPS(snp.matrix, max.depth = 2, n.pops = 20, quiet = TRUE))
 
-newick.file.name <- "/Volumes/bioinformaticslab/TGarciaAroca/Group_5_Andam_Lab/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
+newick.file.name <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
 #iqtree <- mclapply(newick.file.name, phytools::read.newick, mc.cores = detectCores())
 iqtree <- read.tree(newick.file.name)
 
