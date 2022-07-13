@@ -258,15 +258,42 @@ gg3 <- ggtree(new_aureus_tree, layout = 'circular')
 groupOTU(gg3, host_group, 'host_group') + aes(color=host_group) +
   theme(legend.position="right") + geom_tiplab(size=1, aes(angle=angle))
 ```
+We can also plot the same tree in a rectangular configuration:
 
-For this initial part, your assignment will be to collapse the clusters that don't contain your host species. An example is provided here.
+```{r}
+gg3 <- ggtree(new_aureus_tree, layout = 'rectangular')
+groupOTU(gg3, host_group, 'host_group') + aes(color=host_group) +
+  theme(legend.position="right") + geom_tiplab(size=1, aes(angle=angle))
+```
+
+
+Here we see an interesting result that was not highlighted by the authors of the manuscript. Apparently, most internal nodes of this phylogeny are made up from *rodents*, which represents an interesting finding on itself. We will discuss these types of findings and their implications in our small group meetings.
+
+
+*Note: For this initial part, your assignment will be to highlight the clusters that contain your host species. An example is provided here.*
 
 Example:
 
 Lets say you are working with Sheep, Monkey and Bats, you would collapse all other host groups as follows:
 
+1. Find the nodes where Sheep, Bats, and Monkeys appear in your phylogeny.
+
+```{r}
+
+```
+
+
+
 ```{r}
 
 
+
+geom_cladelab(data = dt, 
+              mapping = aes(node = node, label = name, 
+                          image = image, color = name), 
+              geom = "phylopic", offset = 1, offset.text=0.5)
 ```
+
+
+
 

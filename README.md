@@ -28,8 +28,8 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 | 4. [DATA ANALYSIS TOOLS](#data-analysis-tools)                             |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Donwloading genomes **(Done)**](#downloading_genomes) |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Assembling genomes **(Done)**](#assembling_genomes) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotation **(Done)**](#annotation)                                           |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[core genome alignments **(Done)**](#core_genomes)                                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Annotating genomes **(Done)**](#annotation)                                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Core genome alignment **(Done)**](#core_genomes)                                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tree Building](#tree-building)                                        |
 |																			|
 | 5. [VISUALIZATION TOOLS](#visualization-tools)                              |
@@ -176,7 +176,7 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_spades.sh
 ```
 
-## Annotation **(DONE)**
+## Annotating genomes **(DONE)**
 
 Here, you will find an exmple of how the genomes were annotated prior building a core genome of the sequences selected for this workshop. Although there are several tools for this sort of analysis, we will use the most popular:
 
@@ -213,7 +213,7 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_prokka.sh
 ```
 
-## Core genome **(DONE)**
+## Core genome alingments **(DONE)**
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
 
