@@ -213,7 +213,7 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_prokka.sh
 ```
 
-## Core genome alingments **(DONE)**
+## Core genome alignment **(DONE)**
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
 
