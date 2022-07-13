@@ -73,7 +73,7 @@ cd Summer_2022_bioinformatics
 
 At this point you should be able to see the folders and scripts in your folder in your mapped drive.
 
-5. To update any cahnges to this repository:
+5. To update any changes to this repository:
 
 ```
 git pull
