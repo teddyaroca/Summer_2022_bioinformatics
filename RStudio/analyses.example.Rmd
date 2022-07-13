@@ -16,7 +16,7 @@ common boxplots and violin plots to phylogenetic trees.
 ## First, create a vector to install the packages needed:
   
 ```{r}
-packages <- c("dplyr", "plyr", "ggplot2", "readr", "ggpubr",
+packages <- c("devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
               "rcompanion", "tidyverse", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
 ```
 
@@ -94,7 +94,7 @@ If we look at the current column names for this dataframe:
 print(as_tibble(metadata.filtered), n = 2) # printing the first two rows only
 ```
 
-We see that the column names are a bit confussing. For now, we will leaves as they are and only select the two that we need:
+We see that the column names are a bit confussing. For now, we will leavem them as they are and only select the two that we need:
 
 -*ERR.number.tips.filtered* = Isolate names matched to the tip names on our phylogenetic tree (done by Teddy)
 
@@ -168,7 +168,7 @@ print(as_tibble(metadata.for.tree), n = 2)
 As we see, the first column should be called "tips" because those are the names of the tips in our tree file (aureus_tree).
 
 ```{r}
-aureus_tree$tip.label
+length(aureus_tree$tip.label)
 ```
 
 To change the column names:
@@ -181,22 +181,13 @@ print(as_tibble(metadata.for.tree), n = 2)
 Now we plot with ggplot:
 
 ```{r}
-gg1 <- ggtree(aureus_tree, layout = "circular", ladderize = T)  #+ geom_tiplab(align = F, linesize = 0.3, as_ylab=TRUE, color='black')
+gg1 <- ggtree(aureus_tree, layout = "circular", ladderize = T) 
 gg1 <- gg1 %<+% metadata.for.tree + xlim(NA, 0.8) +
-#levels <- as.character(hb.results$partition.df$`level 1`)
   geom_tippoint(aes(color = factor(Host)), size=3) + 
-  #geom_tiplab(aes(fill = factor(CC)), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=2.5, align=TRUE, family='mono', linetype = "dotted", linesize = .2) + 
   geom_treescale(x=0.08, y=35) #+
-#geom_label(aes(x=branch, label=country), fill='lightgreen')
-#gg1 <- add_colorbar(gg1, country, font.size=3)#+ scale_fill_discrete(name = "isolation source") #+ theme(plot.margin = unit(c(20,10,20,10), "mm")) #+ geom_tiplab(size=3)
-gg1 <- gg1 + theme(legend.position="right") + labs(tag="A") + ggtitle("S. albidoflavus") +
+gg1 <- gg1 + theme(legend.position="right") + labs(tag="A") + ggtitle("S. aureus 571 genomes") +
   theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
-  scale_colour_discrete(na.translate = F, name="Isolation source") #+ # + theme(plot.margin = unit(c(2,10,2,10), "cm")) +
-  #geom_tiplab(aes(fill = factor(iso_source.y)),
-           # color = "black", # color for label font
-            #geom = "label",  # labels not text
-            #label.padding = unit(0.15, "lines"), # amount of padding around the labels
-            #label.size = 0)# + # size of label border
+  scale_colour_discrete(na.translate = F, name="Host") 
 gg1
 ```
 
@@ -211,41 +202,71 @@ For your own data, you will need to obtain a specific sequence cluster or clonal
 
 We plot using this new metadata.
 
+Let's plot 
+```{r}
+gg2 <- ggtree(aureus_tree, layout = "fan", ladderize = T)
+gg2 <- gg2 %<+% metadata.for.tree.2 +
+  geom_tippoint(aes(color = factor(Host_group)), size=3)
+gg2 <- gg2 + theme(legend.position="right") + labs(tag="B") + ggtitle("S. aureus 571 genomes") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Host groups")
+gg2
+```
+
+Looks better now, but still somewhat convoluted. We will leave it as is for now and we will plot again with more metadata.
+
+Lets look at the number of clonal complexes, as they are informative:
+
 ```{r}
 unique(metadata.filtered$CC)
 ```
 
+We have 76 clonal complexes (CCs) in this dataset. That means we have to add that information to our phylogenetic tree. To do so, we extract each group of IDs in our metadata (ERR.number.tips.filtered) that match the tips in our phylogenetic tree for each CC.
 
 
 ```{r}
 #first, group the clonal complexes (ccs) with dplyr
+CCs <- metadata.filtered %>% group_split(CC)
 
-cc_1 <-  metadata.filtered %>% select(ERR.number.tips.filtered) %>% 
-  filter(CC == 1)
+split_df<-function(list){
+  for (i in 1:length(list)){
+    assign(paste0("df",i), list[[i]], envir = .GlobalEnv)
+  }
+}
+split_df(CCs)
 
+length(CCs)
 ```
+
+As you see, we have created many smaller datasets for each clonal complex (CCs), 75 in total (one missing). Now, we can add these data to our tree if we desire to do so. For the purposes of this workshop, we will not worry about CCs, but CCs represent in many case informative data about the specific strains and the hosts they inhabit.
+
+In most cases, we want a midpoint rooted tree, so let's get ours midpoint rooted before plotting.
 
 ```{r}
-aureus_tree_updated <- groupClade(aureus_tree, clades)
-gg2 <- ggtree(aureus_tree_updated, layout = "circular", ladderize = T, aes(color=group))
-
+new_aureus_tree <- midpoint.root(aureus_tree)
 ```
+
+No, we plot the DNA sequences by host as follows:
 
 ```{r}
-gg2 <- gg2 %<+% metadata.for.tree.2 + #xlim(NA, 0.8) +
-#levels <- as.character(hb.results$partition.df$`level 1`)
-  geom_tippoint(aes(color = factor(Host_group)), size=3) + 
-  geom_tiplab(aes(fill = factor(CC)), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=0, align=TRUE, family='mono', linetype = "dotted", linesize = .2) + 
-  geom_treescale(x=0.1, y=200) #+
-#geom_label(aes(x=branch, label=country), fill='lightgreen')
-#gg1 <- add_colorbar(gg1, country, font.size=3)#+ scale_fill_discrete(name = "isolation source") #+ theme(plot.margin = unit(c(20,10,20,10), "mm")) #+ geom_tiplab(size=3)
-gg2 <- gg2 + theme(legend.position="right") + labs(tag="B") + ggtitle("S. albidoflavus") +
-  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
-  scale_colour_discrete(na.translate = F, name="Isolation source") #+ # + theme(plot.margin = unit(c(2,10,2,10), "cm")) +
-  #geom_tiplab(aes(fill = factor(iso_source.y)),
-           # color = "black", # color for label font
-            #geom = "label",  # labels not text
-            #label.padding = unit(0.15, "lines"), # amount of padding around the labels
-            #label.size = 0)# + # size of label border
-gg2
+metadata.for.tree.3 <- metadata.filtered %>% select(c("ERR.number.tips.filtered", "Source.group"))
+metadata.for.tree.3 <- aggregate(.~Source.group, metadata.for.tree.3, FUN=paste, collapse=",")
+host_group <- lapply(metadata.for.tree.3$ERR.number.tips.filtered, function(x){unlist(strsplit(x,split=","))})
+names(host_group) <- metadata.for.tree.3$Source.group
+
+gg3 <- ggtree(new_aureus_tree, layout = 'circular')
+groupOTU(gg3, host_group, 'host_group') + aes(color=host_group) +
+  theme(legend.position="right") + geom_tiplab(size=1, aes(angle=angle))
 ```
+
+For this initial part, your assignment will be to collapse the clusters that don't contain your host species. An example is provided here.
+
+Example:
+
+Lets say you are working with Sheep, Monkey and Bats, you would collapse all other host groups as follows:
+
+```{r}
+
+
+```
+
