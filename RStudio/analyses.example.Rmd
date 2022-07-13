@@ -1,7 +1,7 @@
 ---
-title: Summer 2022 RNA Institute Bioinformatics Workshop | *Group 5, Andam Lab*
+title: Summer 2022 RNA Institute Bioinformatics Workshop | Andam Lab
 author: "Teddy Garcia-Aroca"
-date: "Last update: July 5th, 2022"
+date: "Last update: July 13th, 2022"
 output:
   html_document: rmdformats::downcute
 pdf_document: default
