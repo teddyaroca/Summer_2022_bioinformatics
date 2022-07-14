@@ -41,11 +41,10 @@ Our intention is to make this GitHub site available indefinitely as a resource f
 
 # 1. INSTRUCTIONS
 
-The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also clone the repository from the command line using the following:
+The following tutorial describes what you will be expected to do in order to complete this summer fellowship. We will be using the sequences and metadata from a manuscript published in 2018 (See datasets section below). In order to use the data and examples provided in this repository, you will have to download it from github. You can also **clone** the repository from the command line by following these steps:
 
-Note: don't forget **YOURFOLDER** refers to the name of your folder in the /network/rit/bioinformaticslab/ directory throughout this repository.
+Note: don't forget that **yourNetID** refers to your own netID provided by UAlbany and **YOURFOLDER** refers to the name of your folder in the /network/rit/bioinformaticslab/ directory throughout this repository.
 
-## Make a copy of this repository
 
 1. Login to the server as you did for project 1 (with ssh)
 
@@ -82,9 +81,9 @@ git pull
 
 # 2. DATA
 
-This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. This manuscript and supplementary material can be found in the "manuscript" folder. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 571 strains) to use in our initial phylogenetic analyses. Your assignment thorughout this workshop will be to **build a phylogenetic tree, then plot the number of strains per host, look at the gene presence/absence of your assigned genes (around 5), summarize and plot some of the metadata for visualization purposes, and prepare slides for the final sympossium.**
+This year, our datasets will be based on a study by Richardson et al. (2018)[^1], in which they looked at the capability of **_Staphyloccocus aureus_** to jump across host species. This manuscript and supplementary material can be found in the "manuscript" folder. In the folder "datasets" you will find a "core_genome" alignment for the entire dataset (roughly 571 strains) to use in our initial phylogenetic analyses. In general, this is what we want you to learn thorughout this workshop will be to **build a phylogenetic tree, summarize and plot some of the metadata for visualization purposes such as plotting the number of strains per host or looking at the AMR genes chosen hosts, and prepare slides for the final sympossium.**
 
-We will discuss these details in our regular small group meetings.
+We will discuss these details in our regular small group meetings. 
 
 [^1]:Richardson, E. J., Bacigalupe, R., Harrison, E. M., Weinert, L. A., Lycett, S., Vrieling, M., Robb, K., Hoskisson, P. A., Holden, M. T. G., Feil, E. J., Paterson, G. K., Tong, S. Y. C., Shittu, A., van Wamel, W., Aanensen, D. M., Parkhill, J., Peacock, S. J., Corander, J., Holmes, M., & Fitzgerald, J. R. (2018). Gene exchange drives the ecological success of a multi-host bacterial pathogen. Nature Ecology and Evolution, 2(9), 1468–1478. https://doi.org/10.1038/s41559-018-0617-0
 
