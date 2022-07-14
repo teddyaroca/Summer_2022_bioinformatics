@@ -16,7 +16,7 @@ common boxplots and violin plots to phylogenetic trees.
 ## First, create a vector to install the packages needed:
   
 ```{r}
-packages <- c("devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
+packages <- c("ape", "devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
               "rcompanion", "tidyverse", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
 ```
 
@@ -258,6 +258,7 @@ gg3 <- ggtree(new_aureus_tree, layout = 'circular')
 groupOTU(gg3, host_group, 'host_group') + aes(color=host_group) +
   theme(legend.position="right") + geom_tiplab(size=1, aes(angle=angle))
 ```
+
 We can also plot the same tree in a rectangular configuration:
 
 ```{r}
@@ -274,25 +275,34 @@ Here we see an interesting result that was not highlighted by the authors of the
 
 Example:
 
-Lets say you are working with Sheep, Monkey and Bats, you would collapse all other host groups as follows:
+Lets say you are working with Marine, Monkey and Bats, you would collapse all other host groups as follows:
 
-1. Find the nodes where Sheep, Bats, and Monkeys appear in your phylogeny.
+1. Find the names of the host groups for these hosts in our dataset.
 
 ```{r}
+unique(metadata.filtered$Source.group)
+```
+
+Now, lets find the specific nodes in our phylogeny that contain **S. aureus** isolates from Marine, Bats, and Monkeys hosts. We plot them using the package **ape**.
+
+```{r}
+marine.subset <- subset(metadata.filtered, Source.group == "Marine")
+bat.subset <- subset(metadata.filtered, Source.group == "Bat")
+monkey.subset <- subset(metadata.filtered, Source.group == "Monkey")
+
+marine.tips <- sapply(marine.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
+bat.tips <- sapply(bat.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
+monkey.tips <- sapply(monkey.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
+
+plotTree(new_aureus_tree,type="fan",fsize=0.2,lwd=1,
+    ftype="i")
+add.arrow(new_aureus_tree,tip=marine.tips,arrl=0.05, col="green")
+add.arrow(new_aureus_tree,tip=bat.tips,arrl=0.05, col="red")
+add.arrow(new_aureus_tree,tip=monkey.tips,arrl=0.05, col="orange")
 
 ```
 
-
-
-```{r}
-
-
-
-geom_cladelab(data = dt, 
-              mapping = aes(node = node, label = name, 
-                          image = image, color = name), 
-              geom = "phylopic", offset = 1, offset.text=0.5)
-```
+This is another method to visualize the data in our tree. In this case, we have chosen arrows of different colors to point at the specific tips where **S. aureus** from marine (green), bats (red), and monkey (orange), are found. As we see, the majority of marine isolates are distantly related from monkey and bat isolates.
 
 
 
