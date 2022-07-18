@@ -1,10 +1,11 @@
 ---
-title: Summer 2022 RNA Institute Bioinformatics Workshop | Andam Lab
+pdf_document: default
 author: "Teddy Garcia-Aroca"
-date: "Last update: July 13th, 2022"
+date: 'Last update: July 13th, 2022'
 output:
   html_document: rmdformats::downcute
-pdf_document: default
+  pdf_document: default
+title: "Summer 2022 RNA Institute Bioinformatics Workshop | Andam Lab"
 ---
 
 # Description.
@@ -62,9 +63,9 @@ As you see, this file contains 800 rows of metadata.
 
 ## Note: 
 
-Not all the genomes were found in databases. Only 571 genomes were found and used in our analyses, so we will have to filter out the metadata for the genomes that were not available and could not be used in our analyses. For that reason.
+Not all the genomes were found in databases. Only 571 genomes were found and used in our analyses, so we will have to filter out the metadata for the genomes that were not available and could not be used in our analyses.
 
-To remove those datapoints for missing genomes, we will need to load the phylogenetic tree and extract the tip labels to be removed.
+Let's start by removing those datapoints from missing genomes. To do that, we will need to load the phylogenetic tree and extract the tip labels to be kept (the ones currently present in our phylogenetic tree).
 
 ```{r}
 tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
@@ -140,6 +141,7 @@ isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host_group)) + # 
   theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1)) # Rotate labels
 isolate.per.host.ggplot
 ```
+
 This is much better!
 
 
@@ -198,11 +200,10 @@ metadata.for.tree.2 <- dplyr::select(metadata.filtered, ERR.number.tips.filtered
 colnames(metadata.for.tree.2) <- c("tip.label", "Host_group", "CC")
 print(as_tibble(metadata.for.tree.2), n = 2)
 ```
-For your own data, you will need to obtain a specific sequence cluster or clonal complex (CC) as described by Richardson et a. 2018. 
-
 We plot using this new metadata.
 
-Let's plot 
+Let's plot: 
+
 ```{r}
 gg2 <- ggtree(aureus_tree, layout = "fan", ladderize = T)
 gg2 <- gg2 %<+% metadata.for.tree.2 +
@@ -215,30 +216,7 @@ gg2
 
 Looks better now, but still somewhat convoluted. We will leave it as is for now and we will plot again with more metadata.
 
-Lets look at the number of clonal complexes, as they are informative:
-
-```{r}
-unique(metadata.filtered$CC)
-```
-
-We have 76 clonal complexes (CCs) in this dataset. That means we have to add that information to our phylogenetic tree. To do so, we extract each group of IDs in our metadata (ERR.number.tips.filtered) that match the tips in our phylogenetic tree for each CC.
-
-
-```{r}
-#first, group the clonal complexes (ccs) with dplyr
-CCs <- metadata.filtered %>% group_split(CC)
-
-split_df<-function(list){
-  for (i in 1:length(list)){
-    assign(paste0("df",i), list[[i]], envir = .GlobalEnv)
-  }
-}
-split_df(CCs)
-
-length(CCs)
-```
-
-As you see, we have created many smaller datasets for each clonal complex (CCs), 75 in total (one missing). Now, we can add these data to our tree if we desire to do so. For the purposes of this workshop, we will not worry about CCs, but CCs represent in many case informative data about the specific strains and the hosts they inhabit.
+## Midpoint rooted tree
 
 In most cases, we want a midpoint rooted tree, so let's get ours midpoint rooted before plotting.
 
@@ -304,6 +282,31 @@ add.arrow(new_aureus_tree,tip=monkey.tips,arrl=0.05, col="orange")
 
 This is another method to visualize the data in our tree. In this case, we have chosen arrows of different colors to point at the specific tips where **S. aureus** from marine (green), bats (red), and monkey (orange), are found. As we see, the majority of marine isolates are distantly related from monkey and bat isolates.
 
+## Plotting clonal complexes (optional)
+
+Lets look at the number of clonal complexes, as they are informative:
+
+```{r}
+unique(metadata.filtered$CC)
+```
+
+We have 76 clonal complexes (CCs) in this dataset. That means we have to add that information to our phylogenetic tree. To do so, we extract each group of IDs in our metadata (ERR.number.tips.filtered) that match the tips in our phylogenetic tree for each CC.
 
 
+```{r}
+#first, group the clonal complexes (ccs) with dplyr
+CCs <- metadata.filtered %>% group_split(CC)
 
+split_df<-function(list){
+  for (i in 1:length(list)){
+    assign(paste0("df",i), list[[i]], envir = .GlobalEnv)
+  }
+}
+split_df(CCs)
+
+length(CCs)
+```
+
+As you see, we have created many smaller datasets for each clonal complex (CCs), 75 in total (one missing). Now, we can add these data to our tree if we desire to do so. For the purposes of this workshop, we will not worry about CCs, but CCs represent in many case informative data about the specific strains and the hosts they inhabit.
+
+However, for the purposes of this workshops, we will not worry about plotting CCs. If anyone is interested in doing so, please let Teddy know as soon as possible.
