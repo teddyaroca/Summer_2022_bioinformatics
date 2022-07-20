@@ -1,0 +1,242 @@
+---
+title: "Summer 2022 RNA Institute Bioinformatics Workshop | Andam Lab"
+author: "Teddy Garcia-Aroca"
+date: 'Last update: July 19th, 2022'
+output:
+  html_document: rmdformats::downcute
+  pdf_document: default
+---
+
+# Description.
+
+In this tutorial, we are creating common bar plots to summarize our metadata.
+
+We already discussed some of this in our previous small group meeting, so we are not going to go into details here.
+  
+```{r results='hide', message=FALSE, warning=FALSE}
+packages <- c("ape","devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
+              "rcompanion", "tidyverse", "ggsignif", "RColorBrewer", "reshape", "ggtree", "phytools","gridExtra", "scales", "tidyr")
+
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+invisible(lapply(packages, library, character.only = T))
+
+```
+
+
+# Plotting metadata
+
+## 1. Set the working directory and load metadata (as we did previously)
+
+```{r}
+setwd("/Volumes/bioinformaticslab/TGarciaAroca/Project2/RStudio/")
+
+metadata <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/metadata/metadata.csv", sep=",", header=T)
+
+tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
+
+aureus_tree <- read.tree(tree_file)
+
+
+metadata.filtered <- metadata[metadata$ERR.number.tips.filtered %in% aureus_tree$tip.label,] 
+
+```
+
+Let's plot again by host group as we did previously
+
+```{r}
+metadata.for.plotting <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source.group, CC) #extract values needed from filtered table
+colnames(metadata.for.plotting) <- c("Isolate", "Host_group", "CC")
+print(as_tibble(metadata.for.plotting), n = 2)
+
+isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host_group)) + # load data into ggplot and define axes
+  geom_bar() + #Plot a geometric bar
+  ggtitle("Number of isolates per host") + # add a title
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1)) # Rotate labels
+isolate.per.host.ggplot
+```
+
+Now, let's get to objective 2
+
+# Objective 2: Summarizing datasets with barplots
+
+At this point, you all of you should be have to obtain a filtered dataset with 571 tips.
+
+## First, lets extract the  relevant metadata from above ("metadata.filtered" object) to use in plots (using the dplyr package). 
+
+We need to extract the hosts that you will be working with. In this example, I am extracting "marine", "bats", and "monkeys". However, how do we know what those host groups are named in the metadata?
+
+As mentioned previously, we look at the unique names of the "Source.group", which refers to the column with host groups in the metadata.
+
+```{r}
+unique(metadata.filtered$Source.group)
+```
+
+We see that the groups we are looking for are called: **"Marine", "Bat", and "Monkey"**. The reason why I suggest doing this is because the spelling and case (upper or lower case) matters when extracting specific data from our metadata.
+
+Now, let's subset the metadata with the rows we want:
+
+```{r}
+metadata.marine.bats.monkey <- metadata.filtered %>% filter(Source.group==c("Marine", "Bat", "Monkey")) #extract values needed from filtered table
+length(metadata.marine.bats.monkey$Number)
+```
+
+As we see, this is not a great dataset because we only have 6 datapoints total.
+
+Let's look for a different group instead. Let's find out how many **Carnivores, Rabbits and Cows** we have.
+
+```{r}
+metadata.carn.rabb.cows <- metadata.filtered %>% filter(Source.group==c("Carnivore", "Rabbits", "Cows")) #extract values needed from filtered table
+length(metadata.carn.rabb.cows$Number)
+```
+
+51 total, this is a better number to work with. So we will plot this dataset.
+
+We plot using this new metadata. Let's plot the number of isolates per host first:
+
+```{r}
+isolate.per.host.ggplot.subset <- ggplot(metadata.carn.rabb.cows, aes(x=Source.group)) + # load data into ggplot and define axes
+  geom_bar() + #Plot a geometric bar
+  ggtitle("Number of isolates per host (Carnivores, Rabbits, and Cows)") + # add a title
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.5, hjust=1)) # Rotate labels
+isolate.per.host.ggplot.subset
+```
+
+We see that the majority of isolates were obtained from cows infected with S. aureus.
+
+In most cases, we want to sort these plots in descending (or ascending) order. To do so we use the **dplyr** package to summarise by count first, then plot and sort counts:
+
+```{r}
+metadata.carn.rabb.cows %>% 
+	dplyr::group_by(Source.group) %>% 
+	dplyr::summarise(count = n()) %>% 
+	ggplot(aes(x = reorder(Source.group,(-count)), y = count)) + 
+		geom_bar(stat = 'identity')
+```
+
+Now, how do we plot percentages?
+
+We use a similar approach with packages such as **scales** and **tidyr** (to make our life easier):
+
+```{r}
+metadata.carn.rabb.cows %>% 
+  dplyr::count(Source.group) %>% 
+  dplyr::mutate(perc = n / nrow(metadata.carn.rabb.cows)) -> metadata.carn.rabb.cows.2
+
+ggplot(metadata.carn.rabb.cows.2, aes(x = reorder(Source.group,(-perc)), y = perc)) + geom_bar(stat = "identity")
+```
+
+Now we have percentages.
+
+## Adding colors
+
+Now, how do we color these bar plots?
+
+```{r}
+metadata.carn.rabb.cows %>% 
+  dplyr::count(Source.group) %>% 
+  dplyr::mutate(perc = n / nrow(metadata.carn.rabb.cows)) -> metadata.carn.rabb.cows.2
+
+ggplot(metadata.carn.rabb.cows.2, aes(x = reorder(Source.group,(-perc)), y = perc, fill=Source.group)) + geom_bar(stat = "identity")
+```
+
+The above code simply chooses the default colors from ggplot. 
+
+Now, how do you we choose our own collors?
+
+There are many ways. You can choose your colors manually from the **r-base** palettes, or you can use a package such as "RColorBrewer".
+
+Here is an example using the **r-base**:
+
+**1. Using the r-base colors**
+
+```{r}
+metadata.carn.rabb.cows %>% 
+  dplyr::count(Source.group) %>% 
+  dplyr::mutate(perc = n / nrow(metadata.carn.rabb.cows)) -> metadata.carn.rabb.cows.2
+
+ggplot(metadata.carn.rabb.cows.2, aes(x = reorder(Source.group,(-perc)), y = perc, fill=Source.group)) + scale_fill_manual(values = c("purple", "orange", "green")) +
+geom_bar(stat = "identity")
+```
+
+**Note: If you are interested in using other palettes, please let Teddy know as soon as possible.**
+
+Now, lets make a more complex plot, using at least two levels of our metadata. Let's plot by **year** and by **Source.group**.
+
+```{r}
+metadata.carn.rabb.cows %>% 
+	dplyr::group_by(Source.group, Year) %>% 
+	dplyr::summarise(count = n()) %>% 
+	ggplot(aes(x = reorder(Year,(-count)), y = count, fill=Source.group)) + 
+		geom_bar(stat = 'identity') +
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
+   labs(
+    title = "Comparisons in number of isolates per host per year",
+    x = "Year",
+    y = "Count"
+    )
+```
+This will be useful if you want to plot several levels of the same data and visualize the results.
+
+Here we see when the majority of these isolates were obtained.
+
+
+## What about plotting the entire dataset with colors?
+
+Let's try with **logs** to make our plots look better:
+
+```{r}
+metadata.filtered %>% 
+	dplyr::group_by(Source.group) %>% 
+	dplyr::summarise(count = n()) %>% 
+	ggplot(aes(x = reorder(Source.group,(-count)), y = log(count))) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
+   labs(
+    title = "Comparisons in number of isolates per host groups",
+    x = "Host groups",
+    y = "Log(Counts)"
+    )
+```
+
+This plot is easy to read and very informative because we used a different scale for counts (log). 
+
+Let's add colors:
+
+```{r}
+metadata.filtered %>% 
+	dplyr::group_by(Source.group) %>% 
+	dplyr::summarise(count = n()) %>% 
+	ggplot(aes(x = reorder(Source.group,(-count)), y = log(count), fill=Source.group)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
+   labs(
+    title = "Comparisons in number of isolates per host groups",
+    x = "Host groups",
+    y = "Log(Counts)"
+    )
+```
+
+This is much, much better. But the legend is not in the same order. To fix that:
+
+
+```{r}
+metadata.filtered.2 <- metadata.filtered %>% 
+	dplyr::group_by(Source.group) %>% 
+	dplyr::summarise(count = n())
+  
+metadata.filtered.2$Source.group <- with(metadata.filtered.2, reorder(Source.group, -count))
+	ggplot(metadata.filtered.2, aes(x =Source.group, y = log(count), fill=Source.group)) + 
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
+   labs(
+    title = "Comparisons in number of isolates per host groups",
+    x = "Host groups",
+    y = "Log(Counts)"
+    )
+```
+
+This plot is publication-ready.
