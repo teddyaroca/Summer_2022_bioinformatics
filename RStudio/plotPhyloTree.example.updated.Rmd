@@ -71,6 +71,7 @@ Let's start by removing those datapoints from missing genomes. To do that, we wi
 tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
 aureus_tree <- read.tree(tree_file)
 length(aureus_tree$tip.label)
+
 ```
 
 As you can see, this tree has 571 tips (isolates), so we will extract the metadata for those 571 tips from the metadata table above, which contains 800 rows (800 isolates).
@@ -133,6 +134,7 @@ As we see here, this is not an easy plot to read. So now, lets plot by Host_grou
 metadata.for.plotting <- dplyr::select(metadata.filtered, ERR.number.tips.filtered, Source.group, CC) #extract values needed from filtered table
 colnames(metadata.for.plotting) <- c("Isolate", "Host_group", "CC")
 print(as_tibble(metadata.for.plotting), n = 2)
+
 isolate.per.host.ggplot <- ggplot(metadata.for.plotting, aes(x=Host_group)) + # load data into ggplot and define axes
   geom_bar() + #Plot a geometric bar
   ggtitle("Number of isolates per host") + # add a title
@@ -229,6 +231,7 @@ metadata.for.tree.3 <- metadata.filtered %>% select(c("ERR.number.tips.filtered"
 metadata.for.tree.3 <- aggregate(.~Source.group, metadata.for.tree.3, FUN=paste, collapse=",")
 host_group <- lapply(metadata.for.tree.3$ERR.number.tips.filtered, function(x){unlist(strsplit(x,split=","))})
 names(host_group) <- metadata.for.tree.3$Source.group
+
 gg3 <- ggtree(new_aureus_tree, layout = 'circular')
 groupOTU(gg3, host_group, 'host_group') + aes(color=host_group) +
   theme(legend.position="right") + geom_tiplab(size=1, aes(angle=angle))
@@ -264,14 +267,17 @@ Now, lets find the specific nodes in our phylogeny that contain **S. aureus** is
 marine.subset <- subset(metadata.filtered, Source.group == "Marine")
 bat.subset <- subset(metadata.filtered, Source.group == "Bat")
 monkey.subset <- subset(metadata.filtered, Source.group == "Monkey")
+
 marine.tips <- sapply(marine.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
 bat.tips <- sapply(bat.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
 monkey.tips <- sapply(monkey.subset$ERR.number.tips.filtered,grep,new_aureus_tree$tip.label)
+
 plotTree(new_aureus_tree,type="fan",fsize=0.2,lwd=1,
     ftype="i")
 add.arrow(new_aureus_tree,tip=marine.tips,arrl=0.05, col="green")
 add.arrow(new_aureus_tree,tip=bat.tips,arrl=0.05, col="red")
 add.arrow(new_aureus_tree,tip=monkey.tips,arrl=0.05, col="orange")
+
 ```
 
 This is another method to visualize the data in our tree. In this case, we have chosen arrows of different colors to point at the specific tips where **S. aureus** from marine (green), bats (red), and monkey (orange), are found. As we see, the majority of marine isolates are distantly related from monkey and bat isolates.
@@ -290,15 +296,42 @@ We have 76 clonal complexes (CCs) in this dataset. That means we have to add tha
 ```{r}
 #first, group the clonal complexes (ccs) with dplyr
 CCs <- metadata.filtered %>% group_split(CC)
+
 split_df<-function(list){
   for (i in 1:length(list)){
     assign(paste0("df",i), list[[i]], envir = .GlobalEnv)
   }
 }
 split_df(CCs)
+
 length(CCs)
 ```
 
 As you see, we have created many smaller datasets for each clonal complex (CCs), 75 in total (one missing). Now, we can add these data to our tree if we desire to do so. For the purposes of this workshop, we will not worry about CCs, but CCs represent in many case informative data about the specific strains and the hosts they inhabit.
 
 However, for the purposes of this workshops, we will not worry about plotting CCs. If anyone is interested in doing so, please let Teddy know as soon as possible.
+
+## Update
+
+## Added more examples for plotting
+
+In this case, we are plotting only certain hosts on our tree:
+
+```{r}
+metadata.marine.bats.monkey <- metadata.filtered %>% dplyr::filter(Source.group==c("Marine", "Bat", "Monkey"))
+length(metadata.marine.bats.monkey$Number)
+
+metadata.for.tree.MBM <- dplyr::select(metadata.marine.bats.monkey, ERR.number.tips.filtered, Source.group, CC)
+colnames(metadata.for.tree.MBM) <- c("tip.label", "Host_group", "CC")
+#print(as_tibble(metadata.for.tree.MBM), n = 2)
+
+#ggplot with host_group - human,aves,equine
+gg4 <- ggtree(new_aureus_tree, layout = "fan", ladderize = T)
+gg4 <- gg4 %<+% metadata.for.tree.MBM +
+  geom_tippoint(aes(color = factor(Host_group)), size=2)
+gg4 <- gg4 + theme(legend.position="right") + 
+  labs(tag="A") + ggtitle("S. aureus from Marine, Rodents, and Monkeys") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Host groups")
+gg4
+```
