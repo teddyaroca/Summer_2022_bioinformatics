@@ -121,6 +121,7 @@ ggviolin(data = metadata.filtered.abricate.2, x = "Source.group", y = "NUM_FOUND
   theme(legend.position = 'none') +
   theme(axis.text.x=element_text(angle=30, hjust=1))
 ```
+
 We see significant differences among the groups compared and global significant differences, but what are the specific p-values?
 
 We use a t-test to see the P-values from pairwise comparisons.
@@ -138,7 +139,7 @@ We see that all p-values are lower than 0.05, suggesting significant (statistica
 
 ## Finally, we plot some AMR genes on our **phylogeny** to see their distribution
 
-We use a similar approach as previously.
+We use a similar approach as previously. As I mentioned previously, we want to set the root at the mid-point for our tree in most cases, normally because it makes it easier to read, and also because it displays the genetic relationships more accurately.
 
 ```{r}
 new_aureus_tree <- midpoint.root(aureus_tree)
