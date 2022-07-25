@@ -1,0 +1,78 @@
+---
+pdf_document: default
+author: "Teddy Garcia-Aroca"
+date: 'Last update: July 25th, 2022'
+output:
+  html_document: rmdformats::downcute
+  pdf_document: default
+title: "Summer 2022 RNA Institute Bioinformatics Workshop | Andam Lab"
+---
+
+# Plotting antimicrobial resistance (AMR) genes.
+
+In this tutorial, we will be showing examples of how to visualize results from [ABRICATE](https://github.com/tseemann/abricate), which detects antimicrobial resistance genes present in our genomes.
+
+## Load packages and metadata as we did previously:
+  
+```{r results='hide', message=FALSE, warning=FALSE}
+packages <- c("ape", "devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
+              "rcompanion", "tidyverse", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
+
+# install packages that haven't been installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# load packages
+invisible(lapply(packages, library, character.only = T))
+
+#set working directory
+setwd("/Volumes/bioinformaticslab/TGarciaAroca/Project2/RStudio/")
+
+# Load metadata
+metadata <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/metadata/metadata.csv", sep=",", header=T)
+length(metadata$Number)
+
+#Load tree
+tree_file <- "/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raxml/RAxML_bestTree.aureus_raxml_out"
+aureus_tree <- read.tree(tree_file)
+length(aureus_tree$tip.label)
+
+#Filter metadata
+metadata.filtered <- metadata[metadata$ERR.number.tips.filtered %in% aureus_tree$tip.label,] #Extract 
+length(metadata.filtered$ERR.number.tips.filtered)
+
+```
+
+## Now, let's load results from ABRICATE.
+
+The results can be found in the folder called "AMR" in the github reposity.
+
+
+
+
+
+```{r}
+new_aureus_tree <- midpoint.root(aureus_tree)
+```
+
+
+```{r}
+metadata.marine.bats.monkey <- metadata.filtered %>% dplyr::filter(Source.group==c("Marine", "Bat", "Monkey"))
+length(metadata.marine.bats.monkey$Number)
+
+metadata.for.tree.MBM <- dplyr::select(metadata.marine.bats.monkey, ERR.number.tips.filtered, Source.group, CC)
+colnames(metadata.for.tree.MBM) <- c("tip.label", "Host_group", "CC")
+#print(as_tibble(metadata.for.tree.MBM), n = 2)
+
+#ggplot with host_group - human,aves,equine
+gg4 <- ggtree(new_aureus_tree, layout = "fan", ladderize = T)
+gg4 <- gg4 %<+% metadata.for.tree.MBM +
+  geom_tippoint(aes(color = factor(Host_group)), size=2)
+gg4 <- gg4 + theme(legend.position="right") + 
+  labs(tag="A") + ggtitle("S. aureus from Marine, Rodents, and Monkeys") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Host groups")
+gg4
+```
