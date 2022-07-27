@@ -8,7 +8,7 @@ output:
 title: "Project 2 | Andam Lab | Plotting Markov Jumps"
 ---
 
-# Plotting results from Markov Jumps analyses.
+# Plotting results from **StarBeast** (Markov Jumps analyses).
 
 **Note: this is just an example, since an approximation had to be used in BEAST to obtain these results**
 
@@ -47,7 +47,7 @@ length(metadata.filtered$ERR.number.tips.filtered)
 
 ```
 
-## Now, let's load results from **StarBeas**t.
+## Now, let's load results from **StarBeast**.
 
 The results can be found in the folder called "markov_jumps_example" in the github repository (datasets/core_genome/markov_jumps_example/). These results have been adjusted to fit the tree and metadata columns.
 
@@ -57,9 +57,9 @@ markov.jumps <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datas
 length(markov.jumps$ERR.number.tips.filtered)
 ```
 
-### Merge the two datasets (metadata and abricate results)
+### Merge the two datasets (metadata and **starBeast** results)
 
-We merge them as we did in previous examples (**Note: since the column names are different for both datasets, we use by.x, and by.x to specify the column names we want to merge)
+We merge them as we did in previous examples (**Note: since the column names are the same for both datasets, we merge then by ERR.number.tips.filtered**)
 
 ```{r}
 metadata.filtered.markov <- merge(metadata.filtered, markov.jumps, by="ERR.number.tips.filtered")

@@ -1496,13 +1496,14 @@ Prism.languages.r={comment:/#.*/,string:{pattern:/(['"])(?:\\.|(?!\1)[^\\\r\n])*
         <div class="Sidebar">
           <div class="SidebarItems" id="toc">
             <ul>
-            <li><a href="#plotting-results-from-markov-jumps-analyses." id="toc-plotting-results-from-markov-jumps-analyses.">Plotting
-            results from Markov Jumps analyses.</a>
+            <li><a href="#plotting-results-from-starbeast-markov-jumps-analyses." id="toc-plotting-results-from-starbeast-markov-jumps-analyses.">Plotting
+            results from <strong>StarBeast</strong> (Markov Jumps
+            analyses).</a>
             <ul>
             <li><a href="#load-packages-metadata-and-tree-as-we-did-previously" id="toc-load-packages-metadata-and-tree-as-we-did-previously">Load
             packages, metadata, and tree as we did previously:</a></li>
             <li><a href="#now-lets-load-results-from-starbeast." id="toc-now-lets-load-results-from-starbeast.">Now, let’s
-            load results from <strong>StarBeas</strong>t.</a></li>
+            load results from <strong>StarBeast</strong>.</a></li>
             <li><a href="#plot-markov-jumps-by-host" id="toc-plot-markov-jumps-by-host">Plot markov jumps by
             host</a></li>
             <li><a href="#make-a-boxplot-instead" id="toc-make-a-boxplot-instead">Make a boxplot
@@ -1538,8 +1539,9 @@ update: July 27th, 2022</p>
    
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div class="page-content has-page-title">
-<div id="plotting-results-from-markov-jumps-analyses." class="section level1">
-<h1>Plotting results from Markov Jumps analyses.</h1>
+<div id="plotting-results-from-starbeast-markov-jumps-analyses." class="section level1">
+<h1>Plotting results from <strong>StarBeast</strong> (Markov Jumps
+analyses).</h1>
 <p><strong>Note: this is just an example, since an approximation had to
 be used in BEAST to obtain these results</strong></p>
 <p>In this tutorial, we will be showing examples of how to visualize
@@ -1577,7 +1579,7 @@ metadata.filtered &lt;- metadata[metadata$ERR.number.tips.filtered %in% aureus_t
 length(metadata.filtered$ERR.number.tips.filtered)</code></pre>
 </div>
 <div id="now-lets-load-results-from-starbeast." class="section level2">
-<h2>Now, let’s load results from <strong>StarBeas</strong>t.</h2>
+<h2>Now, let’s load results from <strong>StarBeast</strong>.</h2>
 <p>The results can be found in the folder called “markov_jumps_example”
 in the github repository (datasets/core_genome/markov_jumps_example/).
 These results have been adjusted to fit the tree and metadata
@@ -1586,11 +1588,12 @@ columns.</p>
 markov.jumps &lt;- read.csv(&quot;/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/markov_jumps_example/aureus_markov_jumps.example.data.csv&quot;)
 length(markov.jumps$ERR.number.tips.filtered)</code></pre>
 <pre><code>## [1] 571</code></pre>
-<div id="merge-the-two-datasets-metadata-and-abricate-results" class="section level3">
-<h3>Merge the two datasets (metadata and abricate results)</h3>
-<p>We merge them as we did in previous examples (**Note: since the
-column names are different for both datasets, we use by.x, and by.x to
-specify the column names we want to merge)</p>
+<div id="merge-the-two-datasets-metadata-and-starbeast-results" class="section level3">
+<h3>Merge the two datasets (metadata and <strong>starBeast</strong>
+results)</h3>
+<p>We merge them as we did in previous examples (<strong>Note: since the
+column names are the same for both datasets, we merge then by
+ERR.number.tips.filtered</strong>)</p>
 <pre class="r"><code>metadata.filtered.markov &lt;- merge(metadata.filtered, markov.jumps, by=&quot;ERR.number.tips.filtered&quot;)
 length(metadata.filtered.markov$ERR.number.tips.filtered)</code></pre>
 <pre><code>## [1] 571</code></pre>
