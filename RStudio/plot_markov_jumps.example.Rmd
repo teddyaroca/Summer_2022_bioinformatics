@@ -14,11 +14,11 @@ title: "Project 2 | Andam Lab | Plotting Markov Jumps"
 
 In this tutorial, we will be showing examples of how to visualize results from Markov Jumps analyses from [StarBEAST](https://taming-the-beast.org/tutorials/StarBeast-Tutorial/), which can be used for a wide range of phylogenetic analyses and evolutionary data.
 
-## Load packages and metadata as we did previously:
+## Load packages, metadata, and tree as we did previously:
   
 ```{r results='hide', message=FALSE, warning=FALSE}
-packages <- c("ape", "devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr",
-              "rcompanion", "tidyverse", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
+packages <- c("ape", "devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr","ggnewscale",
+              "rcompanion", "tidyverse", "tidyr", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
 
 # install packages that haven't been installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -53,7 +53,8 @@ The results can be found in the folder called "markov_jumps_example" in the gith
 
 ```{r}
 #Filter metadata
-markov.jumps.ncbi <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/AMR/abricate/ncbi/abricate_ncbi_results.summary.mod.csv")
+markov.jumps <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/markov_jumps_example/aureus_markov_jumps.example.data.csv")
+length(markov.jumps$ERR.number.tips.filtered)
 ```
 
 ### Merge the two datasets (metadata and abricate results)
@@ -61,85 +62,92 @@ markov.jumps.ncbi <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/
 We merge them as we did in previous examples (**Note: since the column names are different for both datasets, we use by.x, and by.x to specify the column names we want to merge)
 
 ```{r}
-metadata.filtered.abricate <- merge(metadata.filtered, abricate.ncbi, by.x="ERR.number.tips.filtered", by.y="tip.label")
-length(metadata.filtered.abricate$ERR.number.tips.filtered)
+metadata.filtered.markov <- merge(metadata.filtered, markov.jumps, by="ERR.number.tips.filtered")
+length(metadata.filtered.markov$ERR.number.tips.filtered)
 ```
 
-We see that we only have 565 data points now. That means no AMR genes were found in some genomes (571-565= 6). The number of genomes without any AMR genes is low because multi-drug resistance is common in S. aureus.
-
-
-## Plot AMR gene counts per host group
+We see that we only have 571 datapoints as we did previously. However, this is a dataset with many columns. Let's just select the columns we need for this part:
 
 ```{r}
-metadata.filtered.abricate.2 <- metadata.filtered.abricate %>% 
-	dplyr::group_by(Source.group)
-	
-metadata.filtered.abricate.2$Source.group <- with(metadata.filtered.abricate.2, reorder(Source.group, -NUM_FOUND))
-	ggplot(metadata.filtered.abricate.2, aes(x =Source.group, y = log(NUM_FOUND), fill=Source.group)) + 
+metadata.filtered.markov.subset <- select(metadata.filtered.markov, ERR.number.tips.filtered, Source.group, Human, Pigs, Cows, Goats, Birds, Rabbits,Sheep, Horses, Rodents, Carnivora,Bat, Marine, Unknown, Unclassified)
+head(metadata.filtered.markov.subset, n=3)
+```
+
+Now we have a data frame that is easier to work with.
+
+## Plot markov jumps by host
+
+In order to do that, we have to first make a "long" dataset, to be able to better represent our data in boxplots (since we have many columns). For this we used a function called "pivot_longer" from the **tidyr** package.
+
+```{r}
+metadata.filtered.markov.subset.long <- pivot_longer(metadata.filtered.markov.subset, cols=3:16, names_to = "Host_group", values_to = "jumps")
+length(metadata.filtered.markov.subset.long$ERR.number.tips.filtered)
+head(metadata.filtered.markov.subset.long, n=3)
+```
+
+As you see, this is quite a long dataset with **7994** datapoints.
+
+Now we plot like we did previously.
+
+```{r}
+metadata.filtered.markov.subset.long$Host_group <- with(metadata.filtered.markov.subset.long, reorder(Host_group, -jumps))
+	ggplot(metadata.filtered.markov.subset.long, aes(x =Host_group, y = jumps, fill=Host_group)) + 
   geom_bar(stat = "identity") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
    labs(
-    title = "Comparisons in number AMR genes per host groups",
+    title = "Comparisons number of host jumps by host groups",
     x = "Host groups",
-    y = "Log(Number of AMR genes)"
+    y = "Number of jumps"
     )
 ```
 
 ## Make a boxplot instead
 
-Since this is numericald data, we can make a boxplot to look at the distribution of values
+Since this is numerical data, we can make a boxplot to at the variation across host groups.
 
 ```{r}
-metadata.filtered.abricate.2 <- metadata.filtered.abricate %>% 
-	dplyr::group_by(Source.group)
-	
-metadata.filtered.abricate.2$Source.group <- with(metadata.filtered.abricate.2, reorder(Source.group, -NUM_FOUND))
-	ggplot(metadata.filtered.abricate.2, aes(x =Source.group, y = NUM_FOUND, fill=Source.group)) + 
+metadata.filtered.markov.subset.long$Host_group <- with(metadata.filtered.markov.subset.long, reorder(Host_group, -jumps))
+	ggplot(metadata.filtered.markov.subset.long, aes(x =Host_group, y = jumps, fill=Host_group)) + 
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
    labs(
-    title = "Comparisons in number AMR genes per host groups",
+    title = "Comparisons number of host jumps by host groups",
     x = "Host groups",
-    y = "Number of AMR genes"
+    y = "Number of jumps"
     )
 ```
 
-As you see, this is way more informative. Surprisingly, more AMR genes were found in pigs (another result not presented in the manuscript). We see that there is some variation across all the host species and some outliers. We can do some statistics to see if those results are significantly different (see below).
+As you see, this is way more informative. Host jumps from humans are higher, but there is also more variation in the amount of jumps.
 
 ## Plot violin plots
 
-First we create a vector of the **pairwise comparisons** we want to make:
+Let's compare some of those groups like we did previusly, but this time, let's leave humans out. We want to first create an object with the **pairwise comparisons** we want to make:
 
 ```{r}
-my_comparisons <- list(c("Pigs", "Rabbits"), c("Pigs", "Cows"), c("Human", "Cows"), c("Human", "Monkey") )
+my_comparisons <- list(c("Cows", "Rabbits"), c("Sheep", "Cows"), c("Sheep", "Rabbits") )
+```
+
+## Now subset the data
+
+```{r}
+rabbits.cows.sheep.jumps <-subset(metadata.filtered.markov.subset.long, Host_group==c("Cows", "Rabbits","Sheep"))
 ```
 
 Then, we plot a [violin](https://mode.com/blog/violin-plot-examples/) plot using the function **ggviolin**.
 
 ```{r}
-ggviolin(data = metadata.filtered.abricate.2, x = "Source.group", y = "NUM_FOUND", fill = "NUM_FOUND", color="Source.group", add = "boxplot", add.params = list(fill = "white"))+
+ggviolin(data = rabbits.cows.sheep.jumps, x = "Host_group", y = "jumps", fill = "Host_group", color="Host_group", add = "boxplot", add.params = list(fill = "white"))+
   stat_compare_means(comparisons = my_comparisons, label = "p.signif")+ # Add significance levels
-  stat_compare_means(label.y = 25) +                                      # Add global the p-value 
+  stat_compare_means(label.y = 7) +                                      # Add global the p-value 
   theme(legend.position = 'none') +
   theme(axis.text.x=element_text(angle=30, hjust=1))
 ```
 
 We see significant differences among the groups compared and global significant differences, but what are the specific p-values?
 
-We use a t-test to see the P-values from pairwise comparisons.
+You can try to do what we did last time to see the especific P-values from pairwise comparisons.
 
-```{r}
-ggviolin(data = metadata.filtered.abricate.2, x = "Source.group", y = "NUM_FOUND", fill = "NUM_FOUND", color="Source.group", add = "boxplot", add.params = list(fill = "white"))+
-  stat_compare_means(comparisons = my_comparisons, method = "t.test", aes(label=..p.adj..))+ # Add significance levels
-  stat_compare_means(label.y = 25) +                                      # Add global the p-value 
-  theme(legend.position = 'none') +
-  theme(axis.text.x=element_text(angle=30, hjust=1))
-```
-
-We see that all p-values are lower than 0.05, suggesting significant (statistical) differences exist in the number of AMR genes found among the groups compared.
-
-
-## Finally, we plot some AMR genes on our **phylogeny** to see their distribution
+## Finally, want to plot these jumps on our **phylogeny** to see their distribution
 
 We use a similar approach as previously. As I mentioned previously, we want to set the root at the mid-point for our tree in most cases, normally because it makes it easier to read, and also because it displays the genetic relationships more accurately.
 
@@ -147,18 +155,53 @@ We use a similar approach as previously. As I mentioned previously, we want to s
 new_aureus_tree <- midpoint.root(aureus_tree)
 ```
 
-Here we plot [mecA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC139644/pdf/0335.pdf) on our tree, because it is one of the most important antimicrobial resistance genes found in S. aureus.
+Here we plot the values for Cows, Rabbits, and Sheep that we were using previously.
+
+First, let's extract those values from the original dataset.
 
 ```{r}
-gg1 <- ggtree(new_aureus_tree, layout = "rectangular", ladderize = T) 
-gg1 <- gg1 %<+% metadata.filtered.abricate.2 + xlim(NA, 0.4) +
-  geom_tippoint(aes(color = factor(Source.group)), size=1) 
-gg1 <- gg1 + geom_tiplab(aes(fill = factor(mecA), palette="Pastel2"), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=0.2, align=TRUE, family='mono', linetype = "dotted", linesize = .2)
-#geom_treescale(x=0.08, y=35) #+
-gg1 <- gg1 + theme(legend.position="right") + ggtitle("Staphylococcus aureus 571 genomes") +
-  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
-  scale_colour_discrete(na.translate = F, name="Host_group") 
-gg1
+metadata.filtered.markov.for.tree <- metadata.filtered.markov[, c("ERR.number.tips.filtered", "Source.group", "Cows", "Rabbits", "Sheep")]
 ```
 
-We see that mecA is found mostly in humans and cows.You can try to plot different AMR genes on your tree and see which ones might be more common in your host group (You can also find out in the paper).
+Sort the dataset so that it follows the same order of tips as the tree:
+
+```{r}
+metadata.filtered.markov.for.tree.sorted <- metadata.filtered.markov.for.tree[match(new_aureus_tree$tip.label, metadata.filtered.markov.for.tree$ERR.number.tips.filtered),]
+```
+
+Then, we create a tree object.
+
+```{r}
+tree <- ggtree(new_aureus_tree, layout = "rectangular", ladderize = T) 
+tree <- tree %<+% metadata.filtered.markov.for.tree.sorted + xlim(NA, 0.8) +
+  geom_tippoint(aes(color = factor(Source.group)), size=1) + 
+  geom_tiplab(color = "black", geom = "label", 
+               label.padding = unit(0.15, "lines"), label.size = 0, 
+               size=0.8, align=TRUE, family='mono', linetype = "dotted", linesize = .2)
+```
+
+Now we add the layers we want:
+
+```{r}
+cows <- select(metadata.filtered.markov.for.tree.sorted, Cows)
+rownames(cows) <- new_aureus_tree$tip.label
+
+tree1 <- gheatmap(tree, cows, offset=0.1, width=.05,
+                       colnames_angle=60) +
+           scale_fill_viridis_c(option="A", name="Cow jumps")
+tree1
+```
+
+Now, we add rabbits
+
+```{r}
+rabbits <- select(metadata.filtered.markov.for.tree.sorted, Rabbits)
+rownames(rabbits) <- new_aureus_tree$tip.label
+
+tree2 <- tree1 + new_scale_fill()
+
+tree2 <- gheatmap(tree1, rabbits, offset=0.15, width=.05,
+                       colnames_angle=60) +
+           scale_fill_viridis_c(option="D", name="Rabbit jumps")
+tree2
+```
