@@ -1,16 +1,18 @@
 ---
 pdf_document: default
 author: "Teddy Garcia-Aroca"
-date: 'Last update: July 25th, 2022'
+date: 'Last update: July 27th, 2022'
 output:
   html_document: rmdformats::downcute
   pdf_document: default
-title: "Project 2 | Andam Lab | Plotting AMR genes"
+title: "Project 2 | Andam Lab | Plotting Markov Jumps"
 ---
 
-# Plotting antimicrobial resistance (AMR) genes.
+# Plotting results from Markov Jumps analyses.
 
-In this tutorial, we will be showing examples of how to visualize results from [ABRICATE](https://github.com/tseemann/abricate), which detects antimicrobial resistance genes present in our genomes.
+**Note: this is just an example, since an approximation had to be used in BEAST to obtain these results**
+
+In this tutorial, we will be showing examples of how to visualize results from Markov Jumps analyses from [StarBEAST](https://taming-the-beast.org/tutorials/StarBeast-Tutorial/), which can be used for a wide range of phylogenetic analyses and evolutionary data.
 
 ## Load packages and metadata as we did previously:
   
@@ -45,13 +47,13 @@ length(metadata.filtered$ERR.number.tips.filtered)
 
 ```
 
-## Now, let's load results from ABRICATE.
+## Now, let's load results from **StarBeas**t.
 
-The results can be found in the folder called "AMR" in the github reposity (datasets/core_genome/AMR/). We load the results from queries to the ncbi database.
+The results can be found in the folder called "markov_jumps_example" in the github repository (datasets/core_genome/markov_jumps_example/). These results have been adjusted to fit the tree and metadata columns.
 
 ```{r}
 #Filter metadata
-abricate.ncbi <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/AMR/abricate/ncbi/abricate_ncbi_results.summary.mod.csv")
+markov.jumps.ncbi <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/AMR/abricate/ncbi/abricate_ncbi_results.summary.mod.csv")
 ```
 
 ### Merge the two datasets (metadata and abricate results)
