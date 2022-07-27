@@ -18,7 +18,7 @@ In this tutorial, we will be showing examples of how to visualize results from M
   
 ```{r results='hide', message=FALSE, warning=FALSE}
 packages <- c("ape", "devtools", "dplyr", "plyr", "ggplot2", "readr", "ggpubr","ggnewscale",
-              "rcompanion", "tidyverse", "tidyr", "ggsignif", "reshape", "ggtree", "phytools", "gridExtra")
+              "rcompanion", "tidyverse", "tidyr", "ggsignif", "reshape", "ggtree", "phytools", "reshape2", "gridExtra")
 
 # install packages that haven't been installed
 installed_packages <- packages %in% rownames(installed.packages())
@@ -85,13 +85,23 @@ length(metadata.filtered.markov.subset.long$ERR.number.tips.filtered)
 head(metadata.filtered.markov.subset.long, n=3)
 ```
 
+We can do the same thing with **reshape2** and this approach was most commonly used until it was replaced recently with the **tidyr** approach described above.
+
+```{r}
+metadata.filtered.markov.subset.melt <-melt(metadata.filtered.markov.subset, id=c("ERR.number.tips.filtered","Source.group"))
+length(metadata.filtered.markov.subset.melt$ERR.number.tips.filtered)
+
+#And fix the column names
+colnames(metadata.filtered.markov.subset.melt) <- c("ERR.number.tips.filtered","Source.group", "Host_group", "jumps")
+```
+
 As you see, this is quite a long dataset with **7994** datapoints.
 
 Now we plot like we did previously.
 
 ```{r}
-metadata.filtered.markov.subset.long$Host_group <- with(metadata.filtered.markov.subset.long, reorder(Host_group, -jumps))
-	ggplot(metadata.filtered.markov.subset.long, aes(x =Host_group, y = jumps, fill=Host_group)) + 
+metadata.filtered.markov.subset.melt$Host_group <- with(metadata.filtered.markov.subset.melt, reorder(Host_group, -jumps))
+	ggplot(metadata.filtered.markov.subset.melt, aes(x =Host_group, y = jumps, fill=Host_group)) + 
   geom_bar(stat = "identity") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
    labs(
@@ -106,8 +116,8 @@ metadata.filtered.markov.subset.long$Host_group <- with(metadata.filtered.markov
 Since this is numerical data, we can make a boxplot to at the variation across host groups.
 
 ```{r}
-metadata.filtered.markov.subset.long$Host_group <- with(metadata.filtered.markov.subset.long, reorder(Host_group, -jumps))
-	ggplot(metadata.filtered.markov.subset.long, aes(x =Host_group, y = jumps, fill=Host_group)) + 
+metadata.filtered.markov.subset.melt$Host_group <- with(metadata.filtered.markov.subset.melt, reorder(Host_group, -jumps))
+	ggplot(metadata.filtered.markov.subset.melt, aes(x =Host_group, y = jumps, fill=Host_group)) + 
   geom_boxplot() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)) + 
    labs(
@@ -124,19 +134,19 @@ As you see, this is way more informative. Host jumps from humans are higher, but
 Let's compare some of those groups like we did previusly, but this time, let's leave humans out. We want to first create an object with the **pairwise comparisons** we want to make:
 
 ```{r}
-my_comparisons <- list(c("Cows", "Rabbits"), c("Sheep", "Cows"), c("Sheep", "Rabbits") )
+my_comparisons <- list(c("Cows", "Rabbits"), c("Sheep", "Cows"), c("Sheep", "Rabbits"), c("Sheep", "Marine") )
 ```
 
 ## Now subset the data
 
 ```{r}
-rabbits.cows.sheep.jumps <-subset(metadata.filtered.markov.subset.long, Host_group==c("Cows", "Rabbits","Sheep"))
+rabbits.cows.sheep.marine.jumps <-subset(metadata.filtered.markov.subset.melt, Host_group==c("Cows", "Rabbits","Sheep", "Marine"))
 ```
 
 Then, we plot a [violin](https://mode.com/blog/violin-plot-examples/) plot using the function **ggviolin**.
 
 ```{r}
-ggviolin(data = rabbits.cows.sheep.jumps, x = "Host_group", y = "jumps", fill = "Host_group", color="Host_group", add = "boxplot", add.params = list(fill = "white"))+
+ggviolin(data = rabbits.cows.sheep.marine.jumps, x = "Host_group", y = "jumps", fill = "Host_group", color="Host_group", add = "boxplot", add.params = list(fill = "white"))+
   stat_compare_means(comparisons = my_comparisons, label = "p.signif")+ # Add significance levels
   stat_compare_means(label.y = 7) +                                      # Add global the p-value 
   theme(legend.position = 'none') +
@@ -162,6 +172,8 @@ First, let's extract those values from the original dataset.
 ```{r}
 metadata.filtered.markov.for.tree <- metadata.filtered.markov[, c("ERR.number.tips.filtered", "Source.group", "Cows", "Rabbits", "Sheep")]
 ```
+
+**IMPORTANT**: this was not demonstrated previously (sorting dataset to match tree label order).
 
 Sort the dataset so that it follows the same order of tips as the tree:
 
@@ -192,7 +204,7 @@ tree1 <- gheatmap(tree, cows, offset=0.1, width=.05,
 tree1
 ```
 
-Now, we add rabbits
+Now, we add rabbits:
 
 ```{r}
 rabbits <- select(metadata.filtered.markov.for.tree.sorted, Rabbits)
@@ -205,3 +217,5 @@ tree2 <- gheatmap(tree1, rabbits, offset=0.15, width=.05,
            scale_fill_viridis_c(option="D", name="Rabbit jumps")
 tree2
 ```
+
+Feel free to try adding the other layers.
