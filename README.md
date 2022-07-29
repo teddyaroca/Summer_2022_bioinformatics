@@ -75,7 +75,7 @@ At this point you should be able to see the folders and scripts in your folder i
 5. To update any changes to this repository:
 
 ```
-git pull
+git fetch
 ```
 
 
