@@ -143,15 +143,20 @@ We use a similar approach as previously. As I mentioned previously, we want to s
 
 ```{r}
 new_aureus_tree <- midpoint.root(aureus_tree)
+
+#Sort metadata
+
+metadata.filtered.abricate <- metadata.filtered.abricate[match(new_aureus_tree$tip.label, metadata.filtered.abricate$ERR.number.tips.filtered),]
+
 ```
 
 Here we plot [mecA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC139644/pdf/0335.pdf) on our tree, because it is one of the most important antimicrobial resistance genes found in S. aureus.
 
 ```{r}
 gg1 <- ggtree(new_aureus_tree, layout = "rectangular", ladderize = T) 
-gg1 <- gg1 %<+% metadata.filtered.abricate.2 + xlim(NA, 0.4) +
+gg1 <- gg1 %<+% metadata.filtered.abricate + xlim(NA, 0.4) +
   geom_tippoint(aes(color = factor(Source.group)), size=1) 
-gg1 <- gg1 + geom_tiplab(aes(fill = factor(mecA), palette="Pastel2"), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=0.2, align=TRUE, family='mono', linetype = "dotted", linesize = .2)
+gg1 <- gg1 + geom_tiplab(aes(fill = factor(mecA)), color = "black", geom = "label", label.padding = unit(0.09, "lines"), label.size = 0, size=0.1, align=TRUE, family='mono', linetype = "dotted", linesize = .05)
 #geom_treescale(x=0.08, y=35) #+
 gg1 <- gg1 + theme(legend.position="right") + ggtitle("Staphylococcus aureus 571 genomes") +
   theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
@@ -161,6 +166,28 @@ gg1
 
 We see that mecA is found mostly in humans and cows.You can try to plot different AMR genes on your tree and see which ones might be more common in your host group (You can also find out in the paper).
 
+
+## If you want to plot your hosts only:
+
+```{r}
+metadata.cow <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Cow",]
+metadata.human <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Human",]
+metadata.pig <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Pig",]
+
+metadata.HCP <- rbind(metadata.cow, metadata.human, metadata.pig)
+
+length(metadata.HCP$Number)
+
+gg1 <- ggtree(new_aureus_tree, layout = "rectangular", ladderize = T) 
+gg1 <- gg1 %<+% metadata.HCP + xlim(NA, 0.4) +
+  geom_tippoint(aes(color = factor(Source)), size=1) 
+gg1 <- gg1 + geom_tiplab(aes(fill = factor(mecA), palette="Pastel2"), color = "black", geom = "label", label.padding = unit(0.15, "lines"), label.size = 0, size=0.2, align=TRUE, family='mono', linetype = "dotted", linesize = .2)
+#geom_treescale(x=0.08, y=35) #+
+gg1 <- gg1 + theme(legend.position="right") + ggtitle("Staphylococcus aureus 571 genomes") +
+  theme(plot.title = element_text(size = 12, hjust = 0.1, face = "bold")) +
+  scale_colour_discrete(na.translate = F, name="Host_group") 
+gg1
+```
 
 ## Make a heatmap of most common AMR genes
 
@@ -175,13 +202,14 @@ Here, I show an example of how to make a heatmap with our gene presence/absence 
 abricate.results <- read.csv("/Volumes/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/AMR/abricate/ncbi/abricate_ncbi_results.summary.mod.v2.csv", header = T)
 data <- data.frame(abricate.results)
 
+
 melt.data <- pivot_longer(data, cols=3:48, names_to = "AMR_genes", values_to = "presence")
 
 #If you wanted to replace the the binary to ones and zeroes instead of "yes" and "no":
 #melt.data$presence <-gsub("yes","1",as.numeric(melt.data$presence))
 
 qplot(data=melt.data,
-      x=tip.label,
+      x=Source.group,
       y=AMR_genes,
       fill=factor(presence),
       geom="tile") + scale_fill_manual(values=c("no"="grey", "yes"="red")) +
@@ -191,3 +219,79 @@ qplot(data=melt.data,
 ```
 
 You could do something like this for the genomes of the host groups you have selected (Ask Teddy).
+
+Another example using host groups instead:
+
+```{r}
+
+melt.data <- pivot_longer(metadata.filtered.abricate, cols=35:80, names_to = "AMR_genes", values_to = "presence")
+
+qplot(data=melt.data,
+      x=Source.group,
+      y=AMR_genes,
+      fill=factor(presence),
+      geom="tile") + scale_fill_manual(values=c("no"="grey", "yes"="red")) +
+      theme(text = element_text(size=10),
+      axis.text.y = element_text(size=6),
+      axis.text.x = element_text(size=6, angle=45, hjust=1))
+```
+
+
+## Example to add many AMR genes to a phylogeny
+
+```{r}
+new_aureus_tree <- midpoint.root(aureus_tree)
+
+#Sort metadata
+
+metadata.filtered.abricate <- metadata.filtered.abricate[match(new_aureus_tree$tip.label, metadata.filtered.abricate$ERR.number.tips.filtered),]
+
+
+#Subset
+metadata.cow <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Cow",]
+metadata.human <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Human",]
+metadata.pig <- metadata.filtered.abricate[metadata.filtered.abricate$Source == "Pig",]
+
+metadata.HCP <- rbind(metadata.cow, metadata.human, metadata.pig)
+
+length(metadata.HCP$Number)
+
+#Count number of blaPC1 for entire dataset
+nrow(metadata.filtered.abricate[metadata.filtered.abricate$blaPC1 == "yes",])
+
+#There are 94 only
+
+#Plot more than one gene on your phylogeny
+tree <- ggtree(new_aureus_tree, layout="fan", open.angle=15, size=0.2, aes(colour=Source.group), branch.length='none') #+ xlim(NA, 0.8) + ylim(NA, 600) +
+tree <- tree %<+% metadata.HCP + 
+  geom_tippoint(aes(color = factor(Source.group)), size=2) + 
+  geom_tiplab(color = "black", geom = "label", 
+              label.padding = unit(0.15, "lines"), label.size = 0, 
+              size=0, align=TRUE, family='mono', linetype = "dotted", linesize = .02)
+
+
+blaPC1 <- select(metadata.filtered.abricate, blaPC1)
+rownames(blaPC1) <- new_aureus_tree$tip.label
+
+tree1 <- gheatmap(tree, blaPC1, offset=0.1, width=.05,
+                  colnames_angle=45) +
+  scale_fill_viridis_d(option="A", name="blaPC1")
+tree1
+
+
+#Add another gene (notice offset is now 3)
+
+mecA <- select(metadata.filtered.abricate, mecA)
+rownames(mecA) <- new_aureus_tree$tip.label
+
+tree2 <- tree1 + ggnewscale::new_scale_fill()
+
+tree2 <- gheatmap(tree1, mecA, offset=3, width=.05,
+                  colnames_angle=45) +
+  scale_fill_viridis_d(option="D", name="presence")
+tree2
+
+
+```
+
+
