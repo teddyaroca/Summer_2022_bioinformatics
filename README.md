@@ -7,7 +7,7 @@
 
 This GitHub repository serves as a resource for students in the Andam Lab (group 5) during project 2 of the 2022 RNA Institute Bioinformatics Fellowship. Here, students will find information on the datasets available to them as well as tools for analysis and visualization purposes.
 
-Our intention is to make this GitHub site available indefinitely as a resource for ongoing and future projects. This repository is built on previous contributions by [Spencer Bruce](mailto:sbruce@albany.edu) and has been updated most recently by [Teddy Garcia-Aroca](mailto:tgarciaaroca@albany.edu). Please, visit previous versions of this github repository at [2021_Bioinformatics_Fellowship](https://github.com/spencer411/2021_Bioinformatics_Fellowship). If you are interested in collaborating with these repositories, please contact either one of the creators.
+Our intention is to make this GitHub site available indefinitely as a resource for ongoing and future projects. This repository is built on previous contributions by [Spencer Bruce](mailto:sbruce@albany.edu) and has been updated most recently by [Teddy Garcia-Aroca](mailto:teddy.garcia@unl.edu). Please, visit previous versions of this github repository at [2021_Bioinformatics_Fellowship](https://github.com/spencer411/2021_Bioinformatics_Fellowship). If you are interested in collaborating with these repositories, please contact either one of the creators.
 
 
 | **CONTENTS**                                         |
@@ -141,6 +141,31 @@ bash download_genomes_sra.sh
 
 The raw data (".fastq" files) should start downloading in your working directory. This can take several hours, perhaps even a day or two, so I suggest considering this before running this script, as the server may be taking a lot of jobs.
 
+
+What's is int `download_genomes_sra.sh` script? If you do `cat download_genomes_sra.sh`,this is what you will see:
+
+```
+#!/bin/bah
+#SBATCH --job-name=panaroo      # Job name
+#SBATCH --ntasks=1                   # Run a single task
+#SBATCH --mem=50gb                     # Job memory request
+#SBATCH --cpus-per-task=16            # Number of CPU cores per task
+#SBATCH --time=72:00:00              # Time limit hrs:min:sec
+#SBATCH --output=panaroo.log     # Standard output and error log
+#SBATCH --mail-type=ALL
+
+source ~/.bashrc
+
+#Run a while loop to download each genome with sratoolkit
+while IFS= read -r line
+do 
+  prefetch $line && fasterq-dump $line
+done < richardson.et.al.2018.list.of.accessions.txt
+```
+
+This is a [**while loop**](https://www.cyberciti.biz/faq/bash-while-loop/) that will take each line in the `richardson.et.al.2018.list.of.accessions.txt` file and apply both **prefetch** and **fasterq-dump** from the SRA-tools package, hence downloading the raw data needed for our analyses.
+
+
 ## Assembling genomes **(DONE)**
 
 Once the raw reads have been downloaded, genomes can be assembled assembled using a commonly used program called [Spades](https://github.com/ablab/spades.git). An example script is provided in the ./datasets/core_genome/assemblies/spades/ directory.
@@ -174,6 +199,61 @@ Hit ```control + x``` on your keyboard and save the changes.
 ```
 sbatch run_spades.sh
 ```
+
+### What does this script do?
+
+If you do `cat run_spades.sh`, this is what you will see:
+
+```
+#!/bin/bash
+#SBATCH --job-name=spades      # Job name
+#SBATCH --ntasks=1                   # Run a single task
+#SBATCH --mem=50gb                     # Job memory request
+#SBATCH --cpus-per-task=24            # Number of CPU cores per task
+#SBATCH --time=96:00:00              # Time limit hrs:min:sec
+#SBATCH --output=spades.v2.log
+#SBATCH --mail-type=ALL
+
+source ~/.bashrc
+
+#Change directory to where the output files will be sent
+cd /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/output/
+
+#Extract the names of the raw reads as a variable
+for seq in /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/raw_data/*.R1.fastq
+do
+
+
+###Use sed to remove path and suffix###
+name=$(echo $seq | sed 's:/network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/raw_data/::' | sed 's/.R1.fastq//')
+echo $name
+
+#Run spades using the names extracted above
+spades.py -1 ${name}.R1.fastq -2 ${name}.R2.fastq -o /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/output/$name/
+done
+
+#We need all the assemblies named as their sample names for further analyses so we will loop across folder, find the file called "contigs.fasta" and rename it with its respective sample name
+
+for d in *
+do
+ base=`basename $d`
+  cd $base
+    find . -type f -name "contigs.fasta"  | xargs -r rename "s/contigs.fasta/$base.contigs.fasta/"
+  cd ../
+done
+
+#We need all the contigs in the same folder for further analyses, so we extract a copy from each folder
+
+cd /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/
+
+mkdir all_contigs
+
+find /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/output/  -name '*.contigs.fasta' -exec cp -prv '{}' '/network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/all_contigs/' ';'
+
+```
+
+While there are some comments explaining each line of code, what this script does is genome assembly using spades, renaming files recursively, and moving them to a folder where all the files can be found in subsequent analyses (annotations with prokka)
+
 
 ## Annotating genomes **(DONE)**
 
@@ -212,6 +292,43 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_prokka.sh
 ```
 
+### What does the run_prokka.sh script do?
+
+Again, if you look at the script using `cat run_prokka.sh`, this is what you will see:
+
+```
+#!/bin/bash
+#SBATCH --job-name=prokka      # Job name
+#SBATCH --ntasks=1                   # Run a single task
+#SBATCH --mem=50gb                     # Job memory request
+#SBATCH --cpus-per-task=24            # Number of CPU cores per task
+#SBATCH --time=96:00:00              # Time limit hrs:min:sec
+#SBATCH --output=prokka.log     # Standard output and error log
+#SBATCH --mail-typ=ALL
+
+source ~/.bashrc
+
+#change directory to where the assemblies from spades are
+cd /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/assemblies/spades/all_contigs/
+
+#Run a look for prokka to annotate each assembly
+for file in *.contigs.fasta
+    do tag=${file%.contigs.fasta}
+    prokka --cpus 24 --prefix "$tag" --genus Staphyloccocus --outdir /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/prokka/output/"$tag"_prokka $file
+done
+
+#All the prokka annotation files (".gff") are needed in a single directory, so we will find them and send them to a new directory called "prokka_all_gffs" files.
+cd /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/prokka/
+
+mkdir prokka_all_gffs
+
+find /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/prokka/output/  -name '*.gff' -exec cp -prv '{}' '/network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/prokka/prokka_all_gffs' ';'
+
+```
+
+Read the comments starting with the "#" symbol. Basically, this script annotates each genome recursively, then we find all the ".gff" files and place them in a single folder where they can be found in subsequent analyses.
+
+
 ## Core genome alignment **(DONE)**
 
 **Panaroo:** Panaroo is a high-speed stand-alone pan genome pipeline, which takes annotated assemblies in .gff format (produced by Prokka) and calculates the pan genome. The major difference between the two algorithms is that Panaroo is a graph-based pangenome clustering tool that is able to account for many of the sources of error introduced during the annotation of prokaryotic genome assemblies. More detailed information about Panaroo can be found [here](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02090-4).
@@ -245,6 +362,33 @@ Hit ```control + x``` on your keyboard and save the changes.
 
 ```
 sbatch run_panaroo.sh
+```
+
+
+### What does the run_panaroo.sh script do?
+
+You can inspect the script by running `cat run_panaroo.sh`:
+
+```
+#!/bin/bash
+#SBATCH --job-name=panaroo      # Job name
+#SBATCH --ntasks=1                   # Run a single task
+#SBATCH --mem=50gb                     # Job memory request
+#SBATCH --cpus-per-task=16            # Number of CPU cores per task
+#SBATCH --time=72:00:00              # Time limit hrs:min:sec
+#SBATCH --output=panaroo.log     # Standard output and error log
+#SBATCH --mail-type=ALL
+
+source ~/.bashrc
+
+#Change directory to where the all the prokka output files are found
+cd /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/prokka/prokka_all_gffs/
+
+#Run panaroo with 16 threads
+panaroo -t 16 -i *.gff -o /network/rit/lab/bioinformaticslab/TGarciaAroca/Project2/datasets/core_genome/panaroo/output/ --clean-mode strict -a core --remove-invalid-genes
+
+#Panaroo will create the core genome we need for phylogenetic analyses.
+
 ```
 
 
@@ -308,6 +452,34 @@ Hit ```control + x``` on your keyboard and save the changes.
 sbatch run_raxml.sh
 ```
 
+### What does the run_raxml.sh script do?
+
+Similarly, you can inspect the script by running `cat run_raxml.sh`:
+
+```
+#!/bin/bash
+#SBATCH --job-name=raxml      # Job name
+#SBATCH --ntasks=1                   # Run a single task
+#SBATCH --mem=50gb                     # Job memory request
+#SBATCH --cpus-per-task=16            # Number of CPU cores per task
+#SBATCH --time=48:00:00              # Time limit hrs:min:sec
+#SBATCH --output=raxml.log     # Standard output and error log
+#SBATCH --mail-type=ALL
+
+source ~/.bashrc
+
+# Run snp-sites to obtain a core gene alignment of the (Single Nucleotide Polymorphisms) SNPs only. This is done to reduce the computational time.
+snp-sites /network/rit/lab/bioinformaticslab/TGarciaAroca/project2/datasets/core_genome/panaroo/output/core_gene_alignment.aln -p -o ./core_gene_alignment.phy 
+
+#Run raxml with 16 threads
+raxmlHPC-PTHREADS -T 16 -s ./core_gene_alignment.phy -p 12345 -m GTRGAMMA -n aureus_raxml_out
+
+```
+
+
+We run RAxML with 16 threads using the core_gene alignment file in a phylip format (Note: if you are not filtering your alignment with snp-sites, reach out and we will provide a script to conver fasta to phy format for RAxML) and the GTRGAMMA model of sequence evolution to reconstruct the evolutionary relantiopships of these genomes.
+
+
 # 5. VISUALIZATION TOOLS
 
 We will be visualizing most of our data in R. I am providing specific examples to address the scientific questions and objectives mentioned above. The example can be found in the folder named **RStudio** We will discuss these examples once everyone has ran their RAxML analyses.
@@ -346,6 +518,10 @@ How to make a color strip in iTOL: https://youtu.be/JFb3urfgofs
 How to make an AMR heatmap with diverse species: https://youtu.be/BLXKCsE1sOM
 
 
+
+# Notes after the workshop
+
+We have included all the output files needed, including the phylogenetic tree (in datasets/core_genome/raxml) for reproducibility of the results in the RStudio examples provided in this GitHub Repository. Please, feel free to reach out if something does not work for you.
 
 
 
